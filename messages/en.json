@@ -1,0 +1,774 @@
+{
+  "meta": {
+    "root": {
+      "brand": "OnExotic",
+      "title": "OnExotic — Not fashion. Hierarchy.",
+      "description": "Official OnExotic store. Limited drops of gymwear, oversize and streetwear, made in Lima. When it's gone, it's gone.",
+      "keywords": "onexotic, peru streetwear, lima gymwear, peru oversize, limited drops, lima fashion"
+    },
+    "home": {
+      "title": "OnExotic — Limited drops from Lima",
+      "description": "Enter the cult. Limited drops of streetwear, oversize and gymwear made in Lima. When it's gone, it's gone."
+    },
+    "catalog": {
+      "title": "Catalog · Active drop",
+      "description": "All live pieces of the active drop. Filter by type, size and color. No restock."
+    },
+    "product": {
+      "title": "{name}",
+      "description": "{name} · {tipo} piece from OnExotic's active drop. Limited edition made in Lima."
+    },
+    "archive": {
+      "title": "Archive · Closed chapters",
+      "description": "Closed chapters of the OnExotic cult. Past and upcoming drops. They don't return, they stay carved in."
+    },
+    "lookbook": {
+      "title": "Lookbook · Cult bodies",
+      "description": "Visual editorial of OnExotic's active drop. Cult bodies, made in Lima."
+    },
+    "story": {
+      "title": "Story · Origin of the cult",
+      "description": "How OnExotic was born in Lima in 2025. Limited drops, hand-made, no restock. The street made us. The cult makes us."
+    }
+  },
+  "common": {
+    "brand": "OnExotic",
+    "tagline": "Not fashion. Hierarchy.",
+    "currency": "S/",
+    "loading": "Invoking…",
+    "error": "Something broke in the ritual.",
+    "retry": "Retry",
+    "empty": "No pieces in this chapter yet.",
+    "back": "Back",
+    "close": "Close"
+  },
+  "search": {
+    "label": "Search the cult",
+    "eyebrow": "search",
+    "title": "Find your piece",
+    "placeholder": "Name or piece code…",
+    "cta": "Search",
+    "hint": "Filters the live drop by name or SKU.",
+    "close": "Close",
+    "results": "Results for",
+    "noResults": "No matches in the live drop.",
+    "clear": "Clear"
+  },
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "drop": "Drop",
+    "account": "Account",
+    "bag": "Bag",
+    "archive": "Archive",
+    "lookbook": "Lookbook",
+    "story": "Story",
+    "search": "Search",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "home": {
+    "heroEyebrow": "Live drop",
+    "heroCta": "Enter the drop",
+    "marquee": "NOT FASHION · HIERARCHY",
+    "marqueeA": "NOT FASHION.",
+    "marqueeB": "HIERARCHY.",
+    "hero": {
+      "live": "live",
+      "upcoming": "upcoming",
+      "chapter": "Chapter",
+      "empty": "No active drop",
+      "cta": "Enter the drop"
+    },
+    "sections": {
+      "dropEye": "{drop} · live pieces",
+      "dropTitle": "The drop",
+      "dropLink": "VIEW ALL",
+      "catEye": "How the cult dresses",
+      "catTitle": "Categories",
+      "catLink": "EXPLORE",
+      "lookEye": "Editorial",
+      "lookTitle": "Lookbook",
+      "lookLink": "OPEN"
+    },
+    "cat": {
+      "gym": { "name": "Gymwear", "copy": "Sweat. Bleed. Return." },
+      "oversize": { "name": "Oversize", "copy": "Wide cuts. Cult silhouette." },
+      "street": { "name": "Streetwear", "copy": "Street code. No permission." }
+    },
+    "lookbook": {
+      "titleA": "Cult",
+      "titleB": "bodies",
+      "more": "see +"
+    },
+    "cult": {
+      "eyebrow": "early access",
+      "titleA": "Join the",
+      "titleB": "cult.",
+      "copyA": "Drops reach the faithful first.",
+      "copyB": "You decide if you arrive in time.",
+      "placeholder": "you@email.com",
+      "cta": "Join",
+      "done": "Done ✓",
+      "error": "Invalid email"
+    },
+    "countdown": {
+      "days": "days",
+      "hours": "hrs",
+      "minutes": "min",
+      "seconds": "sec"
+    }
+  },
+  "catalog": {
+    "title": "Catalog",
+    "chapter": "← {drop}",
+    "live": "live",
+    "results": "Results",
+    "pieces": "pieces",
+    "stock": "Live stock",
+    "available": "avail.",
+    "sold": "sold out",
+    "noDrop": "No active drop right now.",
+    "filters": {
+      "label": "Filters",
+      "type": "Type",
+      "size": "Size",
+      "color": "Color",
+      "clear": "Clear"
+    }
+  },
+  "legal": {
+    "terms": {
+      "meta": {
+        "title": "Terms and conditions",
+        "description": "Legal terms governing purchases at OnExotic. Orders, prices, shipping and returns."
+      },
+      "eyebrow": "Legal framework",
+      "title": "Terms and conditions",
+      "intro": "These terms govern the use of onexotic.shop and purchases made through the store. By placing an order you accept these conditions.",
+      "updated": "Updated · May 2026",
+      "s": {
+        "object": {
+          "title": "Purpose",
+          "body": "OnExotic SAC, based in Lima, Peru, operates the store at onexotic.shop. We sell clothing through limited drops, no restock. The operation is governed by Peruvian laws, in particular the Consumer Protection Code (Law 29571)."
+        },
+        "orders": {
+          "title": "Orders",
+          "body": "An order is accepted when the customer receives confirmation by email or WhatsApp with an OX-… number. The order discounts stock in real time. If a piece is sold without stock due to a technical error, OnExotic notifies the customer within 48 hours and refunds the payment."
+        },
+        "prices": {
+          "title": "Prices and payments",
+          "body": "Prices include applicable taxes and are expressed in Peruvian soles (PEN). We accept payment via WhatsApp (Yape, Plin, transfer) and soon via Culqi (card, Yape, Plin). The customer is responsible for import taxes on international shipments."
+        },
+        "shipping": {
+          "title": "Shipping",
+          "body": "We ship throughout Peru and abroad. Costs and timelines are detailed on the Shipping page. Risk of loss or damage transfers to the customer upon delivery to the carrier."
+        },
+        "returns": {
+          "title": "Returns and exchanges",
+          "body": "You have 7 days from receipt to request an exchange or return, unused and with the original tag. Details on the Returns page."
+        },
+        "liability": {
+          "title": "Liability",
+          "body": "OnExotic is liable for manufacturing defects within legal terms. We are not responsible for misuse, washing outside instructions, or indirect damages."
+        },
+        "jurisdiction": {
+          "title": "Jurisdiction",
+          "body": "Any dispute is resolved in the courts of Lima, Peru. The customer may also approach INDECOPI or use our virtual Complaints Book."
+        }
+      }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Privacy policy",
+        "description": "How OnExotic collects, uses and protects its customers' personal data."
+      },
+      "eyebrow": "Your data",
+      "title": "Privacy policy",
+      "intro": "We explain what data we collect, why we collect it and what you can do with it. We process your information under Peru's Personal Data Protection Law (Law 29733).",
+      "updated": "Updated · May 2026",
+      "s": {
+        "controller": {
+          "title": "Data controller",
+          "body": "OnExotic SAC, Lima, Peru. Contact: onexotic2005@gmail.com. We process your data as controller under Law 29733."
+        },
+        "data": {
+          "title": "Data we collect",
+          "body": "Name, last name, email, phone, shipping address, order history. For drop subscriptions we only store your email. We do not store card data; payment gateways (Culqi) process it directly."
+        },
+        "purpose": {
+          "title": "Purpose",
+          "body": "Process orders, coordinate shipments, handle claims, notify upcoming drops to subscribers, improve the store via anonymized analytics (Vercel Analytics)."
+        },
+        "sharing": {
+          "title": "Sharing",
+          "body": "Only with those necessary to deliver the service: shipping companies, payment gateway and email provider. We do not sell your data to third parties."
+        },
+        "rights": {
+          "title": "Your ARCO rights",
+          "body": "You can access, rectify, cancel or oppose the processing of your data by writing to onexotic2005@gmail.com. We respond within 20 business days max."
+        },
+        "security": {
+          "title": "Security",
+          "body": "Data lives in Supabase with encryption at rest and in transit. We apply Row Level Security so each customer only sees their information."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "For privacy queries: onexotic2005@gmail.com · WhatsApp +51 906 517 394. You may also approach Peru's National Personal Data Protection Authority."
+        }
+      }
+    },
+    "returns": {
+      "meta": {
+        "title": "Returns and exchanges",
+        "description": "OnExotic returns and exchanges policy. 7 days from receipt, unworn with tag attached."
+      },
+      "eyebrow": "Returns policy",
+      "title": "Returns and exchanges",
+      "intro": "If the piece doesn't fit or arrived defective, we exchange it or refund you. Here are the clear rules.",
+      "updated": "Updated · May 2026",
+      "s": {
+        "window": {
+          "title": "Window",
+          "body": "You have 7 calendar days from receipt of the order to request an exchange or return. After that, no requests are accepted except for visible manufacturing defects."
+        },
+        "conditions": {
+          "title": "Conditions",
+          "body": "The piece must be unworn, unwashed, free of stains and odors, with the original tag attached and inside the bag. If used or damaged by the customer, we reject the return."
+        },
+        "process": {
+          "title": "How to request it",
+          "body": "Write us via WhatsApp (+51 906 517 394) with the order number and a photo of the piece. We coordinate pick-up or you bring it to our Lima address. Resolved within 5 business days."
+        },
+        "refund": {
+          "title": "Refund",
+          "body": "Once approved, we refund through the same payment method within 7 business days max. If you paid via WhatsApp we use Yape or transfer."
+        },
+        "shipping": {
+          "title": "Return shipping cost",
+          "body": "If the piece arrived defective or with a sizing error on our end, OnExotic covers the return shipping. For voluntary exchanges the customer covers it."
+        },
+        "noReturn": {
+          "title": "Exceptions",
+          "body": "For hygiene reasons we don't accept exchanges or returns on boxers or underwear. Also not on sale pieces marked as final sale."
+        }
+      }
+    },
+    "shipping": {
+      "meta": {
+        "title": "Shipping and delivery",
+        "description": "OnExotic shipping costs and times. Lima, Peru provinces and international."
+      },
+      "eyebrow": "How it reaches you",
+      "title": "Shipping and delivery",
+      "intro": "We ship throughout Peru and abroad. Here are the zones, costs, timelines and how to track your order.",
+      "updated": "Updated · May 2026",
+      "table": {
+        "title": "Zones and costs",
+        "fromCost": "from {cost}",
+        "freeOver": "Free shipping in Peru over {amount}"
+      },
+      "zones": {
+        "lima": "Lima Metropolitan",
+        "provincia": "Peru provinces",
+        "internacional": "International"
+      },
+      "times": {
+        "lima": "1–3 business days",
+        "provincia": "3–7 business days",
+        "internacional": "7–20 business days"
+      },
+      "s": {
+        "zones": {
+          "title": "Shipping zones",
+          "body": "Lima Metropolitan, Peru provinces and international. The system calculates the cost automatically at checkout based on the chosen address."
+        },
+        "times": {
+          "title": "Timelines",
+          "body": "Orders confirmed before 2 pm are processed the same day. Times above are counted from the day of dispatch, not from confirmation."
+        },
+        "tracking": {
+          "title": "Tracking",
+          "body": "Each order has its own page at /pedidos/[id] with its real-time status (pending, confirmed, in preparation, shipped, delivered). We notify you as it progresses."
+        },
+        "failed": {
+          "title": "Failed delivery",
+          "body": "If you're not in when the courier arrives, they try a second visit. After the second failed visit, the piece returns to our workshop and we coordinate a new shipment with extra cost."
+        },
+        "international": {
+          "title": "International shipping",
+          "body": "International shipments are charged at a flat rate and are NOT eligible for the free-shipping threshold (which applies only within Peru — Lima Metropolitana and provincia). The shipping cost does not include import taxes from the destination country: those costs are borne by the customer upon receiving the package."
+        },
+        "risk": {
+          "title": "Risk and insurance",
+          "body": "We pack each piece with protective material. If it arrives damaged by the carrier, report within 48 hours with photos to start a claim."
+        }
+      }
+    },
+    "claims": {
+      "meta": {
+        "title": "Complaints book",
+        "description": "OnExotic's mandatory virtual complaints book, in accordance with Peruvian legislation."
+      },
+      "eyebrow": "Mandatory · Peru",
+      "title": "Complaints book",
+      "intro": "Pursuant to the Consumer Protection Code (Law 29571) and Supreme Decree 011-2011-PCM, we make this virtual book available to you. Your claim or complaint is registered and answered within 30 calendar days max.",
+      "legalCite": "* Claim: dissatisfaction with product/service. Complaint: discomfort with service.",
+      "section": {
+        "tipo": "Type",
+        "consumidor": "Consumer identification",
+        "direccion": "Address",
+        "bien": "Good contracted",
+        "detalle": "Claim or complaint detail"
+      },
+      "type": {
+        "claim": "Claim",
+        "claimHint": "About product or service",
+        "complaint": "Complaint",
+        "complaintHint": "About service"
+      },
+      "good": {
+        "product": "Product",
+        "service": "Service"
+      },
+      "fields": {
+        "name": "First name",
+        "lastName": "Last name",
+        "docType": "Document type",
+        "docNumber": "Document number",
+        "email": "Email",
+        "phone": "Phone",
+        "department": "Department",
+        "district": "District",
+        "address": "Address",
+        "amount": "Claim amount (S/)",
+        "orderRef": "Order number (if applicable)",
+        "description": "Claim or complaint detail",
+        "descriptionPlaceholder": "Describe in detail what happened, dates and what you expect as a solution…"
+      },
+      "legalNote": "By submitting you declare the information is truthful. OnExotic respects the legal 30-day response timeline.",
+      "submit": "Submit claim",
+      "submitting": "Sending…",
+      "errors": {
+        "invalid_name": "Complete first and last name.",
+        "invalid_email": "Invalid email.",
+        "description_too_short": "Detail must be at least 20 characters.",
+        "invalid_type": "Invalid type."
+      },
+      "success": {
+        "eye": "Claim received",
+        "title": "It's on record.",
+        "copy": "We'll respond to your email within 30 calendar days max. Save this number as reference.",
+        "number": "No."
+      }
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "legal": "Legal",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy policy",
+    "returns": "Returns & exchanges",
+    "shipping": "Shipping & delivery",
+    "claims": "Complaints book",
+    "follow": "Follow us",
+    "contact": "Contact"
+  },
+  "product": {
+    "header": {
+      "live": "Live drop",
+      "soldOut": "Sold out",
+      "price": "Price"
+    },
+    "stock": {
+      "alive": "live pieces",
+      "none": "No stock",
+      "noRestock": "no restock"
+    },
+    "size": {
+      "label": "Size",
+      "left": "left",
+      "last": "last",
+      "outShort": "out"
+    },
+    "actions": {
+      "addToBag": "Add to bag",
+      "added": "Added ✓",
+      "soldOut": "Sold out",
+      "askWhatsapp": "Ask on WhatsApp",
+      "goPay": "Go to pay"
+    },
+    "guide": {
+      "cta": "Size guide",
+      "eyebrow": "Measures",
+      "title": "Size guide",
+      "intro": "Measurements in centimeters over the garment. When in doubt, size up: the silhouette is oversize.",
+      "size": "Size",
+      "chest": "Chest",
+      "length": "Length",
+      "sleeve": "Sleeve",
+      "note": "◦ We accept returns within 7 days, unused."
+    },
+    "ritual": {
+      "eye": "The ritual",
+      "titleA": "Heavy.",
+      "titleB": "Crisp. Marks you.",
+      "copy": "Heavy cotton woven in Lima. Oversize cut, dropped shoulders. Limited piece of the active drop: when it's gone, it's gone."
+    },
+    "spec": {
+      "composition": "Composition",
+      "fit": "Fit",
+      "origin": "Made in",
+      "care": "Care",
+      "compositionValue": "100% combed cotton",
+      "fitValue": "Oversize · dropped shoulder",
+      "careValue": "Cold wash · iron reverse"
+    },
+    "related": {
+      "eye": "Brothers in the drop",
+      "title": "Complete the cult"
+    },
+    "jsonld": {
+      "descriptionFallback": "{nombre} — piece from OnExotic's active drop. Limited edition, no restock."
+    }
+  },
+  "cart": {
+    "title": "Bag",
+    "piece": "piece",
+    "pieces": "pieces",
+    "clear": "Clear",
+    "chapter": "Active drop",
+    "heroTitle": "Your offering",
+    "emptyEye": "empty for now",
+    "emptyTitle": "Cold bag",
+    "emptyCopy": "No pieces yet. Enter the drop and build your offering.",
+    "emptyCta": "Enter the drop",
+    "remove": "Remove",
+    "attr": {
+      "size": "Size",
+      "color": "Color"
+    },
+    "ship": {
+      "goal": "Free shipping",
+      "activated": "Free shipping unlocked",
+      "target": "Goal",
+      "miss": "You're",
+      "for": "away from free shipping.",
+      "gotIt": "The cult rewards you.",
+      "zero": "Zero shipping cost."
+    },
+    "summary": {
+      "eye": "Cult tally",
+      "subtotal": "Subtotal",
+      "shipFree": "Shipping · free",
+      "shipLima": "Shipping Lima",
+      "shipNote": "The final cost is calculated at checkout based on your delivery zone.",
+      "payNow": "Pay today",
+      "installments": "Or 3 installments"
+    },
+    "cta": {
+      "whatsapp": "Order via WhatsApp",
+      "pay": "Go to pay"
+    }
+  },
+  "auth": {
+    "eyebrow": "ritual access",
+    "loginTitle": "Enter the cult",
+    "signupTitle": "Join the cult",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "phone": "Phone / WhatsApp",
+    "login": "Sign in",
+    "signup": "Join",
+    "logout": "Sign out",
+    "sending": "Invoking…",
+    "forgot": "Forgot it?",
+    "switchToSignup": "No account? Join us",
+    "switchToLogin": "Already in? Sign in",
+    "tabs": { "login": "Sign in", "signup": "Join" },
+    "check": {
+      "eye": "verify your email",
+      "title": "Almost in",
+      "copy": "We sent a link to {email}. Open it to seal the ritual."
+    }
+  },
+  "account": {
+    "eyebrow": "cult member",
+    "orders": {
+      "eye": "History",
+      "title": "Your rituals",
+      "total": "Total",
+      "view": "View",
+      "emptyCopy": "No orders yet. The next drop awaits.",
+      "emptyCta": "Enter the drop"
+    },
+    "address": {
+      "eye": "Addresses",
+      "title": "Where we find you",
+      "add": "Add address",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "saving": "Saving…",
+      "cancel": "Cancel",
+      "confirmDelete": "Delete this address?",
+      "aliasFallback": "No alias",
+      "defaultBadge": "Default",
+      "alias": "Alias",
+      "aliasPlaceholder": "Home, office…",
+      "country": "Country",
+      "international": "International",
+      "recipient": "Recipient",
+      "phone": "Phone",
+      "department": "Department",
+      "region": "Region / State",
+      "province": "Province",
+      "district": "District / City",
+      "street": "Street address",
+      "reference": "Reference",
+      "postalCode": "Postal code",
+      "default": "Set as default"
+    }
+  },
+  "orderStatus": {
+    "pendiente": "Pending",
+    "confirmado": "Confirmed",
+    "pagado": "Paid",
+    "en_preparacion": "Preparing",
+    "enviado": "Shipped",
+    "entregado": "Delivered",
+    "cancelado": "Cancelled"
+  },
+  "checkout": {
+    "eye": "Seal the ritual",
+    "title": "Checkout",
+    "shipping": {
+      "eye": "Shipping",
+      "title": "Where it ships",
+      "newAddress": "New address",
+      "zone": "Zone",
+      "free": "free",
+      "unlockedFromSubtotal": "Free shipping unlocked by passing the threshold"
+    },
+    "zones": {
+      "lima": "Lima",
+      "provincia": "Peru province",
+      "internacional": "International"
+    },
+    "payment": {
+      "eye": "Payment",
+      "title": "How you pay",
+      "whatsapp": {
+        "title": "WhatsApp",
+        "copy": "Coordinated via {phone}. Yape, Plin or transfer."
+      },
+      "culqi": {
+        "title": "Card · Yape · Plin (Culqi)",
+        "copy": "Instant online payment.",
+        "soon": "Coming soon"
+      }
+    },
+    "summary": {
+      "eye": "Summary",
+      "title": "Cult tally",
+      "subtotal": "Subtotal",
+      "ship": "Shipping",
+      "shipFree": "Shipping · free",
+      "total": "Total"
+    },
+    "confirm": "Confirm order",
+    "confirming": "Sealing…",
+    "back": "Back to bag",
+    "errors": {
+      "noAddress": "Pick or create a shipping address"
+    }
+  },
+  "archive": {
+    "hero": {
+      "title": "Archive.",
+      "copyA": "The cult's closed chapters.",
+      "copyB": "They don't return.",
+      "copyC": " But they stay carved in.",
+      "stats": {
+        "closed": "Closed chapters",
+        "pieces": "Recorded pieces",
+        "restocks": "Restocks"
+      }
+    },
+    "live": {
+      "eye": "Drop {drop} live",
+      "cta": "Enter"
+    },
+    "card": {
+      "chapter": "Chapter {n}",
+      "closed": "Closed",
+      "archived": "Archived",
+      "soldOut": "Sold out",
+      "stats": {
+        "pieces": "Pieces",
+        "state": "State",
+        "restock": "Restock"
+      }
+    },
+    "emptyClosed": "No closed chapters yet.",
+    "next": {
+      "eye": "Next chapter",
+      "note": "Early access for the archive faithful.",
+      "empty": "No upcoming drop announced yet."
+    },
+    "notify": {
+      "placeholder": "you@email.com",
+      "cta": "Notify me",
+      "done": "Done. We'll let you know.",
+      "invalid": "Invalid email"
+    }
+  },
+  "lookbook": {
+    "empty": "No active lookbook. Come back when the next drop begins.",
+    "cover": {
+      "label": "Editorial · {drop}",
+      "titleA": "Cult",
+      "titleB": "bodies",
+      "dateFallback": "SS26",
+      "scroll": "Scroll"
+    },
+    "manifesto": {
+      "eye": "Director's note",
+      "lead": "Lima doesn't forgive.",
+      "bold": " Neither does this collection.",
+      "rest": " Bodies dressed to resist the algorithm, the block and the silence. Each piece weighs what the ritual weighs: 500 grams of vengeance against fast fashion.",
+      "signature": "OnExotic · Direction"
+    },
+    "look": {
+      "label": "Look {n}",
+      "model": "Cult body"
+    },
+    "quote": {
+      "line1": "\"Lima dressed me in black",
+      "line2": "so no one would see me fall.\"",
+      "attribution": "Cult faithful · Look 01"
+    },
+    "spread": {
+      "eye": "Between two bodies",
+      "titleA": "It's not clothing.",
+      "titleB": "It's",
+      "titleC": "armor.",
+      "copy": "Each piece is born from a different sermon. Each body carries it as its own."
+    },
+    "index": {
+      "eye": "Index",
+      "title": "The bodies",
+      "view": "View"
+    },
+    "credits": {
+      "eye": "Credits",
+      "direction": "Direction",
+      "photo": "Photo",
+      "styling": "Styling",
+      "location": "Location",
+      "fonts": "Type",
+      "cta": "Shop the chapter"
+    }
+  },
+  "story": {
+    "hero": {
+      "eye": "ORIGIN",
+      "location": "Lima · 2025 — today",
+      "titleA": "Born",
+      "titleB": "in the crack.",
+      "copy": "How three Lima kids",
+      "copyAccent": "turned the block into an altar.",
+      "read": "Read · 4 min",
+      "chapters": "04 chapters"
+    },
+    "stats": {
+      "chapters": "Chapters launched",
+      "pieces": "Pieces in archive",
+      "cult": "Active faithful"
+    },
+    "cap01": {
+      "eye": "How it started",
+      "title": "A Lima kitchen.",
+      "lede": "Three friends. A borrowed sewing machine. Forty soles for fabric. Nothing else.",
+      "p1": {
+        "a": "March 2025. ",
+        "fire1": "Jose",
+        "b": " was back jobless. ",
+        "fire2": "Diego",
+        "c": " tattooed from his room. ",
+        "fire3": "Luana",
+        "d": " designed flyers for clubs that didn't pay her. All three shared one obsession: Lima street had visual codes unique in the world, and nobody was wearing them."
+      },
+      "p2": "The first five pieces were made by hand in a borrowed kitchen. Sold via DM in a week. The sixth we couldn't finish: we ran out of cotton.",
+      "imageLabel": "archive · 2025"
+    },
+    "quote1": {
+      "text": "\"We didn't want a brand. We wanted a church.\"",
+      "who": "Jose · Director"
+    },
+    "cap02": {
+      "eye": "How it was named",
+      "title": "\"OnExotic\" wasn't a name. It was an insult.",
+      "p1": "A customer wrote us in August 2025: «your designs are too on exotic for Lima, bro». He meant excessive. He meant out of place.",
+      "p2": "We kept the word. We drew it as attack. If being from Lima and dressing different was exotic, we'd push the line until it broke.",
+      "logoV0": "logo · v0",
+      "logoNow": "logo · today"
+    },
+    "timeline": {
+      "eye": "Timeline",
+      "title": "Bloodline.",
+      "live": "LIVE",
+      "m1": { "d": "MAR 2025", "t": "Piece 01", "n": "Black hoodie by hand, sold via DM for S/ 140." },
+      "m2": { "d": "AUG 2025", "t": "The insult", "n": "A client calls us \"on exotic\". We took the name." },
+      "m3": { "d": "OCT 2025", "t": "Drop 01", "n": "40 pieces. Sold out in hours. No restock." },
+      "m4": { "d": "DEC 2025", "t": "Workshop", "n": "We took a room in Gamarra. In-house seamstresses." },
+      "m5": { "d": "TODAY", "t": "Live archive", "n": "{closed} closed chapters. The next is brewing." }
+    },
+    "pillars": {
+      "eye": "The four oaths",
+      "title": "Why we are this way.",
+      "p1": { "t": "Limited drops, no restock.", "d": "A piece sold is a piece less. When it's gone, it's gone. No exceptions." },
+      "p2": { "t": "Made in Lima.", "d": "Everything is cut and sewn in Gamarra. No cheap labor, no middlemen." },
+      "p3": { "t": "The client is faithful, not consumer.", "d": "Early access, not discounts. Community, not segmentation." },
+      "p4": { "t": "The street rules.", "d": "Design decisions are made walking, not staring at dashboards." }
+    },
+    "process": {
+      "eye": "Process",
+      "titleA": "From notebook",
+      "titleB": "to altar.",
+      "s1": { "t": "Sketch", "d": "Monday meetings. One notebook. No Photoshop until step 03." },
+      "s2": { "t": "Cut", "d": "Paper patterns, raw cotton test. If it doesn't fall, it gets shredded." },
+      "s3": { "t": "Embroider", "d": "Hand embroidery on the main piece. Three inks max." },
+      "s4": { "t": "Drop", "d": "Photo. Manifesto. Word to the faithful. No restock." }
+    },
+    "close": {
+      "eye": "End",
+      "titleA": "The street",
+      "titleB": "made us.",
+      "titleC": "The cult",
+      "titleD": "makes us.",
+      "copy": "This is just starting. If you got this far, you're part of the next chapter already.",
+      "cta": "Enter the cult",
+      "signature": "Made with blood"
+    }
+  },
+  "order": {
+    "eye": "Your ritual",
+    "timeline": { "title": "Order status" },
+    "items": { "title": "Order pieces", "size": "size" },
+    "total": {
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "ship": "Shipping",
+      "shipFree": "Shipping · free",
+      "total": "Total"
+    },
+    "shipping": { "title": "Shipping to" },
+    "payment": {
+      "method": "Payment method",
+      "followWhatsapp": "Follow via WhatsApp"
+    },
+    "backToAccount": "Back to my account"
+  }
+}
