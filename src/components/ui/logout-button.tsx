@@ -16,7 +16,7 @@ export function LogoutButton({ locale }: { locale: string }) {
         })
       }
       disabled={pending}
-      className="border border-border bg-card px-3 py-1.5 font-mono text-[10px] uppercase tracking-ritual text-white hover:border-fire disabled:opacity-50"
+      className="border border-border bg-card px-3 py-1.5 font-mono text-[10px] uppercase tracking-ritual text-fg hover:border-fire disabled:opacity-50"
     >
       {pending ? '…' : t('logout')}
     </button>

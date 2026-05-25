@@ -65,7 +65,12 @@
     "story": "Story",
     "search": "Search",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode",
+    "themeLightLabel": "Light",
+    "themeDarkLabel": "Dark"
   },
   "home": {
     "heroEyebrow": "Live drop",

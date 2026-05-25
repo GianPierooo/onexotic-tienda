@@ -65,7 +65,7 @@ export default async function AccountPage({ params: { locale } }: Props) {
           {t('eyebrow')}
         </div>
         <div className="flex items-baseline justify-between gap-3">
-          <h1 className="m-0 font-black font-normal leading-[0.9] text-white text-[54px]">
+          <h1 className="m-0 font-black font-normal leading-[0.9] text-fg text-[54px]">
             {displayName}
           </h1>
           <LogoutButton locale={locale} />
@@ -85,7 +85,7 @@ export default async function AccountPage({ params: { locale } }: Props) {
               <Link
                 key={p.id}
                 href={`/pedidos/${p.id}`}
-                className="block border border-border bg-card p-4 text-white"
+                className="block border border-border bg-card p-4 text-fg"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -136,7 +136,7 @@ function SectionTitle({ eye, title }: { eye: string; title: string }) {
         <span className="block h-px w-3.5 bg-fire" />
         {eye}
       </div>
-      <h2 className="m-0 font-goth text-3xl leading-tight text-white">{title}</h2>
+      <h2 className="m-0 font-goth text-3xl leading-tight text-fg">{title}</h2>
     </div>
   );
 }
@@ -148,7 +148,7 @@ async function EmptyOrders({ locale }: { locale: string }) {
       <p className="mb-4 font-body text-sm text-muted">{t('emptyCopy')}</p>
       <Link
         href="/tienda"
-        className="inline-flex items-center justify-center bg-fire px-5 py-3 font-body text-xs font-extrabold uppercase tracking-[.22em] text-white"
+        className="inline-flex items-center justify-center bg-fire px-5 py-3 font-body text-xs font-extrabold uppercase tracking-[.22em] text-on-fire"
       >
         {t('emptyCta')} →
       </Link>

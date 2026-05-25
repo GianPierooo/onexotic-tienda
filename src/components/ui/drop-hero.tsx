@@ -19,15 +19,12 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props)
 
   return (
     <section
-      className="relative overflow-hidden text-white"
+      className="relative overflow-hidden text-fg"
       style={{ height: 620 }}
     >
       <div
         className="absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
-        }}
+        style={{ background: 'var(--grad-hero)' }}
       />
       <GrainOverlay />
       {/* tribal strokes */}
@@ -39,9 +36,9 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props)
       >
         <defs>
           <linearGradient id="hero-g1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#B81414" stopOpacity="0" />
-            <stop offset=".6" stopColor="#B81414" stopOpacity=".7" />
-            <stop offset="1" stopColor="#B81414" stopOpacity="0" />
+            <stop offset="0" style={{ stopColor: "var(--color-fire)" }} stopOpacity="0" />
+            <stop offset=".6" style={{ stopColor: "var(--color-fire)" }} stopOpacity=".7" />
+            <stop offset="1" style={{ stopColor: "var(--color-fire)" }} stopOpacity="0" />
           </linearGradient>
         </defs>
         <path
@@ -69,7 +66,7 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props)
           >
             <span
               className="block h-1.5 w-1.5 rounded-full bg-fire"
-              style={{ boxShadow: '0 0 8px #B81414' }}
+              style={{ boxShadow: '0 0 8px var(--color-fire)' }}
             />
             <span className="font-mono text-[10px] uppercase tracking-ritual">
               {badge}
@@ -100,7 +97,7 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props)
             {nombre}
           </h1>
           {concepto && (
-            <p className="mb-5 mt-3.5 max-w-[280px] font-body text-[13px] leading-relaxed text-white/85">
+            <p className="mb-5 mt-3.5 max-w-[280px] font-body text-[13px] leading-relaxed text-fg/85">
               {concepto}
             </p>
           )}
@@ -112,13 +109,13 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props)
           ) : (
             <div
               className="mb-4 inline-flex items-center gap-2 border border-border bg-bg/60 px-3 py-2 backdrop-blur-sm"
-              style={{ borderLeft: '2px solid #B81414' }}
+              style={{ borderLeft: '2px solid var(--color-fire)' }}
             >
               <span
                 className="block h-1.5 w-1.5 rounded-full bg-fire animate-pulse-fire"
-                style={{ boxShadow: '0 0 10px #B81414' }}
+                style={{ boxShadow: '0 0 10px var(--color-fire)' }}
               />
-              <span className="font-mono text-[10px] font-bold uppercase tracking-ritual text-white">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-ritual text-fg">
                 {t('live')} · {t('chapter')} {nombre}
               </span>
             </div>
@@ -126,11 +123,11 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props)
 
           <Link
             href="/tienda"
-            className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-white"
+            className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-on-fire"
             style={{
-              background: '#B81414',
+              background: 'var(--color-fire)',
               boxShadow:
-                '0 0 0 1px #B81414, 0 8px 30px rgba(184,20,20,.35)',
+                '0 0 0 1px var(--color-fire), 0 8px 30px rgba(184,20,20,.35)',
             }}
           >
             <span>{t('cta')}</span>

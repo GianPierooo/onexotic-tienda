@@ -100,7 +100,7 @@ export function ProductActions({ variants }: Props) {
         <div className="mb-2.5 flex items-baseline justify-between">
           <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
             {t('size.label')}{' '}
-            <span className="text-white">
+            <span className="text-fg">
               · {selected?.talla ?? '—'}
             </span>
           </div>
@@ -121,9 +121,9 @@ export function ProductActions({ variants }: Props) {
                 onClick={() => setSelectedId(v.id)}
                 className="relative flex h-[74px] flex-col items-center justify-center gap-1 border transition-colors"
                 style={{
-                  background: active ? '#FFFFFF' : 'transparent',
-                  color: active ? '#0A0A0A' : out ? '#555555' : '#FFFFFF',
-                  borderColor: active ? '#FFFFFF' : out ? '#1a1a1a' : '#2A2A2A',
+                  background: active ? 'var(--color-fg)' : 'transparent',
+                  color: active ? 'var(--color-bg)' : out ? 'var(--color-silver-dim)' : 'var(--color-fg)',
+                  borderColor: active ? 'var(--color-fg)' : out ? 'var(--card-frame-border)' : 'var(--color-border)',
                   opacity: out ? 0.55 : 1,
                   cursor: out ? 'not-allowed' : 'pointer',
                 }}
@@ -140,12 +140,12 @@ export function ProductActions({ variants }: Props) {
                   className="font-mono text-[9px] uppercase tracking-ritual"
                   style={{
                     color: active
-                      ? '#0A0A0A'
+                      ? 'var(--color-bg)'
                       : out
-                        ? '#555555'
+                        ? 'var(--color-silver-dim)'
                         : last || low
-                          ? '#B81414'
-                          : '#888888',
+                          ? 'var(--color-fire)'
+                          : 'var(--color-muted)',
                   }}
                 >
                   {out
@@ -171,7 +171,7 @@ export function ProductActions({ variants }: Props) {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2.5 border border-border bg-card px-3 py-3 font-body text-[11.5px] font-bold uppercase tracking-ritual text-white"
+          className="flex items-center justify-center gap-2.5 border border-border bg-card px-3 py-3 font-body text-[11.5px] font-bold uppercase tracking-ritual text-fg"
         >
           <WhatsAppIcon />
           {t('actions.askWhatsapp')}
@@ -185,9 +185,9 @@ export function ProductActions({ variants }: Props) {
           onClick={onAdd}
           whileTap={{ scale: 0.98 }}
           disabled={todoAgotado || !selectedDisponible}
-          className="flex w-full items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-white disabled:opacity-60"
+          className="flex w-full items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-fg disabled:opacity-60"
           style={{
-            background: todoAgotado || !selectedDisponible ? '#2A2A2A' : '#B81414',
+            background: todoAgotado || !selectedDisponible ? 'var(--color-border)' : 'var(--color-fire)',
             boxShadow:
               todoAgotado || !selectedDisponible
                 ? 'none'
@@ -211,7 +211,7 @@ export function ProductActions({ variants }: Props) {
           type="button"
           onClick={onCheckout}
           disabled={todoAgotado || !selectedDisponible}
-          className="font-mono text-[10px] uppercase tracking-ritual text-silver hover:text-white disabled:opacity-50"
+          className="font-mono text-[10px] uppercase tracking-ritual text-silver hover:text-fg disabled:opacity-50"
         >
           {t('actions.goPay')} →
         </button>

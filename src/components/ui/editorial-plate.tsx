@@ -3,14 +3,14 @@ import Image from 'next/image';
 import { GrainOverlay } from './grain-overlay';
 
 const TONES = {
-  a: 'radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
-  b: 'radial-gradient(110% 90% at 30% 30%, #1a1a1a 0%, #0b0b0b 60%, #050505 100%)',
-  c: 'radial-gradient(130% 90% at 50% 100%, #3a1505 0%, #160906 55%, #060303 100%)',
-  d: 'linear-gradient(160deg, #1c1c1c 0%, #0a0a0a 60%, #060606 100%)',
-  e: 'radial-gradient(80% 100% at 50% 20%, #221008 0%, #0a0606 55%, #030101 100%)',
-  f: 'radial-gradient(140% 90% at 20% 80%, #220e08 0%, #0c0606 55%, #050303 100%)',
-  g: 'linear-gradient(200deg, #161616 0%, #0a0a0a 50%, #050202 100%)',
-  h: 'radial-gradient(100% 70% at 80% 40%, #2a1010 0%, #100707 60%, #060303 100%)',
+  a: 'var(--grad-tone-a)',
+  b: 'var(--grad-tone-b)',
+  c: 'var(--grad-tone-c)',
+  d: 'var(--grad-tone-d)',
+  e: 'var(--grad-tone-e)',
+  f: 'var(--grad-tone-f)',
+  g: 'var(--grad-tone-g)',
+  h: 'var(--grad-tone-h)',
 } as const;
 
 export type Tone = keyof typeof TONES;
@@ -85,9 +85,9 @@ export function EditorialPlate({
             top: '12%',
             bottom: '6%',
             width,
-            border: '1px solid #1a1a1a',
+            border: '1px solid var(--card-frame-border)',
             background:
-              'linear-gradient(180deg, rgba(255,255,255,.05) 0%, transparent 70%), linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%)',
+              'var(--grad-card-frame)',
           }}
         />
       )}

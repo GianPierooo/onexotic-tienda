@@ -49,7 +49,7 @@ export function CatalogSearchBar({ initialQuery }: Props) {
             onChange={(e) => setValue(e.target.value)}
             placeholder={t('placeholder')}
             aria-label={t('label')}
-            className="flex-1 bg-transparent py-2.5 font-body text-[13px] tracking-wide text-white outline-none placeholder:text-silver-dim"
+            className="flex-1 bg-transparent py-2.5 font-body text-[13px] tracking-wide text-fg outline-none placeholder:text-silver-dim"
           />
           {value && (
             <button
@@ -64,7 +64,7 @@ export function CatalogSearchBar({ initialQuery }: Props) {
         </label>
         <button
           type="submit"
-          className="border border-fire bg-fire px-3 py-2.5 font-mono text-[10px] font-bold uppercase tracking-ritual text-white"
+          className="border border-fire bg-fire px-3 py-2.5 font-mono text-[10px] font-bold uppercase tracking-ritual text-on-fire"
         >
           {t('cta')}
         </button>
@@ -73,7 +73,7 @@ export function CatalogSearchBar({ initialQuery }: Props) {
         <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-2 font-mono text-[10px] uppercase tracking-ritual text-silver">
           <span>
             {t('results')} ·{' '}
-            <span className="text-white">&ldquo;{initialQuery}&rdquo;</span>
+            <span className="text-fg">&ldquo;{initialQuery}&rdquo;</span>
           </span>
           <button
             type="button"

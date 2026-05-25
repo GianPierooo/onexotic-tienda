@@ -42,12 +42,12 @@ export function Countdown({ targetIso }: Props) {
   return (
     <div
       className="grid grid-cols-4 gap-1.5 border border-border bg-bg/60 px-2 py-2.5 backdrop-blur-sm"
-      style={{ borderLeft: '2px solid #B81414' }}
+      style={{ borderLeft: '2px solid var(--color-fire)' }}
       aria-live="polite"
     >
       {cells.map(([n, l]) => (
         <div key={l} className="text-center">
-          <div className="font-mono text-[22px] font-semibold tracking-wide text-white">
+          <div className="font-mono text-[22px] font-semibold tracking-wide text-fg">
             {n}
           </div>
           <div className="mt-0.5 font-mono text-[8px] uppercase tracking-ritual text-silver">

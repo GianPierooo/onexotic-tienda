@@ -16,11 +16,11 @@ export function LegalPage({ eyebrow, title, intro, updated, children }: Props) {
           <span className="block h-px w-3.5 bg-fire" />
           {eyebrow}
         </div>
-        <h1 className="m-0 font-black font-normal leading-[0.9] text-white text-[44px] md:text-[60px]">
+        <h1 className="m-0 font-black font-normal leading-[0.9] text-fg text-[44px] md:text-[60px]">
           {title}
         </h1>
         {intro && (
-          <p className="mt-3 font-body text-sm leading-relaxed text-white/80">
+          <p className="mt-3 font-body text-sm leading-relaxed text-fg/80">
             {intro}
           </p>
         )}
@@ -48,11 +48,11 @@ export function LegalSection({
     <section className="border-l-2 border-fire bg-card/60 px-4 py-4">
       <div className="mb-1 flex items-baseline gap-3">
         <span className="font-goth text-2xl leading-none text-silver">{no}</span>
-        <h2 className="m-0 font-body text-base font-extrabold uppercase tracking-wide text-white">
+        <h2 className="m-0 font-body text-base font-extrabold uppercase tracking-wide text-fg">
           {title}
         </h2>
       </div>
-      <div className="mt-2 flex flex-col gap-2.5 font-body text-[13px] leading-relaxed text-white/85">
+      <div className="mt-2 flex flex-col gap-2.5 font-body text-[13px] leading-relaxed text-fg/85">
         {children}
       </div>
     </section>

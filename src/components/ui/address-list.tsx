@@ -48,9 +48,9 @@ export function AddressList({ initial }: { initial: Direccion[] }) {
         ) : (
           <article
             key={d.id}
-            className="border border-border bg-card p-4 text-white"
+            className="border border-border bg-card p-4 text-fg"
             style={{
-              borderLeft: d.es_predeterminada ? '2px solid #B81414' : undefined,
+              borderLeft: d.es_predeterminada ? '2px solid var(--color-fire)' : undefined,
             }}
           >
             <div className="flex items-start justify-between gap-3">
@@ -64,7 +64,7 @@ export function AddressList({ initial }: { initial: Direccion[] }) {
                   )}
                 </div>
                 <div className="font-body text-sm font-bold">{d.destinatario}</div>
-                <div className="mt-1 font-body text-[13px] text-white/85">
+                <div className="mt-1 font-body text-[13px] text-fg/85">
                   {d.direccion}
                   {d.referencia ? ` · ${d.referencia}` : ''}
                 </div>
@@ -82,7 +82,7 @@ export function AddressList({ initial }: { initial: Direccion[] }) {
               <button
                 type="button"
                 onClick={() => setEditing(d.id)}
-                className="text-white hover:text-fire"
+                className="text-fg hover:text-fire"
               >
                 {t('edit')}
               </button>
@@ -112,7 +112,7 @@ export function AddressList({ initial }: { initial: Direccion[] }) {
         <button
           type="button"
           onClick={() => setCreating(true)}
-          className="border border-dashed border-border bg-card-alt px-4 py-3 font-mono text-[10px] uppercase tracking-ritual text-white hover:border-fire"
+          className="border border-dashed border-border bg-card-alt px-4 py-3 font-mono text-[10px] uppercase tracking-ritual text-fg hover:border-fire"
         >
           + {t('add')}
         </button>

@@ -17,7 +17,7 @@ export function ErrorState({ retry }: { retry?: () => void }) {
   const t = useTranslations('common');
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-      <p className="font-black text-2xl text-white">{t('error')}</p>
+      <p className="font-black text-2xl text-fg">{t('error')}</p>
       {retry && (
         <Button variant="ghost" size="md" onClick={retry}>
           {t('retry')}

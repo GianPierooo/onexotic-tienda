@@ -65,13 +65,13 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
   if (cart.items.length === 0) {
     return (
       <section className="mx-auto max-w-screen-md px-5 py-16 text-center">
-        <h1 className="m-0 mb-4 font-goth text-5xl leading-none text-white">
+        <h1 className="m-0 mb-4 font-goth text-5xl leading-none text-fg">
           {tCart('emptyTitle')}
         </h1>
         <p className="mb-6 font-body text-sm text-muted">{tCart('emptyCopy')}</p>
         <Link
           href="/tienda"
-          className="inline-flex items-center justify-center bg-fire px-5 py-3 font-body text-xs font-extrabold uppercase tracking-[.22em] text-white"
+          className="inline-flex items-center justify-center bg-fire px-5 py-3 font-body text-xs font-extrabold uppercase tracking-[.22em] text-on-fire"
         >
           {tCart('emptyCta')} →
         </Link>
@@ -127,7 +127,7 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
           <span className="block h-px w-3.5 bg-fire" />
           {t('eye')}
         </div>
-        <h1 className="m-0 font-black font-normal leading-[0.9] text-white text-[54px]">
+        <h1 className="m-0 font-black font-normal leading-[0.9] text-fg text-[54px]">
           {t('title')}
         </h1>
         <div className="mt-1 font-mono text-[10px] uppercase tracking-ritual text-muted">
@@ -146,9 +146,9 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
                 className="flex cursor-pointer items-start gap-3 border border-border bg-card p-3.5"
                 style={{
                   borderLeft:
-                    selectedDirId === d.id ? '2px solid #B81414' : undefined,
+                    selectedDirId === d.id ? '2px solid var(--color-fire)' : undefined,
                   background:
-                    selectedDirId === d.id ? '#1E1E1E' : '#141414',
+                    selectedDirId === d.id ? 'var(--color-surface-alt)' : 'var(--color-surface)',
                 }}
               >
                 <input
@@ -161,7 +161,7 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
                   <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
                     {d.alias || d.destinatario}
                   </div>
-                  <div className="font-body text-[13px] text-white">
+                  <div className="font-body text-[13px] text-fg">
                     {d.direccion}
                   </div>
                   <div className="font-mono text-[10px] uppercase tracking-ritual text-muted">
@@ -173,9 +173,9 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
               </label>
             ))}
             <label
-              className="flex cursor-pointer items-center gap-3 border border-dashed border-border bg-card-alt p-3.5 font-mono text-[10px] uppercase tracking-ritual text-white"
+              className="flex cursor-pointer items-center gap-3 border border-dashed border-border bg-card-alt p-3.5 font-mono text-[10px] uppercase tracking-ritual text-fg"
               style={{
-                borderColor: selectedDirId === 'new' ? '#B81414' : undefined,
+                borderColor: selectedDirId === 'new' ? 'var(--color-fire)' : undefined,
               }}
             >
               <input
@@ -203,7 +203,7 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
         <div className="mt-3 border border-border bg-card px-3.5 py-3">
           <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-ritual">
             <span className="text-silver">{t('shipping.zone')}</span>
-            <span className="text-white">
+            <span className="text-fg">
               {t(`zones.${zona}`)} · {envio === 0 ? t('shipping.free') : formatSoles(envio)}
             </span>
           </div>
@@ -245,11 +245,11 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
                 key={it.productoId}
                 className="flex items-baseline justify-between py-1.5 font-body text-[13px]"
               >
-                <span className="truncate text-white">
+                <span className="truncate text-fg">
                   {it.cantidad} × {it.nombre}
                   <span className="text-muted"> · {it.talla}</span>
                 </span>
-                <span className="font-mono text-[12px] text-white">
+                <span className="font-mono text-[12px] text-fg">
                   {formatSoles(it.precio * it.cantidad)}
                 </span>
               </div>
@@ -266,7 +266,7 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
               <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
                 {t('summary.total')}
               </div>
-              <div className="font-body text-3xl font-extrabold text-white">
+              <div className="font-body text-3xl font-extrabold text-fg">
                 {formatSoles(total)}
               </div>
             </div>
@@ -285,9 +285,9 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
           type="button"
           onClick={onConfirm}
           disabled={pending || pago === 'culqi'}
-          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-white disabled:opacity-60"
+          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-fg disabled:opacity-60"
           style={{
-            background: pago === 'culqi' ? '#2A2A2A' : '#B81414',
+            background: pago === 'culqi' ? 'var(--color-border)' : 'var(--color-fire)',
             boxShadow:
               pago === 'culqi'
                 ? 'none'
@@ -299,7 +299,7 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
         </button>
         <Link
           href="/carrito"
-          className="text-center font-mono text-[10px] uppercase tracking-ritual text-silver hover:text-white"
+          className="text-center font-mono text-[10px] uppercase tracking-ritual text-silver hover:text-fg"
         >
           ← {t('back')}
         </Link>
@@ -330,13 +330,13 @@ function PaymentOption({
       className="relative flex w-full items-start justify-between gap-3 border bg-card p-3.5 text-left disabled:opacity-70"
       disabled={disabled}
       style={{
-        borderColor: active ? '#B81414' : '#2A2A2A',
-        background: active ? '#1E1E1E' : '#141414',
+        borderColor: active ? 'var(--color-fire)' : 'var(--color-border)',
+        background: active ? 'var(--color-surface-alt)' : 'var(--color-surface)',
         cursor: disabled ? 'not-allowed' : 'pointer',
       }}
     >
       <div>
-        <div className="font-body text-[13px] font-bold uppercase tracking-wide text-white">
+        <div className="font-body text-[13px] font-bold uppercase tracking-wide text-fg">
           {title}
         </div>
         <div className="mt-1 font-mono text-[10px] uppercase tracking-ritual text-muted">
@@ -359,7 +359,7 @@ function SectionTitle({ eye, title }: { eye: string; title: string }) {
         <span className="block h-px w-3.5 bg-fire" />
         {eye}
       </div>
-      <h2 className="m-0 font-goth text-3xl leading-tight text-white">
+      <h2 className="m-0 font-goth text-3xl leading-tight text-fg">
         {title}
       </h2>
     </div>
@@ -380,7 +380,7 @@ function Row({
       <span className="text-muted">{label}</span>
       <span
         className="font-mono text-[12.5px]"
-        style={{ color: accent ? '#B81414' : '#FFFFFF' }}
+        style={{ color: accent ? 'var(--color-fire)' : 'var(--color-fg)' }}
       >
         {value}
       </span>

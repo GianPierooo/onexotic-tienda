@@ -8,6 +8,7 @@ import { Header } from '@/components/layout/header';
 import { BottomNav } from '@/components/layout/bottom-nav';
 import { Footer } from '@/components/layout/footer';
 import { CartProvider } from '@/lib/cart/cart-context';
+import { ThemeProvider } from '@/components/theme/theme-provider';
 import { archivo, jetbrains, pirata, unifraktur } from '@/lib/fonts';
 import { locales, type Locale } from '@/lib/i18n/config';
 
@@ -66,17 +67,19 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
       suppressHydrationWarning
       className={`${pirata.variable} ${unifraktur.variable} ${archivo.variable} ${jetbrains.variable}`}
     >
-      <body className="bg-bg text-white antialiased">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <CartProvider>
-            <div className="min-h-screen bg-bg text-white">
-              <Header />
-              <main className="pb-nav md:pb-0">{children}</main>
-              <Footer />
-              <BottomNav />
-            </div>
-          </CartProvider>
-        </NextIntlClientProvider>
+      <body className="bg-bg text-fg antialiased">
+        <ThemeProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <CartProvider>
+              <div className="min-h-screen bg-bg text-fg">
+                <Header />
+                <main className="pb-nav md:pb-0">{children}</main>
+                <Footer />
+                <BottomNav />
+              </div>
+            </CartProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

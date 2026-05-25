@@ -75,7 +75,7 @@ export default async function HomePage({ params: { locale } }: Props) {
         <div className="flex animate-marquee whitespace-nowrap py-4 font-goth text-[38px] uppercase tracking-wide">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="px-8">
-              <span className="text-white">{t('marqueeA')}</span>{' '}
+              <span className="text-fg">{t('marqueeA')}</span>{' '}
               <span className="text-fire">{t('marqueeB')}</span>{' '}
               <span className="text-muted">✦</span>
             </span>
@@ -112,21 +112,21 @@ export default async function HomePage({ params: { locale } }: Props) {
           no="◦ 01"
           name={t('cat.gym.name')}
           copy={t('cat.gym.copy')}
-          tone="radial-gradient(130% 90% at 50% 100%, #3a1505 0%, #160906 55%, #060303 100%)"
+          tone="var(--grad-tone-c)"
           href="/tienda?tipo=gymwear"
         />
         <CategoryCard
           no="◦ 02"
           name={t('cat.oversize.name')}
           copy={t('cat.oversize.copy')}
-          tone="radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)"
+          tone="var(--grad-tone-a)"
           href="/tienda?tipo=oversize"
         />
         <CategoryCard
           no="◦ 03"
           name={t('cat.street.name')}
           copy={t('cat.street.copy')}
-          tone="radial-gradient(80% 100% at 50% 20%, #221008 0%, #0a0606 55%, #030101 100%)"
+          tone="var(--grad-tone-e)"
           href="/tienda?tipo=streetwear"
         />
       </div>
@@ -143,7 +143,7 @@ export default async function HomePage({ params: { locale } }: Props) {
             className="relative h-[280px] overflow-hidden"
             style={{
               background:
-                'radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
+                'var(--grad-tone-a)',
             }}
           >
             <GrainOverlay />
@@ -152,13 +152,13 @@ export default async function HomePage({ params: { locale } }: Props) {
                 <div className="mb-1.5 font-mono text-[10px] uppercase tracking-ritual text-silver">
                   Lookbook · SS26
                 </div>
-                <div className="font-black text-[48px] leading-[0.9] text-white">
+                <div className="font-black text-[48px] leading-[0.9] text-fg">
                   {t('lookbook.titleA')}
                   <br />
                   {t('lookbook.titleB')}
                 </div>
               </div>
-              <div className="border border-white px-3 py-2.5 font-mono text-[10px] uppercase tracking-ritual text-white">
+              <div className="border border-fg px-3 py-2.5 font-mono text-[10px] uppercase tracking-ritual text-fg">
                 {t('lookbook.more')}
               </div>
             </div>
@@ -206,7 +206,7 @@ function CategoryCard({
   return (
     <Link
       href={href}
-      className="relative block h-[180px] overflow-hidden border border-border text-white"
+      className="relative block h-[180px] overflow-hidden border border-border text-fg"
     >
       <div className="absolute inset-0" style={{ background: tone }} />
       <GrainOverlay />
@@ -217,7 +217,7 @@ function CategoryCard({
         <div>
           <div className="font-goth text-[52px] leading-[0.9]">{name}</div>
           <div className="mt-2.5 flex items-end justify-between">
-            <div className="max-w-[200px] font-body text-xs text-white/80">
+            <div className="max-w-[200px] font-body text-xs text-fg/80">
               {copy}
             </div>
             <div className="font-mono text-[11px] uppercase tracking-ritual text-fire">

@@ -21,10 +21,10 @@ export type CardProduct = {
 };
 
 const tonePalette = [
-  'radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
-  'radial-gradient(110% 90% at 30% 30%, #1a1a1a 0%, #0b0b0b 60%, #050505 100%)',
-  'radial-gradient(130% 90% at 50% 100%, #3a1505 0%, #160906 55%, #060303 100%)',
-  'linear-gradient(160deg, #1c1c1c 0%, #0a0a0a 60%, #060606 100%)',
+  'var(--grad-tone-a)',
+  'var(--grad-tone-b)',
+  'var(--grad-tone-c)',
+  'var(--grad-tone-d)',
 ];
 
 function tonePara(id: string) {
@@ -49,7 +49,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
     >
       <Link
         href={`/producto/${p.slug ?? p.id}`}
-        className="flex flex-col border border-border bg-card text-white"
+        className="flex flex-col border border-border bg-card text-fg"
         style={{ opacity: agotado ? 0.85 : 1 }}
       >
         <div
@@ -70,9 +70,8 @@ export function ProductCard({ p }: { p: CardProduct }) {
             <div
               className="absolute inset-[12%_22%_8%_22%] border"
               style={{
-                borderColor: '#1a1a1a',
-                background:
-                  'linear-gradient(180deg, rgba(255,255,255,.04) 0%, transparent 60%), linear-gradient(180deg, #161616 0%, #0a0a0a 100%)',
+                borderColor: 'var(--card-frame-border)',
+                background: 'var(--grad-card-inner)',
                 filter: agotado ? 'grayscale(1) brightness(.45)' : undefined,
               }}
             />
@@ -88,8 +87,10 @@ export function ProductCard({ p }: { p: CardProduct }) {
             <div
               className="absolute right-2.5 top-2.5 z-[2] px-2 py-1 font-mono text-[9px] font-bold uppercase tracking-ritual"
               style={{
-                background: p.badge === 'ÚLTIMO' ? '#B81414' : '#FFFFFF',
-                color: p.badge === 'ÚLTIMO' ? '#FFFFFF' : '#0A0A0A',
+                background:
+                  p.badge === 'ÚLTIMO' ? 'var(--color-fire)' : 'var(--color-inverse-bg)',
+                color:
+                  p.badge === 'ÚLTIMO' ? 'var(--color-on-fire)' : 'var(--color-inverse-fg)',
               }}
             >
               {p.badge}
@@ -97,7 +98,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
           )}
 
           {p.ultimoTexto && !agotado && (
-            <div className="absolute bottom-2.5 left-2.5 z-[2] inline-flex items-center gap-1.5 border border-border bg-bg/70 px-2 py-1 font-mono text-[9px] uppercase tracking-ritual text-white">
+            <div className="absolute bottom-2.5 left-2.5 z-[2] inline-flex items-center gap-1.5 border border-border bg-bg/70 px-2 py-1 font-mono text-[9px] uppercase tracking-ritual text-fg">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-fire" />
               {p.ultimoTexto}
             </div>
@@ -107,7 +108,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
             <>
               <div className="absolute inset-0 bg-bg/55" />
               <div
-                className="absolute inset-x-0 top-1/2 -translate-y-1/2 -rotate-6 text-center font-black text-[34px] uppercase text-white"
+                className="absolute inset-x-0 top-1/2 -translate-y-1/2 -rotate-6 text-center font-black text-[34px] uppercase text-fg"
                 style={{ textShadow: '0 2px 16px rgba(0,0,0,.8)' }}
               >
                 Agotado
@@ -121,7 +122,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
             <div className="text-[12.5px] font-bold uppercase tracking-wide">
               {p.nombre}
             </div>
-            <div className="font-mono text-xs text-white">{precio}</div>
+            <div className="font-mono text-xs text-fg">{precio}</div>
           </div>
           {p.sku && (
             <div className="font-mono text-[9px] uppercase tracking-ritual text-silver">
@@ -135,7 +136,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
                 <span key={s} className="flex items-center">
                   <span
                     style={{
-                      color: out ? '#555' : '#FFFFFF',
+                      color: out ? 'var(--color-silver-dim)' : 'var(--color-fg)',
                       textDecoration: out ? 'line-through' : 'none',
                     }}
                   >

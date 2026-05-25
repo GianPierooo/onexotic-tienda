@@ -41,7 +41,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
   if (!drop) {
     return (
       <section className="px-6 py-20">
-        <h1 className="m-0 mb-2 text-center font-black text-4xl text-white">
+        <h1 className="m-0 mb-2 text-center font-black text-4xl text-fg">
           {t('cover.title')}
         </h1>
         <EmptyState message={t('empty')} />
@@ -59,11 +59,10 @@ export default async function LookbookPage({ params: { locale } }: Props) {
     <>
       {/* Cover */}
       <section
-        className="relative overflow-hidden text-white"
+        className="relative overflow-hidden text-fg"
         style={{
           height: 720,
-          background:
-            'radial-gradient(120% 80% at 30% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
+          background: 'var(--grad-tone-a)',
         }}
       >
         <GrainOverlay />
@@ -75,14 +74,14 @@ export default async function LookbookPage({ params: { locale } }: Props) {
         >
           <defs>
             <linearGradient id="lkc" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#B81414" stopOpacity="0" />
-              <stop offset=".55" stopColor="#B81414" stopOpacity=".7" />
-              <stop offset="1" stopColor="#B81414" stopOpacity="0" />
+              <stop offset="0" style={{ stopColor: "var(--color-fire)" }} stopOpacity="0" />
+              <stop offset=".55" style={{ stopColor: "var(--color-fire)" }} stopOpacity=".7" />
+              <stop offset="1" style={{ stopColor: "var(--color-fire)" }} stopOpacity="0" />
             </linearGradient>
             <linearGradient id="lks" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stopColor="#C0C0C0" stopOpacity="0" />
-              <stop offset=".5" stopColor="#C0C0C0" stopOpacity=".6" />
-              <stop offset="1" stopColor="#C0C0C0" stopOpacity="0" />
+              <stop offset="0" style={{ stopColor: "var(--color-silver)" }} stopOpacity="0" />
+              <stop offset=".5" style={{ stopColor: "var(--color-silver)" }} stopOpacity=".6" />
+              <stop offset="1" style={{ stopColor: "var(--color-silver)" }} stopOpacity="0" />
             </linearGradient>
           </defs>
           <line x1="40" y1="200" x2="360" y2="200" stroke="url(#lks)" strokeWidth=".8" />
@@ -93,7 +92,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
             strokeWidth="1.2"
             fill="none"
           />
-          <circle cx="200" cy="170" r="3" fill="#C0C0C0" opacity=".8" />
+          <circle cx="200" cy="170" r="3" style={{ fill: "var(--color-silver)" }} opacity=".8" />
         </svg>
         <div className="absolute inset-0 flex flex-col justify-between px-6 pb-8 pt-10">
           <div className="text-center">
@@ -105,7 +104,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
           </div>
           <div className="text-center">
             <h1
-              className="m-0 font-black font-normal leading-[0.82] text-white"
+              className="m-0 font-black font-normal leading-[0.82] text-fg"
               style={{ fontSize: 86, textShadow: '0 6px 40px rgba(0,0,0,.7)' }}
             >
               {t('cover.titleA')}
@@ -141,7 +140,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
           <span className="block h-px w-4 bg-fire" />
           ✦ {t('manifesto.eye')}
         </div>
-        <p className="m-0 font-body text-[15px] leading-relaxed text-white/90">
+        <p className="m-0 font-body text-[15px] leading-relaxed text-fg/90">
           {t('manifesto.lead')}{' '}
           <span className="font-bold text-fire">{t('manifesto.bold')}</span>
           {t('manifesto.rest')}
@@ -166,7 +165,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
               alignH={align}
               imagen={editorialImg}
               imagenAlt={`${drop.nombre} · Look ${lookNo}`}
-              style={{ height: 640, borderTop: '1px solid #2A2A2A' }}
+              style={{ height: 640, borderTop: '1px solid var(--color-border)' }}
             />
             <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-5">
               <div className="flex items-start justify-between">
@@ -182,7 +181,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
               </div>
               <div>
                 <h2
-                  className="m-0 font-black font-normal leading-[0.85] text-white"
+                  className="m-0 font-black font-normal leading-[0.85] text-fg"
                   style={{ fontSize: 52, textShadow: '0 4px 30px rgba(0,0,0,.7)' }}
                 >
                   {look.nombre}
@@ -205,7 +204,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
             {'“ ”'}
           </div>
           <blockquote
-            className="m-0 font-goth font-normal leading-[0.95] text-white"
+            className="m-0 font-goth font-normal leading-[0.95] text-fg"
             style={{ fontSize: 38 }}
           >
             {t('quote.line1')}
@@ -226,14 +225,14 @@ export default async function LookbookPage({ params: { locale } }: Props) {
           ✦ {t('spread.eye')}
         </div>
         <h2
-          className="m-0 font-black font-normal leading-[0.85] text-white"
+          className="m-0 font-black font-normal leading-[0.85] text-fg"
           style={{ fontSize: 64 }}
         >
           {t('spread.titleA')}
           <br />
           {t('spread.titleB')} <span className="text-fire">{t('spread.titleC')}</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-[300px] font-body text-[13px] leading-relaxed text-white/85">
+        <p className="mx-auto mt-5 max-w-[300px] font-body text-[13px] leading-relaxed text-fg/85">
           {t('spread.copy')}
         </p>
       </section>
@@ -258,7 +257,7 @@ export default async function LookbookPage({ params: { locale } }: Props) {
                 {(i + 1).toString().padStart(2, '0')}
               </div>
               <div>
-                <div className="font-body text-[13px] font-bold uppercase tracking-wide text-white">
+                <div className="font-body text-[13px] font-bold uppercase tracking-wide text-fg">
                   {p.nombre}
                 </div>
                 {p.sku && (
@@ -295,17 +294,17 @@ export default async function LookbookPage({ params: { locale } }: Props) {
               <div className="font-mono text-[10px] uppercase tracking-[.22em] text-silver">
                 {k}
               </div>
-              <div className="font-body text-[12.5px] text-white">{v}</div>
+              <div className="font-body text-[12.5px] text-fg">{v}</div>
             </div>
           ))}
         </div>
-        <div className="mt-14 font-black text-5xl leading-none text-white">OnExotic</div>
+        <div className="mt-14 font-black text-5xl leading-none text-fg">OnExotic</div>
         <div className="mt-3 font-mono text-[9px] uppercase tracking-[.32em] text-silver/60">
           © 2026 · Lima · SS26
         </div>
         <Link
           href="/tienda"
-          className="mt-9 inline-flex items-center gap-3 bg-fire px-6 py-4 font-body text-xs font-extrabold uppercase tracking-[.28em] text-white"
+          className="mt-9 inline-flex items-center gap-3 bg-fire px-6 py-4 font-body text-xs font-extrabold uppercase tracking-[.28em] text-on-fire"
           style={{ boxShadow: '0 8px 24px rgba(184,20,20,.3)' }}
         >
           {t('credits.cta')} <span className="font-mono">→</span>

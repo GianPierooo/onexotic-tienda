@@ -22,9 +22,9 @@ export function SizeGuide() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-1.5 border-b border-fire pb-0.5 font-mono text-[10px] uppercase tracking-ritual text-white"
+        className="inline-flex items-center gap-1.5 border-b border-fire pb-0.5 font-mono text-[10px] uppercase tracking-ritual text-fg"
       >
-        ◇ {t('cta')}
+        â—‡ {t('cta')}
       </button>
 
       {open && (
@@ -36,14 +36,14 @@ export function SizeGuide() {
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative max-h-[85vh] w-full max-w-md overflow-y-auto border border-border bg-card p-5 text-white"
+            className="relative max-h-[85vh] w-full max-w-md overflow-y-auto border border-border bg-card p-5 text-fg"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="cerrar"
-              className="absolute right-3 top-3 text-white"
+              className="absolute right-3 top-3 text-fg"
             >
               <CloseIcon size={20} />
             </button>
@@ -78,10 +78,10 @@ export function SizeGuide() {
                 <tbody>
                   {rows.map(([talla, p, l, m]) => (
                     <tr key={talla} className="border-b border-border/60">
-                      <td className="py-2 pr-3 font-bold text-white">{talla}</td>
-                      <td className="py-2 pr-3 text-white/85">{p}</td>
-                      <td className="py-2 pr-3 text-white/85">{l}</td>
-                      <td className="py-2 text-white/85">{m}</td>
+                      <td className="py-2 pr-3 font-bold text-fg">{talla}</td>
+                      <td className="py-2 pr-3 text-fg/85">{p}</td>
+                      <td className="py-2 pr-3 text-fg/85">{l}</td>
+                      <td className="py-2 text-fg/85">{m}</td>
                     </tr>
                   ))}
                 </tbody>

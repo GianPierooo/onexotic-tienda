@@ -6,22 +6,45 @@ const config: Config = {
     './src/components/**/*.{ts,tsx}',
     './src/lib/**/*.{ts,tsx}',
   ],
+  // next-themes alterna las clases `dark` y `light` en <html>.
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        bg: '#0A0A0A',
-        card: '#141414',
-        'card-alt': '#1E1E1E',
-        border: '#2A2A2A',
-        muted: '#888888',
-        fire: '#B81414',
-        'fire-dim': '#5A0A0A',
-        silver: '#C0C0C0',
-        'silver-dim': '#7A7A7A',
-        success: '#22C55E',
-        warning: '#F59E0B',
-        error: '#EF4444',
+        bg: 'var(--color-bg)',
+        card: 'var(--color-surface)',
+        'card-alt': 'var(--color-surface-alt)',
+        border: 'var(--color-border)',
+        fg: 'var(--color-fg)',
+        muted: 'var(--color-muted)',
+        fire: 'var(--color-fire)',
+        'fire-dim': 'var(--color-fire-dim)',
+        silver: 'var(--color-silver)',
+        'silver-dim': 'var(--color-silver-dim)',
+        success: 'var(--color-success)',
+        warning: 'var(--color-warning)',
+        error: 'var(--color-error)',
+        'on-fire': 'var(--color-on-fire)',
+        'inverse-bg': 'var(--color-inverse-bg)',
+        'inverse-fg': 'var(--color-inverse-fg)',
+      },
+      backgroundImage: {
+        'grain':
+          'radial-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.012) 1px, transparent 1px)',
+        'tone-a': 'var(--grad-tone-a)',
+        'tone-b': 'var(--grad-tone-b)',
+        'tone-c': 'var(--grad-tone-c)',
+        'tone-d': 'var(--grad-tone-d)',
+        'tone-e': 'var(--grad-tone-e)',
+        'tone-f': 'var(--grad-tone-f)',
+        'tone-g': 'var(--grad-tone-g)',
+        'tone-h': 'var(--grad-tone-h)',
+        'hero-radial': 'var(--grad-hero)',
+        'card-frame': 'var(--grad-card-frame)',
+        'card-inner': 'var(--grad-card-inner)',
+        'section-fade': 'var(--grad-section-fade)',
+        'section-fade-fire': 'var(--grad-section-fade-fire)',
+        'silver-fire': 'var(--grad-silver-fire)',
       },
       fontFamily: {
         goth: ['var(--font-pirata)', 'var(--font-unifraktur)', 'serif'],
@@ -31,10 +54,6 @@ const config: Config = {
       },
       letterSpacing: {
         ritual: '0.18em',
-      },
-      backgroundImage: {
-        'grain':
-          'radial-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.012) 1px, transparent 1px)',
       },
       backgroundSize: {
         grain: '3px 3px, 4px 4px',

@@ -29,10 +29,10 @@ export default async function ClaimsPage({ params: { locale } }: Props) {
           <span className="block h-px w-3.5 bg-fire" />
           {t('eyebrow')}
         </div>
-        <h1 className="m-0 font-black font-normal leading-[0.9] text-white text-[44px] md:text-[60px]">
+        <h1 className="m-0 font-black font-normal leading-[0.9] text-fg text-[44px] md:text-[60px]">
           {t('title')}
         </h1>
-        <p className="mt-3 font-body text-sm leading-relaxed text-white/80">
+        <p className="mt-3 font-body text-sm leading-relaxed text-fg/80">
           {t('intro')}
         </p>
         <p className="mt-3 font-mono text-[10px] uppercase tracking-ritual text-muted">

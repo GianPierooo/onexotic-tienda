@@ -53,7 +53,12 @@
     "story": "Historia",
     "search": "Buscar",
     "menu": "Menú",
-    "language": "Idioma"
+    "language": "Idioma",
+    "theme": "Tema",
+    "themeLight": "Activar modo claro",
+    "themeDark": "Activar modo oscuro",
+    "themeLightLabel": "Claro",
+    "themeDarkLabel": "Oscuro"
   },
   "search": {
     "label": "Buscar en el culto",

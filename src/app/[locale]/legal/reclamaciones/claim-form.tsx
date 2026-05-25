@@ -51,7 +51,7 @@ export function ClaimForm() {
 
   if (success) {
     return (
-      <div className="relative border border-fire bg-card p-6 text-white">
+      <div className="relative border border-fire bg-card p-6 text-fg">
         <GrainOverlay />
         <div className="relative">
           <div className="mb-2 font-mono text-[10px] uppercase tracking-[.32em] text-fire">
@@ -60,10 +60,10 @@ export function ClaimForm() {
           <h2 className="m-0 mb-3 font-goth text-3xl leading-tight">
             {t('success.title')}
           </h2>
-          <p className="font-body text-sm text-white/85">
+          <p className="font-body text-sm text-fg/85">
             {t('success.copy')}
           </p>
-          <div className="mt-4 inline-block border border-border bg-bg px-3 py-2 font-mono text-[12px] uppercase tracking-ritual text-white">
+          <div className="mt-4 inline-block border border-border bg-bg px-3 py-2 font-mono text-[12px] uppercase tracking-ritual text-fg">
             {t('success.number')}: {success}
           </div>
         </div>
@@ -163,7 +163,7 @@ export function ClaimForm() {
       <button
         type="submit"
         disabled={pending}
-        className="mt-2 flex items-center justify-center bg-fire px-5 py-4 font-body text-xs font-extrabold uppercase tracking-[.22em] text-white disabled:opacity-60"
+        className="mt-2 flex items-center justify-center bg-fire px-5 py-4 font-body text-xs font-extrabold uppercase tracking-[.22em] text-on-fire disabled:opacity-60"
       >
         {pending ? t('submitting') : t('submit')}
       </button>
@@ -203,9 +203,9 @@ function RadioPill({
       onClick={onClick}
       className="flex-1 border px-3 py-3 text-left transition-colors"
       style={{
-        background: active ? '#1E1E1E' : 'transparent',
-        borderColor: active ? '#B81414' : '#2A2A2A',
-        color: '#FFFFFF',
+        background: active ? 'var(--color-surface-alt)' : 'transparent',
+        borderColor: active ? 'var(--color-fire)' : 'var(--color-border)',
+        color: 'var(--color-fg)',
       }}
     >
       <div className="font-body text-[13px] font-bold uppercase tracking-wide">
@@ -247,7 +247,7 @@ function Field({
         required={required}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-white placeholder:text-muted focus:border-fire focus:outline-none"
+        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-fg placeholder:text-muted focus:border-fire focus:outline-none"
       />
     </label>
   );
@@ -280,7 +280,7 @@ function TextArea({
         placeholder={placeholder}
         rows={rows}
         onChange={(e) => onChange(e.target.value)}
-        className="border border-border bg-bg px-3 py-2.5 font-body text-[13px] text-white placeholder:text-muted focus:border-fire focus:outline-none"
+        className="border border-border bg-bg px-3 py-2.5 font-body text-[13px] text-fg placeholder:text-muted focus:border-fire focus:outline-none"
       />
     </label>
   );
@@ -305,7 +305,7 @@ function Select({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-white focus:border-fire focus:outline-none"
+        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-fg focus:border-fire focus:outline-none"
       >
         {options.map(([v, l]) => (
           <option key={v} value={v}>

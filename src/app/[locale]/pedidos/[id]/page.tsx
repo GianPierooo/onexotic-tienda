@@ -62,7 +62,7 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
           {t('eye')}
         </div>
         <div className="flex items-baseline justify-between gap-3">
-          <h1 className="m-0 font-black font-normal leading-[0.9] text-white text-[44px]">
+          <h1 className="m-0 font-black font-normal leading-[0.9] text-fg text-[44px]">
             {pedido.numero_pedido}
           </h1>
           <OrderStatus estado={pedido.estado} />
@@ -85,20 +85,20 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
                 key={s}
                 className="flex items-center gap-3 border border-border bg-card px-3.5 py-2.5"
                 style={{
-                  borderLeft: current ? '2px solid #B81414' : undefined,
+                  borderLeft: current ? '2px solid var(--color-fire)' : undefined,
                   opacity: cancelado ? 0.4 : 1,
                 }}
               >
                 <span
                   className="block h-2 w-2 rounded-full"
                   style={{
-                    background: done ? '#B81414' : '#2A2A2A',
-                    boxShadow: current ? '0 0 8px #B81414' : 'none',
+                    background: done ? 'var(--color-fire)' : 'var(--color-border)',
+                    boxShadow: current ? '0 0 8px var(--color-fire)' : 'none',
                   }}
                 />
                 <span
                   className="font-mono text-[11px] uppercase tracking-ritual"
-                  style={{ color: done ? '#FFFFFF' : '#888888' }}
+                  style={{ color: done ? 'var(--color-fg)' : 'var(--color-muted)' }}
                 >
                   {tStatus(s)}
                 </span>
@@ -122,10 +122,10 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
             <div
               key={it.id}
               className="flex items-start justify-between gap-3 px-3.5 py-3"
-              style={{ borderBottom: i < items.length - 1 ? '1px solid #2A2A2A' : 'none' }}
+              style={{ borderBottom: i < items.length - 1 ? '1px solid var(--color-border)' : 'none' }}
             >
               <div>
-                <div className="font-body text-sm font-bold text-white">
+                <div className="font-body text-sm font-bold text-fg">
                   {it.nombre_snapshot}
                 </div>
                 <div className="mt-0.5 font-mono text-[10px] uppercase tracking-ritual text-muted">
@@ -137,7 +137,7 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
                   {it.cantidad} × {formatSoles(Number(it.precio_unitario_pen))}
                 </div>
               </div>
-              <div className="font-body text-sm font-bold text-white">
+              <div className="font-body text-sm font-bold text-fg">
                 {formatSoles(Number(it.subtotal_pen ?? Number(it.precio_unitario_pen) * it.cantidad))}
               </div>
             </div>
@@ -164,7 +164,7 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
             <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
               {t('total.total')}
             </div>
-            <div className="font-body text-3xl font-extrabold text-white">
+            <div className="font-body text-3xl font-extrabold text-fg">
               {formatSoles(Number(pedido.total_pen))}
             </div>
           </div>
@@ -176,9 +176,9 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
           <div className="mb-3 font-mono text-[10px] uppercase tracking-ritual text-silver">
             ✦ {t('shipping.title')}
           </div>
-          <div className="border border-border bg-card p-4 font-body text-[13px] text-white">
+          <div className="border border-border bg-card p-4 font-body text-[13px] text-fg">
             <div className="font-bold">{direccion.destinatario}</div>
-            <div className="text-white/85">{direccion.direccion}</div>
+            <div className="text-fg/85">{direccion.direccion}</div>
             <div className="font-mono text-[10px] uppercase tracking-ritual text-muted">
               {direccion.distrito}
               {direccion.provincia ? `, ${direccion.provincia}` : ''}
@@ -194,7 +194,7 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
       <section className="border-t border-border px-4 py-6">
         <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
           {t('payment.method')} ·{' '}
-          <span className="text-white">{pedido.metodo_pago}</span>
+          <span className="text-fg">{pedido.metodo_pago}</span>
         </div>
         {pedido.metodo_pago === 'whatsapp' && (
           <a
@@ -203,7 +203,7 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center justify-center gap-2 border border-border bg-card px-4 py-3 font-body text-xs font-bold uppercase tracking-ritual text-white"
+            className="mt-3 inline-flex items-center justify-center gap-2 border border-border bg-card px-4 py-3 font-body text-xs font-bold uppercase tracking-ritual text-fg"
           >
             {t('payment.followWhatsapp')} · {STORE.whatsappLabel}
           </a>
@@ -235,7 +235,7 @@ function Row({
       <span className="text-muted">{label}</span>
       <span
         className="font-mono text-[12.5px]"
-        style={{ color: accent ? '#B81414' : '#FFFFFF' }}
+        style={{ color: accent ? 'var(--color-fire)' : 'var(--color-fg)' }}
       >
         {value}
       </span>

@@ -70,7 +70,7 @@ export function AuthForm({ next, initialMode }: Props) {
         <div className="mb-3 font-mono text-[10px] uppercase tracking-ritual text-fire">
           ✦ {t('check.eye')}
         </div>
-        <h1 className="m-0 mb-4 font-goth text-5xl leading-none text-white">
+        <h1 className="m-0 mb-4 font-goth text-5xl leading-none text-fg">
           {t('check.title')}
         </h1>
         <p className="font-body text-sm text-muted">
@@ -89,7 +89,7 @@ export function AuthForm({ next, initialMode }: Props) {
             <span className="block h-px w-3.5 bg-fire" />
             ✦ {t('eyebrow')}
           </div>
-          <h1 className="m-0 mb-5 font-goth text-5xl leading-none text-white">
+          <h1 className="m-0 mb-5 font-goth text-5xl leading-none text-fg">
             {mode === 'login' ? t('loginTitle') : t('signupTitle')}
           </h1>
 
@@ -154,7 +154,7 @@ export function AuthForm({ next, initialMode }: Props) {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="mt-2 flex items-center justify-center bg-fire px-5 py-3.5 font-body text-xs font-extrabold uppercase tracking-[.22em] text-white disabled:opacity-60"
+              className="mt-2 flex items-center justify-center bg-fire px-5 py-3.5 font-body text-xs font-extrabold uppercase tracking-[.22em] text-on-fire disabled:opacity-60"
             >
               {status === 'sending'
                 ? t('sending')
@@ -184,9 +184,9 @@ function Tab({
       onClick={onClick}
       className="flex-1 px-3 py-2.5 font-mono text-[10px] uppercase tracking-ritual transition-colors"
       style={{
-        background: active ? '#1E1E1E' : 'transparent',
-        color: active ? '#FFFFFF' : '#888888',
-        borderBottom: active ? '2px solid #B81414' : 'none',
+        background: active ? 'var(--color-surface-alt)' : 'transparent',
+        color: active ? 'var(--color-fg)' : 'var(--color-muted)',
+        borderBottom: active ? '2px solid var(--color-fire)' : 'none',
       }}
     >
       {label}
@@ -228,7 +228,7 @@ function Field({
         minLength={minLength}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="h-12 border border-border bg-bg px-3.5 font-body text-sm text-white placeholder:text-muted focus:border-fire focus:outline-none"
+        className="h-12 border border-border bg-bg px-3.5 font-body text-sm text-fg placeholder:text-muted focus:border-fire focus:outline-none"
       />
     </label>
   );

@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-border bg-bg pb-24 md:pb-12">
       <div className="mx-auto grid max-w-screen-xl gap-10 px-6 py-12 md:grid-cols-4">
         <div>
-          <p className="font-black text-3xl text-white">OnExotic</p>
+          <p className="font-black text-3xl text-fg">OnExotic</p>
           <p className="mt-3 max-w-xs text-sm text-muted">{tCommon('tagline')}</p>
         </div>
 
@@ -18,27 +18,27 @@ export function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-ritual text-silver">{t('legal')}</p>
           <ul className="mt-4 space-y-2 text-sm text-muted">
             <li>
-              <Link href="/legal/terminos" className="hover:text-white">
+              <Link href="/legal/terminos" className="hover:text-fg">
                 {t('terms')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/privacidad" className="hover:text-white">
+              <Link href="/legal/privacidad" className="hover:text-fg">
                 {t('privacy')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/cambios" className="hover:text-white">
+              <Link href="/legal/cambios" className="hover:text-fg">
                 {t('returns')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/envios" className="hover:text-white">
+              <Link href="/legal/envios" className="hover:text-fg">
                 {t('shipping')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/reclamaciones" className="hover:text-white">
+              <Link href="/legal/reclamaciones" className="hover:text-fg">
                 {t('claims')}
               </Link>
             </li>
@@ -53,7 +53,7 @@ export function Footer() {
                 href="https://instagram.com/onexotic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white"
+                className="hover:text-fg"
               >
                 Instagram
               </a>
@@ -63,7 +63,7 @@ export function Footer() {
                 href="https://tiktok.com/@onexotic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white"
+                className="hover:text-fg"
               >
                 TikTok
               </a>
@@ -73,7 +73,7 @@ export function Footer() {
                 href="https://facebook.com/onexotic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white"
+                className="hover:text-fg"
               >
                 Facebook
               </a>
@@ -85,7 +85,7 @@ export function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-ritual text-silver">{t('contact')}</p>
           <ul className="mt-4 space-y-2 text-sm text-muted">
             <li>
-              <a href="mailto:onexotic2005@gmail.com" className="hover:text-white">
+              <a href="mailto:onexotic2005@gmail.com" className="hover:text-fg">
                 onexotic2005@gmail.com
               </a>
             </li>
@@ -94,7 +94,7 @@ export function Footer() {
                 href="https://wa.me/51906517394"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white"
+                className="hover:text-fg"
               >
                 WhatsApp +51 906 517 394
               </a>

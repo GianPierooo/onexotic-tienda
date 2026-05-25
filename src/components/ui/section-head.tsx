@@ -21,7 +21,7 @@ export function SectionHead({ eyebrow, title, link }: Props) {
         {link && (
           <Link
             href={link.href}
-            className="border-b border-fire pb-0.5 font-mono text-[10px] uppercase tracking-ritual text-white"
+            className="border-b border-fire pb-0.5 font-mono text-[10px] uppercase tracking-ritual text-fg"
           >
             {link.label} →
           </Link>

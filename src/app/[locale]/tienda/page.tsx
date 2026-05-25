@@ -51,7 +51,7 @@ export default async function CatalogPage({
   if (!drop) {
     return (
       <section className="mx-auto max-w-screen-xl px-5 py-12">
-        <h1 className="font-black text-4xl text-white md:text-6xl">
+        <h1 className="font-black text-4xl text-fg md:text-6xl">
           {t('title')}
         </h1>
         <div className="mt-12">
@@ -79,14 +79,14 @@ export default async function CatalogPage({
             {t('chapter', { drop: drop.nombre })}
           </div>
           <div className="flex items-baseline justify-between gap-3">
-            <h1 className="m-0 font-black font-normal leading-[0.9] text-white text-[54px]">
+            <h1 className="m-0 font-black font-normal leading-[0.9] text-fg text-[54px]">
               {t('title')}
             </h1>
             <div className="text-right">
-              <div className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-ritual text-white">
+              <div className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-ritual text-fg">
                 <span
                   className="block h-1.5 w-1.5 rounded-full bg-fire"
-                  style={{ boxShadow: '0 0 8px #B81414' }}
+                  style={{ boxShadow: '0 0 8px var(--color-fire)' }}
                 />
                 {t('live')}
               </div>
@@ -121,7 +121,7 @@ export default async function CatalogPage({
           <div className="font-mono text-[9px] uppercase tracking-ritual text-silver">
             {t('stock')}
           </div>
-          <div className="mt-1 font-mono text-[11px] tracking-wide text-white">
+          <div className="mt-1 font-mono text-[11px] tracking-wide text-fg">
             {disponibles} {t('available')} ·{' '}
             <span className="text-muted">
               {agotadas} {t('sold')}

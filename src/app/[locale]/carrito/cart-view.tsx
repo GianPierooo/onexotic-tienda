@@ -29,13 +29,13 @@ export function CartView() {
         <div className="mb-3 font-mono text-[10px] uppercase tracking-ritual text-silver">
           ✦ {t('emptyEye')}
         </div>
-        <h1 className="m-0 mb-4 font-goth text-5xl leading-none text-white">
+        <h1 className="m-0 mb-4 font-goth text-5xl leading-none text-fg">
           {t('emptyTitle')}
         </h1>
         <p className="mb-8 font-body text-sm text-muted">{t('emptyCopy')}</p>
         <Link
           href="/tienda"
-          className="inline-flex items-center justify-center bg-fire px-6 py-3.5 font-body text-xs font-extrabold uppercase tracking-[.22em] text-white"
+          className="inline-flex items-center justify-center bg-fire px-6 py-3.5 font-body text-xs font-extrabold uppercase tracking-[.22em] text-on-fire"
         >
           {t('emptyCta')} →
         </Link>
@@ -59,14 +59,14 @@ export function CartView() {
         <div className="flex items-center justify-between px-4 pb-3 pt-3 font-mono text-[10px] uppercase tracking-ritual">
           <span className="text-silver">
             {t('title')} ·{' '}
-            <span className="text-white">
+            <span className="text-fg">
               {count} {count === 1 ? t('piece') : t('pieces')}
             </span>
           </span>
           <button
             type="button"
             onClick={clear}
-            className="border-b border-border pb-0.5 text-white hover:border-fire"
+            className="border-b border-border pb-0.5 text-fg hover:border-fire"
           >
             {t('clear')}
           </button>
@@ -76,7 +76,7 @@ export function CartView() {
             <span className="block h-px w-3.5 bg-fire" />
             {t('chapter')}
           </div>
-          <h1 className="m-0 font-black font-normal leading-[0.9] text-white text-[54px]">
+          <h1 className="m-0 font-black font-normal leading-[0.9] text-fg text-[54px]">
             {t('heroTitle')}
           </h1>
         </div>
@@ -85,7 +85,7 @@ export function CartView() {
       {/* Envío gratis */}
       <section
         className="mx-4 mt-3.5 border border-border bg-card px-4 py-4"
-        style={{ borderLeft: '2px solid #B81414' }}
+        style={{ borderLeft: '2px solid var(--color-fire)' }}
       >
         <div className="mb-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -98,7 +98,7 @@ export function CartView() {
             {t('ship.target')} · {formatSoles(threshold)}
           </div>
         </div>
-        <p className="m-0 mb-3 font-body text-[12.5px] leading-relaxed text-white/85">
+        <p className="m-0 mb-3 font-body text-[12.5px] leading-relaxed text-fg/85">
           {reached ? (
             <>
               {t('ship.gotIt')}{' '}
@@ -124,14 +124,14 @@ export function CartView() {
               className="h-full transition-[width] duration-500"
               style={{
                 width: `${pct}%`,
-                background: 'linear-gradient(90deg, #B81414 0%, #d62d2d 100%)',
-                boxShadow: '0 0 12px #B81414',
+                background: 'var(--color-fire)',
+                boxShadow: '0 0 12px var(--color-fire)',
               }}
             />
           </div>
           <div className="mt-2 flex justify-between font-mono text-[9px] uppercase tracking-ritual text-silver">
             <span>S/ 0</span>
-            <span className={pct >= 50 ? 'text-white' : 'text-muted'}>
+            <span className={pct >= 50 ? 'text-fg' : 'text-muted'}>
               {formatSoles(subtotal)}
             </span>
             <span>{formatSoles(threshold)}</span>
@@ -154,7 +154,7 @@ export function CartView() {
               style={{
                 gridTemplateColumns: '96px 1fr',
                 borderBottom:
-                  i === items.length - 1 ? 'none' : '1px solid #2A2A2A',
+                  i === items.length - 1 ? 'none' : '1px solid var(--color-border)',
               }}
             >
               <div
@@ -162,7 +162,7 @@ export function CartView() {
                 style={{
                   aspectRatio: '4 / 5',
                   background:
-                    'radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
+                    'var(--grad-tone-a)',
                 }}
               >
                 <GrainOverlay />
@@ -178,9 +178,8 @@ export function CartView() {
                   <div
                     className="absolute inset-[14%_22%_8%_22%] border"
                     style={{
-                      borderColor: '#1a1a1a',
-                      background:
-                        'linear-gradient(180deg, #161616 0%, #0a0a0a 100%)',
+                      borderColor: 'var(--card-frame-border)',
+                      background: 'var(--grad-card-inner)',
                     }}
                   />
                 )}
@@ -206,11 +205,11 @@ export function CartView() {
                       type="button"
                       aria-label="−"
                       onClick={() => setQty(it.productoId, it.cantidad - 1)}
-                      className="flex h-full w-9 items-center justify-center text-white"
+                      className="flex h-full w-9 items-center justify-center text-fg"
                     >
                       −
                     </button>
-                    <div className="w-8 text-center font-mono text-[13px] text-white">
+                    <div className="w-8 text-center font-mono text-[13px] text-fg">
                       {it.cantidad}
                     </div>
                     <button
@@ -218,7 +217,7 @@ export function CartView() {
                       aria-label="+"
                       onClick={() => setQty(it.productoId, it.cantidad + 1)}
                       disabled={it.stock > 0 && it.cantidad >= it.stock}
-                      className="flex h-full w-9 items-center justify-center text-white disabled:opacity-40"
+                      className="flex h-full w-9 items-center justify-center text-fg disabled:opacity-40"
                     >
                       +
                     </button>
@@ -229,7 +228,7 @@ export function CartView() {
                         {it.cantidad} × {formatSoles(it.precio)}
                       </div>
                     )}
-                    <div className="mt-0.5 font-body text-[17px] font-bold tracking-tight text-white">
+                    <div className="mt-0.5 font-body text-[17px] font-bold tracking-tight text-fg">
                       {formatSoles(it.precio * it.cantidad)}
                     </div>
                   </div>
@@ -278,7 +277,7 @@ export function CartView() {
               <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
                 {t('summary.installments')}
               </div>
-              <div className="mt-1.5 font-body text-sm font-bold text-white">
+              <div className="mt-1.5 font-body text-sm font-bold text-fg">
                 3 × {formatSoles(total / 3)}
               </div>
             </div>
@@ -292,7 +291,7 @@ export function CartView() {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2.5 border border-border bg-card px-3 py-3 font-body text-[11.5px] font-bold uppercase tracking-ritual text-white"
+          className="flex items-center justify-center gap-2.5 border border-border bg-card px-3 py-3 font-body text-[11.5px] font-bold uppercase tracking-ritual text-fg"
         >
           <WhatsIcon />
           {t('cta.whatsapp')}
@@ -302,9 +301,9 @@ export function CartView() {
         </a>
         <Link
           href="/checkout"
-          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-white"
+          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-fg"
           style={{
-            background: '#B81414',
+            background: 'var(--color-fire)',
             boxShadow: '0 -4px 24px rgba(184,20,20,.32)',
           }}
         >
@@ -322,7 +321,7 @@ function Attr({ label, value }: { label: string; value: string }) {
   return (
     <span className="inline-flex items-center gap-1.5 border border-border bg-card-alt px-2 py-1 font-mono text-[9px] uppercase tracking-ritual">
       <span className="text-muted">{label}</span>
-      <span className="text-white">{value}</span>
+      <span className="text-fg">{value}</span>
     </span>
   );
 }
@@ -341,7 +340,7 @@ function Row({
       <span className="text-muted">{label}</span>
       <span
         className="font-mono text-[12.5px]"
-        style={{ color: accent ? '#B81414' : '#FFFFFF' }}
+        style={{ color: accent ? 'var(--color-fire)' : 'var(--color-fg)' }}
       >
         {value}
       </span>
@@ -356,7 +355,7 @@ function TruckIcon() {
       height="18"
       viewBox="0 0 22 22"
       fill="none"
-      style={{ color: '#B81414' }}
+      style={{ color: 'var(--color-fire)' }}
       aria-hidden
     >
       <rect x="2" y="6" width="11" height="9" stroke="currentColor" strokeWidth="1.3" />

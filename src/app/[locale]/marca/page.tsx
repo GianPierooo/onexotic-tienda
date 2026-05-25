@@ -39,11 +39,11 @@ export default async function StoryPage({ params: { locale } }: Props) {
     <>
       {/* Hero */}
       <section
-        className="relative overflow-hidden text-white"
+        className="relative overflow-hidden text-fg"
         style={{
           height: 640,
           background:
-            'radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
+            'var(--grad-tone-a)',
         }}
       >
         <GrainOverlay />
@@ -55,14 +55,14 @@ export default async function StoryPage({ params: { locale } }: Props) {
         >
           <defs>
             <linearGradient id="hhs" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stopColor="#C0C0C0" stopOpacity="0" />
-              <stop offset=".5" stopColor="#C0C0C0" stopOpacity=".6" />
-              <stop offset="1" stopColor="#C0C0C0" stopOpacity="0" />
+              <stop offset="0" style={{ stopColor: "var(--color-silver)" }} stopOpacity="0" />
+              <stop offset=".5" style={{ stopColor: "var(--color-silver)" }} stopOpacity=".6" />
+              <stop offset="1" style={{ stopColor: "var(--color-silver)" }} stopOpacity="0" />
             </linearGradient>
             <linearGradient id="hhf" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stopColor="#B81414" stopOpacity="0" />
-              <stop offset=".5" stopColor="#B81414" stopOpacity=".75" />
-              <stop offset="1" stopColor="#B81414" stopOpacity="0" />
+              <stop offset="0" style={{ stopColor: "var(--color-fire)" }} stopOpacity="0" />
+              <stop offset=".5" style={{ stopColor: "var(--color-fire)" }} stopOpacity=".75" />
+              <stop offset="1" style={{ stopColor: "var(--color-fire)" }} stopOpacity="0" />
             </linearGradient>
           </defs>
           <line x1="40" y1="220" x2="360" y2="220" stroke="url(#hhs)" strokeWidth=".8" />
@@ -73,7 +73,7 @@ export default async function StoryPage({ params: { locale } }: Props) {
             strokeWidth="1.2"
             fill="none"
           />
-          <circle cx="200" cy="200" r="2.5" fill="#C0C0C0" opacity=".8" />
+          <circle cx="200" cy="200" r="2.5" style={{ fill: "var(--color-silver)" }} opacity=".8" />
         </svg>
         <div className="absolute inset-0 flex flex-col justify-between px-6 pb-8 pt-10">
           <div className="text-center">
@@ -88,14 +88,14 @@ export default async function StoryPage({ params: { locale } }: Props) {
               {t('hero.location')}
             </div>
             <h1
-              className="m-0 font-black font-normal leading-[0.82] text-white"
+              className="m-0 font-black font-normal leading-[0.82] text-fg"
               style={{ fontSize: 78, textShadow: '0 6px 40px rgba(0,0,0,.7)' }}
             >
               {t('hero.titleA')}
               <br />
               {t('hero.titleB')}
             </h1>
-            <p className="mx-auto mt-5 max-w-[290px] font-body text-[13.5px] leading-relaxed text-white/85">
+            <p className="mx-auto mt-5 max-w-[290px] font-body text-[13.5px] leading-relaxed text-fg/85">
               {t('hero.copy')}{' '}
               <span className="text-fire">{t('hero.copyAccent')}</span>
             </p>
@@ -119,7 +119,7 @@ export default async function StoryPage({ params: { locale } }: Props) {
             <div
               key={l}
               className="px-2 py-6 text-center"
-              style={{ borderRight: i < a.length - 1 ? '1px solid #2A2A2A' : 'none' }}
+              style={{ borderRight: i < a.length - 1 ? '1px solid var(--color-border)' : 'none' }}
             >
               <div className="font-goth text-4xl leading-none">{n}</div>
               <div className="mt-2 font-mono text-[8.5px] uppercase tracking-[.22em] text-silver">
@@ -187,7 +187,7 @@ export default async function StoryPage({ params: { locale } }: Props) {
       {/* Cierre */}
       <section
         className="relative overflow-hidden border-t border-border px-6 pb-10 pt-20 text-center"
-        style={{ background: 'linear-gradient(180deg, #0A0A0A 0%, #160707 100%)' }}
+        style={{ background: 'var(--grad-section-fade-fire)' }}
       >
         <GrainOverlay />
         <div
@@ -206,7 +206,7 @@ export default async function StoryPage({ params: { locale } }: Props) {
             ✦ {t('close.eye')} ✦
           </div>
           <h2
-            className="m-0 font-black font-normal leading-[0.85] text-white"
+            className="m-0 font-black font-normal leading-[0.85] text-fg"
             style={{ fontSize: 56 }}
           >
             {t('close.titleA')}
@@ -219,17 +219,17 @@ export default async function StoryPage({ params: { locale } }: Props) {
               {t('close.titleD')}
             </span>
           </h2>
-          <p className="mx-auto mb-7 mt-6 max-w-[280px] font-body text-[13px] leading-relaxed text-white/85">
+          <p className="mx-auto mb-7 mt-6 max-w-[280px] font-body text-[13px] leading-relaxed text-fg/85">
             {t('close.copy')}
           </p>
           <Link
             href="/tienda"
-            className="inline-flex items-center gap-3 bg-fire px-6 py-4 font-body text-xs font-extrabold uppercase tracking-[.28em] text-white"
+            className="inline-flex items-center gap-3 bg-fire px-6 py-4 font-body text-xs font-extrabold uppercase tracking-[.28em] text-on-fire"
             style={{ boxShadow: '0 10px 28px rgba(184,20,20,.35)' }}
           >
             {t('close.cta')} <span className="font-mono">→</span>
           </Link>
-          <div className="mt-12 font-black text-5xl leading-none text-white">
+          <div className="mt-12 font-black text-5xl leading-none text-fg">
             OnExotic
           </div>
           <div className="mt-3 font-mono text-[9px] uppercase tracking-[.32em] text-silver/60">
@@ -263,7 +263,7 @@ function Chapter({
             <span className="block h-px w-3.5 bg-fire" />
             {eye}
           </div>
-          <h2 className="m-0 font-black font-normal leading-[0.88] text-white text-4xl">
+          <h2 className="m-0 font-black font-normal leading-[0.88] text-fg text-4xl">
             {title}
           </h2>
         </div>
@@ -275,7 +275,7 @@ function Chapter({
 
 function Lede({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-5 m-0 font-body text-[15px] leading-relaxed text-white">
+    <p className="mb-5 m-0 font-body text-[15px] leading-relaxed text-fg">
       {children}
     </p>
   );
@@ -283,7 +283,7 @@ function Lede({ children }: { children: React.ReactNode }) {
 
 function P({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-4 m-0 font-body text-[13.5px] leading-relaxed text-white/85">
+    <p className="mb-4 m-0 font-body text-[13.5px] leading-relaxed text-fg/85">
       {children}
     </p>
   );
@@ -301,7 +301,7 @@ function Quote({ q, who }: { q: string; who: string }) {
         <div className="mb-2.5 font-mono text-lg tracking-[.4em] text-fire">
           {'“ ”'}
         </div>
-        <blockquote className="m-0 font-goth font-normal leading-none text-white text-3xl">
+        <blockquote className="m-0 font-goth font-normal leading-none text-fg text-3xl">
           {q}
         </blockquote>
         <div className="mt-6 inline-flex items-center gap-2.5 font-mono text-[9.5px] uppercase tracking-[.32em] text-silver">
@@ -339,14 +339,14 @@ function Timeline({
         <span className="block h-px w-3.5 bg-fire" />
         {t('timeline.eye')}
       </div>
-      <h2 className="m-0 mb-7 font-black font-normal leading-[0.88] text-white text-4xl">
+      <h2 className="m-0 mb-7 font-black font-normal leading-[0.88] text-fg text-4xl">
         {t('timeline.title')}
       </h2>
       <div className="relative pl-6">
         <div
           aria-hidden
           className="absolute bottom-1.5 left-1.5 top-1.5 w-px opacity-60"
-          style={{ background: 'linear-gradient(180deg, #C0C0C0 0%, #B81414 100%)' }}
+          style={{ background: 'var(--grad-silver-fire)' }}
         />
         {milestones.map((m) => (
           <div key={m.d} className="relative pb-6">
@@ -354,8 +354,8 @@ function Timeline({
               aria-hidden
               className="absolute left-[-22px] top-1.5 h-2.5 w-2.5 rotate-45 border-2 border-bg"
               style={{
-                background: m.live ? '#B81414' : '#C0C0C0',
-                boxShadow: m.live ? '0 0 12px #B81414' : 'none',
+                background: m.live ? 'var(--color-fire)' : 'var(--color-silver)',
+                boxShadow: m.live ? '0 0 12px var(--color-fire)' : 'none',
               }}
             />
             <div className="font-mono text-[9.5px] uppercase tracking-[.28em] text-silver">
@@ -367,7 +367,7 @@ function Timeline({
             <div className="mt-1 font-body text-[15px] font-extrabold uppercase tracking-wide">
               {m.t}
             </div>
-            <div className="mt-1 font-body text-[12.5px] leading-relaxed text-white/85">
+            <div className="mt-1 font-body text-[12.5px] leading-relaxed text-fg/85">
               {m.n}
             </div>
           </div>
@@ -394,7 +394,7 @@ function Pillars({
         <span className="block h-px w-3.5 bg-fire" />
         ✦ {t('pillars.eye')}
       </div>
-      <h2 className="m-0 mb-6 font-black font-normal leading-[0.88] text-white text-4xl">
+      <h2 className="m-0 mb-6 font-black font-normal leading-[0.88] text-fg text-4xl">
         {t('pillars.title')}
       </h2>
       <div className="flex flex-col gap-3">
@@ -402,7 +402,7 @@ function Pillars({
           <div
             key={it.no}
             className="grid gap-3 border border-border bg-card px-4 py-4"
-            style={{ gridTemplateColumns: '48px 1fr', borderLeft: '2px solid #B81414' }}
+            style={{ gridTemplateColumns: '48px 1fr', borderLeft: '2px solid var(--color-fire)' }}
           >
             <div className="font-goth text-4xl leading-none tracking-wide text-silver">
               {it.no}
@@ -411,7 +411,7 @@ function Pillars({
               <div className="font-body text-[14px] font-extrabold uppercase tracking-wide">
                 {it.t}
               </div>
-              <div className="mt-1.5 font-body text-[12.5px] leading-relaxed text-white/85">
+              <div className="mt-1.5 font-body text-[12.5px] leading-relaxed text-fg/85">
                 {it.d}
               </div>
             </div>
@@ -439,7 +439,7 @@ function Process({
         <span className="block h-px w-3.5 bg-fire" />
         {t('process.eye')}
       </div>
-      <h2 className="m-0 mb-5 font-black font-normal leading-[0.88] text-white text-4xl">
+      <h2 className="m-0 mb-5 font-black font-normal leading-[0.88] text-fg text-4xl">
         {t('process.titleA')}
         <br />
         {t('process.titleB')}

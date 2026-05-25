@@ -53,12 +53,12 @@ export function NotifyForm({ dropId, variant = 'block' }: Props) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('placeholder')}
           aria-label={t('placeholder')}
-          className="flex-1 bg-transparent px-3.5 py-3 font-body text-[13px] tracking-wide text-white outline-none placeholder:text-silver-dim"
+          className="flex-1 bg-transparent px-3.5 py-3 font-body text-[13px] tracking-wide text-fg outline-none placeholder:text-silver-dim"
         />
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="bg-fire px-5 font-body text-[10px] font-bold uppercase tracking-ritual text-white disabled:opacity-60"
+          className="bg-fire px-5 font-body text-[10px] font-bold uppercase tracking-ritual text-on-fire disabled:opacity-60"
         >
           {status === 'sending' ? '…' : t('cta')}
         </button>
@@ -79,12 +79,12 @@ export function NotifyForm({ dropId, variant = 'block' }: Props) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('placeholder')}
           aria-label={t('placeholder')}
-          className="flex-1 bg-transparent px-4 py-3.5 font-body text-[13px] tracking-wide text-white outline-none placeholder:text-silver-dim"
+          className="flex-1 bg-transparent px-4 py-3.5 font-body text-[13px] tracking-wide text-fg outline-none placeholder:text-silver-dim"
         />
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="bg-fire px-5 font-body text-xs font-bold uppercase tracking-ritual text-white disabled:opacity-60"
+          className="bg-fire px-5 font-body text-xs font-bold uppercase tracking-ritual text-on-fire disabled:opacity-60"
         >
           {status === 'sending' ? '…' : t('cta')}
         </button>

@@ -40,12 +40,12 @@ export function NewsletterCapture({ dropId }: Props) {
         onChange={(e) => setEmail(e.target.value)}
         placeholder={t('placeholder')}
         aria-label={t('placeholder')}
-        className="flex-1 bg-transparent px-3.5 py-3.5 font-body text-[13px] tracking-wide text-white outline-none placeholder:text-silver-dim"
+        className="flex-1 bg-transparent px-3.5 py-3.5 font-body text-[13px] tracking-wide text-fg outline-none placeholder:text-silver-dim"
       />
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="bg-white px-5 font-body text-[11px] font-bold uppercase tracking-ritual text-bg disabled:opacity-50"
+        className="bg-inverse-bg px-5 font-body text-[11px] font-bold uppercase tracking-ritual text-inverse-fg disabled:opacity-50"
       >
         {status === 'ok' ? t('done') : t('cta')}
       </button>

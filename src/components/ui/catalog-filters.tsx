@@ -111,9 +111,9 @@ function FilterRow({
             onClick={() => onChange(active ? '' : opt)}
             className="flex-none border px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-ritual transition-colors"
             style={{
-              background: active ? '#1E1E1E' : 'transparent',
-              borderColor: active ? '#B81414' : '#2A2A2A',
-              color: '#FFFFFF',
+              background: active ? 'var(--color-surface-alt)' : 'transparent',
+              borderColor: active ? 'var(--color-fire)' : 'var(--color-border)',
+              color: 'var(--color-fg)',
             }}
           >
             {opt}

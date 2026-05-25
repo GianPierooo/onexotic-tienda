@@ -54,7 +54,7 @@ export default async function ArchivePage({ params: { locale } }: Props) {
         className="relative overflow-hidden border-b border-border"
         style={{
           background:
-            'linear-gradient(180deg, #0e0606 0%, #0A0A0A 100%)',
+            'var(--grad-section-fade)',
         }}
       >
         <GrainOverlay />
@@ -65,17 +65,17 @@ export default async function ArchivePage({ params: { locale } }: Props) {
           height={340}
           aria-hidden
         >
-          <circle cx="200" cy="200" r="180" stroke="#C0C0C0" strokeWidth=".6" fill="none" />
+          <circle cx="200" cy="200" r="180" style={{ stroke: "var(--color-silver)" }} strokeWidth=".6" fill="none" />
           <circle
             cx="200"
             cy="200"
             r="150"
-            stroke="#C0C0C0"
+            style={{ stroke: "var(--color-silver)" }}
             strokeWidth=".4"
             fill="none"
             strokeDasharray="3 5"
           />
-          <circle cx="200" cy="200" r="120" stroke="#B81414" strokeWidth=".6" fill="none" />
+          <circle cx="200" cy="200" r="120" style={{ stroke: "var(--color-fire)" }} strokeWidth=".6" fill="none" />
         </svg>
         <div className="relative px-5 pb-8 pt-10">
           <div className="mb-3 inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[.36em] text-silver">
@@ -83,10 +83,10 @@ export default async function ArchivePage({ params: { locale } }: Props) {
             ✦ MMXXVI ✦
             <span className="block h-px w-4 bg-silver/60" />
           </div>
-          <h1 className="m-0 font-black font-normal leading-[0.82] text-white text-[78px] md:text-[100px]">
+          <h1 className="m-0 font-black font-normal leading-[0.82] text-fg text-[78px] md:text-[100px]">
             {t('hero.title')}
           </h1>
-          <p className="mb-5 mt-4 max-w-[300px] font-body text-[13.5px] leading-relaxed text-white/85">
+          <p className="mb-5 mt-4 max-w-[300px] font-body text-[13.5px] leading-relaxed text-fg/85">
             {t('hero.copyA')}
             <br />
             <span className="text-fire">{t('hero.copyB')}</span>
@@ -101,11 +101,11 @@ export default async function ArchivePage({ params: { locale } }: Props) {
               <div
                 key={l}
                 className="px-2 py-3.5 text-center"
-                style={{ borderRight: i < a.length - 1 ? '1px solid #2A2A2A' : 'none' }}
+                style={{ borderRight: i < a.length - 1 ? '1px solid var(--color-border)' : 'none' }}
               >
                 <div
                   className="font-goth text-3xl leading-none"
-                  style={{ color: i === 2 ? '#B81414' : '#FFFFFF' }}
+                  style={{ color: i === 2 ? 'var(--color-fire)' : 'var(--color-fg)' }}
                 >
                   {n}
                 </div>
@@ -122,7 +122,7 @@ export default async function ArchivePage({ params: { locale } }: Props) {
       {active && (
         <Link
           href="/tienda"
-          className="block border-b border-border text-white"
+          className="block border-b border-border text-fg"
           style={{
             background: 'linear-gradient(90deg, rgba(184,20,20,.18) 0%, transparent 70%)',
           }}
@@ -132,13 +132,13 @@ export default async function ArchivePage({ params: { locale } }: Props) {
               <div className="mb-1 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[.32em] text-fire">
                 <span
                   className="block h-1.5 w-1.5 rounded-full bg-fire"
-                  style={{ boxShadow: '0 0 10px #B81414' }}
+                  style={{ boxShadow: '0 0 10px var(--color-fire)' }}
                 />
                 {t('live.eye', { drop: active.nombre })}
               </div>
               <div className="font-goth text-3xl leading-none">{active.nombre}</div>
             </div>
-            <div className="bg-fire px-3 py-2.5 font-mono text-[10px] font-extrabold uppercase tracking-ritual text-white">
+            <div className="bg-fire px-3 py-2.5 font-mono text-[10px] font-extrabold uppercase tracking-ritual text-on-fire">
               {t('live.cta')} →
             </div>
           </div>
@@ -175,7 +175,7 @@ export default async function ArchivePage({ params: { locale } }: Props) {
                     tone={tone}
                     alignH={i % 2 === 0 ? 'right' : 'left'}
                     label={t('card.chapter', { n: chapter })}
-                    style={{ height: 360, borderBottom: '1px solid #2A2A2A' }}
+                    style={{ height: 360, borderBottom: '1px solid var(--color-border)' }}
                   >
                     {/* Watermark giant chapter number */}
                     <div
@@ -184,7 +184,7 @@ export default async function ArchivePage({ params: { locale } }: Props) {
                       style={{
                         fontSize: 140,
                         color: 'transparent',
-                        WebkitTextStroke: '1px #C0C0C0',
+                        WebkitTextStroke: '1px var(--color-silver)',
                         opacity: 0.35,
                       }}
                     >
@@ -197,8 +197,8 @@ export default async function ArchivePage({ params: { locale } }: Props) {
                       className="pointer-events-none absolute inset-0 h-full w-full opacity-[.08]"
                       aria-hidden
                     >
-                      <line x1="6" y1="6" x2="94" y2="94" stroke="#C0C0C0" strokeWidth=".5" />
-                      <line x1="94" y1="6" x2="6" y2="94" stroke="#C0C0C0" strokeWidth=".5" />
+                      <line x1="6" y1="6" x2="94" y2="94" style={{ stroke: "var(--color-silver)" }} strokeWidth=".5" />
+                      <line x1="94" y1="6" x2="6" y2="94" style={{ stroke: "var(--color-silver)" }} strokeWidth=".5" />
                     </svg>
                     {/* CERRADO seal */}
                     <div className="absolute right-3 top-3 z-[2]">
@@ -212,7 +212,7 @@ export default async function ArchivePage({ params: { locale } }: Props) {
                         </div>
                       )}
                       <div
-                        className="font-black font-normal leading-[0.85] text-white"
+                        className="font-black font-normal leading-[0.85] text-fg"
                         style={{
                           fontSize: 44,
                           textShadow: '0 4px 24px rgba(0,0,0,.6)',
@@ -236,14 +236,14 @@ export default async function ArchivePage({ params: { locale } }: Props) {
                   </div>
                   <div className="mt-4 grid grid-cols-3 border border-border bg-card">
                     {[
-                      [piezas.toString(), t('card.stats.pieces'), '#FFFFFF'],
-                      [drop.estado === 'archivado' ? t('card.archived') : t('card.soldOut'), t('card.stats.state'), '#B81414'],
-                      ['00', t('card.stats.restock'), '#C0C0C0'],
+                      [piezas.toString(), t('card.stats.pieces'), 'var(--color-fg)'],
+                      [drop.estado === 'archivado' ? t('card.archived') : t('card.soldOut'), t('card.stats.state'), 'var(--color-fire)'],
+                      ['00', t('card.stats.restock'), 'var(--color-silver)'],
                     ].map(([v, k, color], idx, arr) => (
                       <div
                         key={k}
                         className="px-2 py-3 text-center"
-                        style={{ borderRight: idx < arr.length - 1 ? '1px solid #2A2A2A' : 'none' }}
+                        style={{ borderRight: idx < arr.length - 1 ? '1px solid var(--color-border)' : 'none' }}
                       >
                         <div
                           className="font-mono text-[13px] font-bold"
@@ -269,7 +269,7 @@ export default async function ArchivePage({ params: { locale } }: Props) {
         <section
           className="relative overflow-hidden border-t border-border px-5 py-12 text-center"
           style={{
-            background: 'linear-gradient(180deg, #0A0A0A 0%, #160707 100%)',
+            background: 'var(--grad-section-fade-fire)',
           }}
         >
           <GrainOverlay />
@@ -297,11 +297,11 @@ export default async function ArchivePage({ params: { locale } }: Props) {
                 })}
               </div>
             )}
-            <h2 className="m-0 font-black font-normal leading-[0.85] text-white text-[60px]">
+            <h2 className="m-0 font-black font-normal leading-[0.85] text-fg text-[60px]">
               {upcoming.nombre}
             </h2>
             {upcoming.concepto && (
-              <p className="mx-auto mb-5 mt-4 max-w-[300px] font-body text-[13px] leading-relaxed text-white/85">
+              <p className="mx-auto mb-5 mt-4 max-w-[300px] font-body text-[13px] leading-relaxed text-fg/85">
                 {upcoming.concepto}
               </p>
             )}
@@ -334,7 +334,7 @@ function ClosedSeal({ date, label }: { date: string; label: string }) {
   return (
     <div
       className="inline-flex items-center gap-2 border px-2.5 py-1.5 font-mono text-[9px] font-extrabold uppercase tracking-[.32em] text-silver"
-      style={{ borderColor: '#C0C0C0', background: 'rgba(10,10,10,.6)' }}
+      style={{ borderColor: 'var(--color-silver)', background: 'rgba(10,10,10,.6)' }}
     >
       <span className="block h-1.5 w-1.5 rounded-full bg-silver" />
       {label} · {date}

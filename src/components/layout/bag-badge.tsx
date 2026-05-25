@@ -14,12 +14,12 @@ export function BagBadge() {
     <Link
       href="/carrito"
       aria-label={t('bag')}
-      className="relative flex h-10 w-10 items-center justify-center text-white hover:text-silver"
+      className="relative flex h-10 w-10 items-center justify-center text-fg hover:text-silver"
     >
       <BagIcon />
       {show && (
         <span
-          className="absolute -right-1 -top-0.5 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full bg-fire px-1 font-mono text-[10px] font-bold leading-none text-white"
+          className="absolute -right-1 -top-0.5 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full bg-fire px-1 font-mono text-[10px] font-bold leading-none text-on-fire"
           aria-label={`${count} ${t('bag')}`}
         >
           {count}

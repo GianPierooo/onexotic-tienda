@@ -121,6 +121,33 @@ export function CloseIcon({ size = 22, ...rest }: IconProps) {
   );
 }
 
+export function SunIcon({ size = 22, ...rest }: IconProps) {
+  return (
+    <svg {...svgProps(size, rest)} viewBox="0 0 22 22">
+      <circle cx="11" cy="11" r="4" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M11 2v2M11 18v2M2 11h2M18 11h2M4.5 4.5l1.4 1.4M16.1 16.1l1.4 1.4M4.5 17.5l1.4-1.4M16.1 5.9l1.4-1.4"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
+
+export function MoonIcon({ size = 22, ...rest }: IconProps) {
+  return (
+    <svg {...svgProps(size, rest)} viewBox="0 0 22 22">
+      <path
+        d="M18.5 13.5A7.5 7.5 0 1 1 8.5 3.5a6 6 0 0 0 10 10z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="miter"
+      />
+    </svg>
+  );
+}
+
 export function GlobeIcon({ size = 22, ...rest }: IconProps) {
   return (
     <svg {...svgProps(size, rest)} viewBox="0 0 22 22">

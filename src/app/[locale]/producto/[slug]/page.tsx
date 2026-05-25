@@ -135,7 +135,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
           </span>
           <span className="text-silver">{base.tipo}</span>
         </div>
-        <h1 className="m-0 font-black font-normal leading-[.85] text-white text-[58px] md:text-[68px]">
+        <h1 className="m-0 font-black font-normal leading-[.85] text-fg text-[58px] md:text-[68px]">
           {base.nombre}
         </h1>
         <div className="mt-3 flex items-baseline justify-between">
@@ -146,7 +146,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
             <div className="font-mono text-[9px] uppercase tracking-ritual text-silver">
               {t('header.price')}
             </div>
-            <div className="mt-1 font-body text-[28px] font-bold tracking-tight text-white">
+            <div className="mt-1 font-body text-[28px] font-bold tracking-tight text-fg">
               {formatSoles(precio)}
             </div>
           </div>
@@ -156,15 +156,15 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
       {/* Alerta de stock */}
       <div
         className="mx-5 mb-5 flex items-center justify-between border border-border bg-card px-4 py-3"
-        style={{ borderLeft: '2px solid #B81414' }}
+        style={{ borderLeft: '2px solid var(--color-fire)' }}
       >
         <div className="font-mono text-[10px] uppercase tracking-ritual">
           {agotado ? (
-            <span className="text-white">{t('stock.none')}</span>
+            <span className="text-fg">{t('stock.none')}</span>
           ) : (
             <>
               <span className="text-fire">{stockTotal}</span>{' '}
-              <span className="text-white">{t('stock.alive')}</span>
+              <span className="text-fg">{t('stock.alive')}</span>
             </>
           )}
         </div>
@@ -187,7 +187,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
           <br />
           {t('ritual.titleB')}
         </h2>
-        <p className="m-0 font-body text-[13.5px] leading-relaxed text-white/85">
+        <p className="m-0 font-body text-[13.5px] leading-relaxed text-fg/85">
           {t('ritual.copy')}
         </p>
 
@@ -201,12 +201,12 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
             <div
               key={k}
               className="grid grid-cols-[110px_1fr] gap-2 px-3.5 py-3"
-              style={{ borderBottom: i < a.length - 1 ? '1px solid #2A2A2A' : 'none' }}
+              style={{ borderBottom: i < a.length - 1 ? '1px solid var(--color-border)' : 'none' }}
             >
               <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
                 {t(`spec.${k}`)}
               </div>
-              <div className="font-body text-[12.5px] text-white">{v}</div>
+              <div className="font-body text-[12.5px] text-fg">{v}</div>
             </div>
           ))}
         </div>

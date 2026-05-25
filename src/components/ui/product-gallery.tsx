@@ -49,7 +49,7 @@ export function ProductGallery({
         style={{
           aspectRatio: '4 / 5',
           background:
-            'radial-gradient(120% 80% at 70% 20%, #2a1208 0%, #0e0606 55%, #050202 100%)',
+            'var(--grad-tone-a)',
         }}
       >
         <GrainOverlay />
@@ -82,9 +82,9 @@ export function ProductGallery({
               <div
                 className="absolute inset-[12%_22%_8%_22%] border"
                 style={{
-                  borderColor: '#1a1a1a',
+                  borderColor: 'var(--card-frame-border)',
                   background:
-                    'linear-gradient(180deg, rgba(255,255,255,.04) 0%, transparent 60%), linear-gradient(180deg, #161616 0%, #0a0a0a 100%)',
+                    'var(--grad-card-inner)',
                 }}
               />
             )}
@@ -93,14 +93,14 @@ export function ProductGallery({
 
         <div className="pointer-events-none absolute left-3.5 top-3.5 flex gap-1.5">
           <span
-            className="pointer-events-auto inline-flex items-center gap-1.5 border border-border px-2 py-1 font-mono text-[9px] uppercase tracking-ritual text-white"
+            className="pointer-events-auto inline-flex items-center gap-1.5 border border-border px-2 py-1 font-mono text-[9px] uppercase tracking-ritual text-fg"
             style={{ background: 'rgba(10,10,10,.65)' }}
           >
             <span className="block h-1.5 w-1.5 rounded-full bg-fire" />
             {badgeLive}
           </span>
           {agotado && (
-            <span className="bg-white px-2 py-1 font-mono text-[9px] font-bold uppercase tracking-ritual text-bg">
+            <span className="bg-inverse-bg px-2 py-1 font-mono text-[9px] font-bold uppercase tracking-ritual text-inverse-fg">
               {badgeSoldOut}
             </span>
           )}
@@ -108,7 +108,7 @@ export function ProductGallery({
 
         {sku && (
           <div
-            className="pointer-events-none absolute bottom-3.5 right-3.5 border border-border px-2 py-1 font-mono text-[10px] uppercase tracking-ritual text-white"
+            className="pointer-events-none absolute bottom-3.5 right-3.5 border border-border px-2 py-1 font-mono text-[10px] uppercase tracking-ritual text-fg"
             style={{ background: 'rgba(10,10,10,.7)' }}
           >
             {sku}
@@ -117,7 +117,7 @@ export function ProductGallery({
 
         {total > 1 && (
           <>
-            <div className="pointer-events-none absolute bottom-3.5 left-3.5 z-[2] font-mono text-[10px] uppercase tracking-ritual text-white/85">
+            <div className="pointer-events-none absolute bottom-3.5 left-3.5 z-[2] font-mono text-[10px] uppercase tracking-ritual text-fg/85">
               {(index + 1).toString().padStart(2, '0')} / {total.toString().padStart(2, '0')}
             </div>
             <div className="pointer-events-none absolute bottom-5 left-1/2 z-[2] flex -translate-x-1/2 gap-1.5">
@@ -127,7 +127,7 @@ export function ProductGallery({
                   className="block h-[3px] transition-all"
                   style={{
                     width: i === index ? 18 : 6,
-                    background: i === index ? '#B81414' : 'rgba(255,255,255,.35)',
+                    background: i === index ? 'var(--color-fire)' : 'rgba(255,255,255,.35)',
                   }}
                 />
               ))}
@@ -136,7 +136,7 @@ export function ProductGallery({
               type="button"
               aria-label="anterior"
               onClick={() => go(index - 1)}
-              className="absolute left-2 top-1/2 z-[3] -translate-y-1/2 border border-border bg-bg/55 px-2 py-2 text-white backdrop-blur-sm hover:border-fire"
+              className="absolute left-2 top-1/2 z-[3] -translate-y-1/2 border border-border bg-bg/55 px-2 py-2 text-fg backdrop-blur-sm hover:border-fire"
             >
               ←
             </button>
@@ -144,7 +144,7 @@ export function ProductGallery({
               type="button"
               aria-label="siguiente"
               onClick={() => go(index + 1)}
-              className="absolute right-2 top-1/2 z-[3] -translate-y-1/2 border border-border bg-bg/55 px-2 py-2 text-white backdrop-blur-sm hover:border-fire"
+              className="absolute right-2 top-1/2 z-[3] -translate-y-1/2 border border-border bg-bg/55 px-2 py-2 text-fg backdrop-blur-sm hover:border-fire"
             >
               →
             </button>
@@ -163,9 +163,9 @@ export function ProductGallery({
               className="relative overflow-hidden border transition-colors"
               style={{
                 aspectRatio: '1 / 1',
-                borderColor: i === index ? '#B81414' : '#2A2A2A',
+                borderColor: i === index ? 'var(--color-fire)' : 'var(--color-border)',
                 background:
-                  'radial-gradient(110% 90% at 30% 30%, #1a1a1a 0%, #0b0b0b 60%, #050505 100%)',
+                  'var(--grad-tone-b)',
               }}
             >
               {src && (

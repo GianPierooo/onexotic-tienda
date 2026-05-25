@@ -163,7 +163,7 @@ export function AddressForm({ initial, onSaved, onCancel }: Props) {
         <button
           type="submit"
           disabled={pending}
-          className="flex-1 bg-fire px-4 py-3 font-body text-xs font-extrabold uppercase tracking-[.22em] text-white disabled:opacity-60"
+          className="flex-1 bg-fire px-4 py-3 font-body text-xs font-extrabold uppercase tracking-[.22em] text-on-fire disabled:opacity-60"
         >
           {pending ? t('saving') : t('save')}
         </button>
@@ -171,7 +171,7 @@ export function AddressForm({ initial, onSaved, onCancel }: Props) {
           <button
             type="button"
             onClick={onCancel}
-            className="border border-border bg-card px-4 py-3 font-body text-xs font-bold uppercase tracking-ritual text-white"
+            className="border border-border bg-card px-4 py-3 font-body text-xs font-bold uppercase tracking-ritual text-fg"
           >
             {t('cancel')}
           </button>
@@ -208,7 +208,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-white placeholder:text-muted focus:border-fire focus:outline-none"
+        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-fg placeholder:text-muted focus:border-fire focus:outline-none"
       />
     </label>
   );
@@ -236,7 +236,7 @@ function SelectField({
         value={value}
         required={required}
         onChange={(e) => onChange(e.target.value)}
-        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-white focus:border-fire focus:outline-none"
+        className="h-11 border border-border bg-bg px-3 font-body text-[13px] text-fg focus:border-fire focus:outline-none"
       >
         <option value="">—</option>
         {options.map(([v, l]) => (

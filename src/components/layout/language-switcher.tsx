@@ -29,8 +29,8 @@ export function LanguageSwitcher({
 
   const triggerClass =
     variant === 'icon'
-      ? 'flex h-10 w-10 items-center justify-center text-white hover:text-silver'
-      : 'flex h-9 items-center gap-2 rounded-full border border-border px-3 text-xs font-mono uppercase tracking-ritual text-silver hover:border-silver hover:text-white';
+      ? 'flex h-10 w-10 items-center justify-center text-fg hover:text-silver'
+      : 'flex h-9 items-center gap-2 rounded-full border border-border px-3 text-xs font-mono uppercase tracking-ritual text-silver hover:border-silver hover:text-fg';
 
   return (
     <div className={cn('relative', className)}>
@@ -65,7 +65,7 @@ export function LanguageSwitcher({
                 onClick={() => switchTo(l)}
                 className={cn(
                   'flex w-full items-center justify-between px-4 py-3 text-left text-sm font-body transition-colors hover:bg-card-alt',
-                  l === locale ? 'text-white' : 'text-muted'
+                  l === locale ? 'text-fg' : 'text-muted'
                 )}
               >
                 <span>{localeLabels[l]}</span>

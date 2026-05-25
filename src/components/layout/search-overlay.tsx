@@ -44,7 +44,7 @@ export function SearchOverlay({ className }: Props) {
         onClick={() => setOpen(true)}
         className={
           className ??
-          'flex h-10 w-10 items-center justify-center text-white hover:text-silver'
+          'flex h-10 w-10 items-center justify-center text-fg hover:text-silver'
         }
       >
         <SearchIcon />
@@ -72,7 +72,7 @@ export function SearchOverlay({ className }: Props) {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -24, opacity: 0 }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="relative mx-auto mt-20 w-[92%] max-w-xl border border-border bg-card p-5 text-white"
+              className="relative mx-auto mt-20 w-[92%] max-w-xl border border-border bg-card p-5 text-fg"
             >
               <div className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-ritual text-silver">
                 <span className="flex items-center gap-2">
@@ -83,12 +83,12 @@ export function SearchOverlay({ className }: Props) {
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label={tSearch('close')}
-                  className="text-white"
+                  className="text-fg"
                 >
                   <CloseIcon size={18} />
                 </button>
               </div>
-              <h2 className="m-0 mb-4 font-goth text-3xl leading-none text-white">
+              <h2 className="m-0 mb-4 font-goth text-3xl leading-none text-fg">
                 {tSearch('title')}
               </h2>
               <form onSubmit={onSubmit} className="flex border border-border bg-bg">
@@ -99,11 +99,11 @@ export function SearchOverlay({ className }: Props) {
                   onChange={(e) => setQ(e.target.value)}
                   placeholder={tSearch('placeholder')}
                   aria-label={tSearch('placeholder')}
-                  className="flex-1 bg-transparent px-3.5 py-3.5 font-body text-[14px] tracking-wide text-white outline-none placeholder:text-silver-dim"
+                  className="flex-1 bg-transparent px-3.5 py-3.5 font-body text-[14px] tracking-wide text-fg outline-none placeholder:text-silver-dim"
                 />
                 <button
                   type="submit"
-                  className="bg-fire px-5 font-body text-xs font-bold uppercase tracking-ritual text-white"
+                  className="bg-fire px-5 font-body text-xs font-bold uppercase tracking-ritual text-on-fire"
                 >
                   {tSearch('cta')}
                 </button>

@@ -73,8 +73,8 @@ export default async function ShippingPage({ params: { locale } }: Props) {
 function Row({ zone, cost, time }: { zone: string; cost: string; time: string }) {
   return (
     <div className="grid grid-cols-3 px-4 py-3 font-body text-[13px]">
-      <span className="font-bold uppercase tracking-wide text-white">{zone}</span>
-      <span className="font-mono text-[12px] text-white">{cost}</span>
+      <span className="font-bold uppercase tracking-wide text-fg">{zone}</span>
+      <span className="font-mono text-[12px] text-fg">{cost}</span>
       <span className="text-right font-mono text-[12px] text-muted">{time}</span>
     </div>
   );

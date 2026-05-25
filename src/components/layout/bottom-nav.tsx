@@ -39,7 +39,7 @@ export function BottomNav() {
                 href={href}
                 className={cn(
                   'flex h-[72px] flex-col items-center justify-center gap-1 text-[10px] uppercase tracking-ritual font-mono transition-colors',
-                  active ? 'text-white' : 'text-muted',
+                  active ? 'text-fg' : 'text-muted',
                   highlight && !active && 'text-silver'
                 )}
               >
