@@ -37,10 +37,13 @@ export function MobileMenu() {
 
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
     };
   }, [open]);
 
@@ -65,12 +68,14 @@ export function MobileMenu() {
         {open && (
           <motion.div
             key="mobile-menu"
-            className="fixed inset-0 z-50 md:hidden"
+            className="fixed inset-0 z-[70] md:hidden"
+            style={{ height: '100dvh' }}
             aria-modal="true"
             role="dialog"
           >
             <motion.div
               className="absolute inset-0 bg-bg/80 backdrop-blur-sm"
+              style={{ height: '100dvh' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -82,7 +87,8 @@ export function MobileMenu() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'tween', duration: 0.28, ease: 'easeOut' }}
-              className="relative ml-0 flex h-full w-[86%] max-w-[360px] flex-col border-r border-border bg-bg"
+              className="absolute inset-y-0 left-0 ml-0 flex w-[86%] max-w-[360px] flex-col border-r border-border bg-bg"
+              style={{ height: '100dvh', backgroundColor: '#0A0A0A' }}
             >
               <div className="flex h-14 items-center justify-between border-b border-border px-4">
                 <span className="font-black text-2xl text-white">OnExotic</span>
