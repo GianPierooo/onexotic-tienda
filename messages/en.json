@@ -31,6 +31,24 @@
       "description": "How OnExotic was born in Lima in 2025. Limited drops, hand-made, no restock. The street made us. The cult makes us."
     }
   },
+  "a11y": {
+    "skip": "Skip to content"
+  },
+  "cookies": {
+    "eyebrow": "cookies",
+    "copy": "We use cookies to improve your experience and understand what the cult is watching. We never sell your data.",
+    "link": "Read the policy",
+    "accept": "Got it",
+    "close": "Close"
+  },
+  "miniCart": {
+    "added": "added to the ritual",
+    "size": "Size",
+    "totals": "{count} in bag · {total}",
+    "keep": "Keep browsing",
+    "view": "View bag",
+    "close": "Close"
+  },
   "common": {
     "brand": "OnExotic",
     "tagline": "Not fashion. Hierarchy.",
@@ -40,7 +58,8 @@
     "retry": "Retry",
     "empty": "No pieces in this chapter yet.",
     "back": "Back",
-    "close": "Close"
+    "close": "Close",
+    "approxUsd": "approx. ${value}"
   },
   "search": {
     "label": "Search the cult",
@@ -388,7 +407,8 @@
     "stock": {
       "alive": "live pieces",
       "none": "No stock",
-      "noRestock": "no restock"
+      "noRestock": "no restock",
+      "lowOnly": "Only {count} left"
     },
     "size": {
       "label": "Size",
@@ -460,7 +480,9 @@
       "miss": "You're",
       "for": "away from free shipping.",
       "gotIt": "The cult rewards you.",
-      "zero": "Zero shipping cost."
+      "zero": "Zero shipping cost.",
+      "peruOnly": "Benefit applies to shipments within Peru only.",
+      "intlNote": "International shipping: cost calculated at checkout per destination."
     },
     "summary": {
       "eye": "Cult tally",
@@ -611,6 +633,39 @@
     "back": "Back to bag",
     "errors": {
       "noAddress": "Pick or create a shipping address"
+    },
+    "gate": {
+      "eyebrow": "Secure checkout",
+      "title": "Seal the ritual",
+      "subtitle": "Pick how you want to continue",
+      "tabs": {
+        "guest": "Continue as guest",
+        "login": "Sign in"
+      },
+      "loginCopy": "Enter the cult to use saved addresses and view your history.",
+      "loginCta": "Sign in"
+    },
+    "guest": {
+      "contactEye": "Guest info",
+      "contactTitle": "Who's buying?",
+      "name": "Name",
+      "notes": "Notes (optional)",
+      "notesPlaceholder": "Delivery instructions, preferred size, etc.",
+      "whatsappNote": "We confirm stock and payment via WhatsApp {phone}. A copy of your order goes to your email.",
+      "submit": "Request order via WhatsApp",
+      "errors": {
+        "email": "Invalid email",
+        "missing": "Fill in name, phone and address",
+        "invalid_email": "Invalid email",
+        "missing_fields": "Fill in name, phone and address",
+        "cart_empty": "Your bag is empty"
+      },
+      "success": {
+        "eye": "Request received",
+        "title": "It's in motion",
+        "copy": "Your request {ref} reached the cult. If WhatsApp didn't open, use the button.",
+        "cta": "Open WhatsApp"
+      }
     }
   },
   "archive": {

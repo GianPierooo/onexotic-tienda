@@ -7,6 +7,9 @@ import { Analytics } from '@vercel/analytics/next';
 import { Header } from '@/components/layout/header';
 import { BottomNav } from '@/components/layout/bottom-nav';
 import { Footer } from '@/components/layout/footer';
+import { SkipLink } from '@/components/layout/skip-link';
+import { CookieBanner } from '@/components/layout/cookie-banner';
+import { MiniCartToast } from '@/components/cart/mini-cart-toast';
 import { CartProvider } from '@/lib/cart/cart-context';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { archivo, jetbrains, pirata, unifraktur } from '@/lib/fonts';
@@ -71,12 +74,15 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <CartProvider>
+              <SkipLink />
               <div className="min-h-screen bg-bg text-fg">
                 <Header />
-                <main className="pb-nav md:pb-0">{children}</main>
+                <main id="contenido" className="pb-nav md:pb-0">{children}</main>
                 <Footer />
                 <BottomNav />
               </div>
+              <MiniCartToast />
+              <CookieBanner />
             </CartProvider>
           </NextIntlClientProvider>
         </ThemeProvider>

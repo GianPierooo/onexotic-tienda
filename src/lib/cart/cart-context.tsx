@@ -34,6 +34,8 @@ type CartContextValue = CartState & {
   clear: () => void;
   count: number;
   subtotal: number;
+  lastAdded: CartItem | null;
+  dismissLastAdded: () => void;
 };
 
 const STORAGE_KEY = 'onexotic.cart.v1';
@@ -68,6 +70,7 @@ function isCartItem(x: unknown): x is CartItem {
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  const [lastAdded, setLastAdded] = useState<CartItem | null>(null);
 
   useEffect(() => {
     setItems(safeLoad());
@@ -84,21 +87,25 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items, hydrated]);
 
   const add = useCallback<CartContextValue['add']>((item, cantidad = 1) => {
+    let added: CartItem | null = null;
     setItems((prev) => {
       const idx = prev.findIndex((p) => p.productoId === item.productoId);
       if (idx === -1) {
-        return [
-          ...prev,
-          { ...item, cantidad: clamp(cantidad, 1, item.stock || 99) },
-        ];
+        const next = { ...item, cantidad: clamp(cantidad, 1, item.stock || 99) };
+        added = next;
+        return [...prev, next];
       }
       const next = [...prev];
       const cur = next[idx]!;
       const max = Math.max(item.stock || cur.stock || 99, 1);
       next[idx] = { ...cur, cantidad: clamp(cur.cantidad + cantidad, 1, max) };
+      added = next[idx];
       return next;
     });
+    if (added) setLastAdded(added);
   }, []);
+
+  const dismissLastAdded = useCallback(() => setLastAdded(null), []);
 
   const remove = useCallback((productoId: string) => {
     setItems((prev) => prev.filter((p) => p.productoId !== productoId));
@@ -126,8 +133,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 
   const value = useMemo<CartContextValue>(
-    () => ({ items, hydrated, add, remove, setQty, clear, count, subtotal }),
-    [items, hydrated, add, remove, setQty, clear, count, subtotal]
+    () => ({
+      items,
+      hydrated,
+      add,
+      remove,
+      setQty,
+      clear,
+      count,
+      subtotal,
+      lastAdded,
+      dismissLastAdded,
+    }),
+    [items, hydrated, add, remove, setQty, clear, count, subtotal, lastAdded, dismissLastAdded]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -161,6 +161,10 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
         <div className="font-mono text-[10px] uppercase tracking-ritual">
           {agotado ? (
             <span className="text-fg">{t('stock.none')}</span>
+          ) : stockTotal <= 5 ? (
+            <span className="animate-pulse-fire text-fire">
+              {t('stock.lowOnly', { count: stockTotal })}
+            </span>
           ) : (
             <>
               <span className="text-fire">{stockTotal}</span>{' '}

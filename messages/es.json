@@ -40,6 +40,25 @@
     "retry": "Reintentar",
     "empty": "Aún no hay piezas en este capítulo.",
     "back": "Volver",
+    "close": "Cerrar",
+    "approxUsd": "aprox. ${value}"
+  },
+  "a11y": {
+    "skip": "Saltar al contenido"
+  },
+  "cookies": {
+    "eyebrow": "cookies",
+    "copy": "Usamos cookies para mejorar tu experiencia y entender qué piezas miran los fieles. Cero datos vendidos.",
+    "link": "Lee la política",
+    "accept": "Entendido",
+    "close": "Cerrar"
+  },
+  "miniCart": {
+    "added": "se sumó al ritual",
+    "size": "Talla",
+    "totals": "{count} en bolsa · {total}",
+    "keep": "Seguir mirando",
+    "view": "Ver bolsa",
     "close": "Cerrar"
   },
   "nav": {
@@ -388,7 +407,8 @@
     "stock": {
       "alive": "piezas vivas",
       "none": "Sin stock",
-      "noRestock": "sin restock"
+      "noRestock": "sin restock",
+      "lowOnly": "Solo quedan {count}"
     },
     "size": {
       "label": "Talla",
@@ -460,7 +480,9 @@
       "miss": "Te faltan",
       "for": "para envío gratis.",
       "gotIt": "El culto te recompensa.",
-      "zero": "Cero costo de envío."
+      "zero": "Cero costo de envío.",
+      "peruOnly": "Beneficio válido solo para envíos dentro de Perú.",
+      "intlNote": "Envío internacional: costo calculado en el checkout según destino."
     },
     "summary": {
       "eye": "Recuento del culto",
@@ -611,6 +633,39 @@
     "back": "Volver a la bolsa",
     "errors": {
       "noAddress": "Elige o crea una dirección de envío"
+    },
+    "gate": {
+      "eyebrow": "Pago seguro",
+      "title": "Sellar el ritual",
+      "subtitle": "Elige cómo quieres seguir",
+      "tabs": {
+        "guest": "Continuar como invitado",
+        "login": "Iniciar sesión"
+      },
+      "loginCopy": "Entra al culto para usar tus direcciones guardadas y ver tu historial.",
+      "loginCta": "Iniciar sesión"
+    },
+    "guest": {
+      "contactEye": "Datos del invitado",
+      "contactTitle": "¿Quién compra?",
+      "name": "Nombre",
+      "notes": "Notas (opcional)",
+      "notesPlaceholder": "Indicaciones para la entrega, talla preferida, etc.",
+      "whatsappNote": "Confirmamos disponibilidad y pago por WhatsApp {phone}. Recibirás copia del pedido en tu correo.",
+      "submit": "Solicitar pedido por WhatsApp",
+      "errors": {
+        "email": "Correo inválido",
+        "missing": "Completa nombre, teléfono y dirección",
+        "invalid_email": "Correo inválido",
+        "missing_fields": "Completa nombre, teléfono y dirección",
+        "cart_empty": "Tu bolsa está vacía"
+      },
+      "success": {
+        "eye": "Solicitud recibida",
+        "title": "Quedó en marcha",
+        "copy": "Tu solicitud {ref} ya viajó al culto. Si WhatsApp no abrió solo, usa el botón.",
+        "cta": "Abrir WhatsApp"
+      }
     }
   },
   "archive": {

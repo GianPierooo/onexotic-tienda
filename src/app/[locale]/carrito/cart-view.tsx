@@ -136,6 +136,12 @@ export function CartView() {
             </span>
             <span>{formatSoles(threshold)}</span>
           </div>
+          <p className="mt-2.5 font-mono text-[9px] uppercase tracking-ritual text-muted">
+            ✦ {t('ship.peruOnly')}
+          </p>
+          <p className="font-mono text-[9px] uppercase tracking-ritual text-muted">
+            ✦ {t('ship.intlNote')}
+          </p>
         </div>
       </section>
 
