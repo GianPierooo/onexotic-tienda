@@ -48,6 +48,15 @@ export function MobileMenu() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false);
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   function switchTo(target: Locale) {
     setOpen(false);
     router.replace(pathname, { locale: target });

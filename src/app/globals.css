@@ -147,6 +147,32 @@
     color: var(--color-on-fire);
   }
 
+  /* Focus-visible coherente en ambos temas y respetuoso con la marca. */
+  :focus-visible {
+    outline: 2px solid var(--color-fire);
+    outline-offset: 2px;
+    border-radius: 1px;
+  }
+
+  /* Inputs nativos: reforzar focus para que el outline gane al border. */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline-offset: 0;
+  }
+
+  /* Respeto al usuario que reduce movimiento. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   /* Scrollbar oscura discreta */
   ::-webkit-scrollbar {
     width: 8px;

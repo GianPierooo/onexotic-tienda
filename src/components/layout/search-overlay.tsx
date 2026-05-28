@@ -23,9 +23,14 @@ export function SearchOverlay({ className }: Props) {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const id = setTimeout(() => inputRef.current?.focus(), 80);
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false);
+    }
+    window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = prev;
       clearTimeout(id);
+      window.removeEventListener('keydown', onKey);
     };
   }, [open]);
 

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { CloseIcon } from '@/components/icons';
+import { useEscape, useBodyScrollLock } from '@/lib/hooks/use-escape';
 
 type Unit = 'cm' | 'in';
 type Category = 'tops' | 'pantalones' | 'shorts' | 'unica';
@@ -66,6 +67,9 @@ export function SizeGuide({ category = 'tops' }: { category?: Category }) {
   const [open, setOpen] = useState(false);
   const [unit, setUnit] = useState<Unit>('cm');
   const [tab, setTab] = useState<Category>(category);
+
+  useEscape(open, () => setOpen(false));
+  useBodyScrollLock(open);
 
   const table = TABLES[tab];
 
