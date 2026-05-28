@@ -491,6 +491,30 @@
       "eye": "verify your email",
       "title": "Almost in",
       "copy": "We sent a link to {email}. Open it to seal the ritual."
+    },
+    "verified": {
+      "metaTitleOk": "Account verified",
+      "metaTitleError": "Invalid link",
+      "ok": {
+        "eye": "ritual sealed",
+        "title": "Your account is verified",
+        "copy": "You're in the cult. Head to your account or jump straight to the drop.",
+        "ctaAccount": "Go to my account",
+        "ctaShop": "Enter the drop"
+      },
+      "error": {
+        "eye": "broken link",
+        "title": "This link no longer works",
+        "copy": "The verification link is invalid or has expired. Resend the email or sign in if you already verified.",
+        "resendEye": "resend email",
+        "resendPlaceholder": "you@email.com",
+        "resendCta": "Resend link",
+        "resendSending": "Invoking…",
+        "resendDone": "Done. Check your inbox.",
+        "resendInvalid": "Invalid email",
+        "resendFailed": "Could not resend. Try again in a few minutes.",
+        "ctaLogin": "Sign in"
+      }
     }
   },
   "account": {

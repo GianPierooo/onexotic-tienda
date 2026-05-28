@@ -1,7 +1,15 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import type { Database } from '@/lib/supabase/database.types';
-import { defaultLocale } from '@/lib/i18n/config';
+import { defaultLocale, locales } from '@/lib/i18n/config';
+
+function pickLocale(nextParam: string | null): string {
+  if (!nextParam || !nextParam.startsWith('/')) return defaultLocale;
+  const first = nextParam.split('/')[1];
+  return (locales as readonly string[]).includes(first ?? '')
+    ? (first as string)
+    : defaultLocale;
+}
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
@@ -10,18 +18,28 @@ export async function GET(request: NextRequest) {
   const safeNext =
     nextParam && nextParam.startsWith('/') && !nextParam.startsWith('//')
       ? nextParam
-      : `/${defaultLocale}/cuenta`;
+      : null;
+  const locale = pickLocale(safeNext);
 
-  const redirectUrl = new URL(safeNext, origin);
-  const response = NextResponse.redirect(redirectUrl);
+  function buildRedirect(status: 'ok' | 'error') {
+    const url = new URL(`/${locale}/auth/verificado`, origin);
+    if (status === 'error') url.searchParams.set('status', 'error');
+    if (status === 'ok' && safeNext) url.searchParams.set('next', safeNext);
+    return url;
+  }
 
-  if (!code) return response;
+  if (!code) {
+    return NextResponse.redirect(buildRedirect('error'));
+  }
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return response;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!supabaseUrl || !supabaseKey) {
+    return NextResponse.redirect(buildRedirect('error'));
+  }
 
-  const supabase = createServerClient<Database>(url, key, {
+  const response = NextResponse.redirect(buildRedirect('ok'));
+  const supabase = createServerClient<Database>(supabaseUrl, supabaseKey, {
     cookies: {
       get(name: string) {
         return request.cookies.get(name)?.value;
@@ -37,9 +55,7 @@ export async function GET(request: NextRequest) {
 
   const { error } = await supabase.auth.exchangeCodeForSession(code);
   if (error) {
-    const errorUrl = new URL(`/${defaultLocale}/cuenta/acceso`, origin);
-    errorUrl.searchParams.set('error', 'auth_callback');
-    return NextResponse.redirect(errorUrl);
+    return NextResponse.redirect(buildRedirect('error'));
   }
 
   return response;
