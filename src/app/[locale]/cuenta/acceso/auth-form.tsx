@@ -1,10 +1,17 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import { GrainOverlay } from '@/components/ui/grain-overlay';
+
+function getSiteBaseUrl(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
+  if (fromEnv) return fromEnv;
+  if (typeof window !== 'undefined') return window.location.origin;
+  return 'https://onexotic.shop';
+}
 
 type Mode = 'login' | 'signup';
 type Status = 'idle' | 'sending' | 'error' | 'check_email';
@@ -13,6 +20,7 @@ type Props = { next: string; initialMode: Mode };
 
 export function AuthForm({ next, initialMode }: Props) {
   const t = useTranslations('auth');
+  const locale = useLocale();
   const router = useRouter();
   const [mode, setMode] = useState<Mode>(initialMode);
   const [status, setStatus] = useState<Status>('idle');
@@ -43,11 +51,15 @@ export function AuthForm({ next, initialMode }: Props) {
       router.push(next);
       router.refresh();
     } else {
+      const baseUrl = getSiteBaseUrl();
+      const nextPath = next?.startsWith('/') ? next : `/${locale}/cuenta`;
+      const emailRedirectTo = `${baseUrl}/auth/callback?next=${encodeURIComponent(nextPath)}`;
       const { data, error } = await supabase.auth.signUp({
         email: form.email.trim(),
         password: form.password,
         options: {
           data: { nombre: form.nombre, telefono: form.telefono },
+          emailRedirectTo,
         },
       });
       if (error) {
