@@ -400,6 +400,14 @@
     "help": "Help",
     "faq": "FAQ"
   },
+  "badges": {
+    "soldOut": "Sold out",
+    "lastPieces": "Last pieces",
+    "lastPiecesN": "Last {n}",
+    "fresh": "Just landed",
+    "live": "Live chapter",
+    "upcoming": "Upcoming"
+  },
   "trust": {
     "eyebrow": "Cult seals",
     "ship": { "title": "Safe shipping", "copy": "Packed and tracked across Peru." },
@@ -521,6 +529,9 @@
       "askWhatsapp": "Ask on WhatsApp",
       "goPay": "Go to pay"
     },
+    "notifyEye": "Notify me if it returns",
+    "notifyTitle": "This piece is gone",
+    "notifyCopy": "Drop your email and we'll tell you first if it's in the next drop.",
     "guide": {
       "cta": "Size guide",
       "eyebrow": "Measures",

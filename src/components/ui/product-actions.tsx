@@ -8,6 +8,7 @@ import { useCart } from '@/lib/cart/cart-context';
 import { buildProductWhatsAppUrl } from '@/lib/cart/whatsapp';
 import { formatSoles, STORE } from '@/lib/store-config';
 import { SizeGuide } from './size-guide';
+import { NotifyForm } from './notify-form';
 import { BagIcon } from '@/components/icons';
 
 export type Variant = {
@@ -174,6 +175,20 @@ export function ProductActions({ variants, tipo }: Props) {
           })}
         </div>
       </section>
+
+      {todoAgotado && (
+        <section className="mx-5 mb-5 border border-border bg-card p-4">
+          <div className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-ritual text-silver">
+            <span className="block h-px w-3.5 bg-fire" />
+            {t('notifyEye')}
+          </div>
+          <h3 className="m-0 mb-2 font-goth text-2xl leading-tight text-fg">
+            {t('notifyTitle')}
+          </h3>
+          <p className="mb-3 font-body text-[12.5px] text-muted">{t('notifyCopy')}</p>
+          <NotifyForm dropId={null} variant="inline" />
+        </section>
+      )}
 
       <section className="sticky bottom-0 z-30 mt-4 flex flex-col gap-2.5 border-t border-border bg-bg/95 px-4 py-3.5 backdrop-blur-md">
         <a

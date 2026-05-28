@@ -400,6 +400,14 @@
     "help": "Ayuda",
     "faq": "Preguntas frecuentes"
   },
+  "badges": {
+    "soldOut": "Agotado",
+    "lastPieces": "Últimas piezas",
+    "lastPiecesN": "Últimas {n}",
+    "fresh": "Recién llegado",
+    "live": "Capítulo activo",
+    "upcoming": "Próximo"
+  },
   "trust": {
     "eyebrow": "Sellos del culto",
     "ship": {
@@ -533,6 +541,9 @@
       "askWhatsapp": "Pregunta por WhatsApp",
       "goPay": "Ir a pagar"
     },
+    "notifyEye": "Avísame si vuelve",
+    "notifyTitle": "Esta pieza se acabó",
+    "notifyCopy": "Déjanos tu correo y te avisamos primero si entra en el siguiente drop.",
     "guide": {
       "cta": "Guía de tallas",
       "eyebrow": "Medidas",
