@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="mt-24 border-t border-border bg-bg pb-24 md:pb-12">
-      <div className="mx-auto grid max-w-screen-xl gap-10 px-6 py-12 md:grid-cols-4">
+      <div className="mx-auto grid max-w-screen-xl gap-10 px-6 py-12 md:grid-cols-5">
         <div>
           <p className="font-black text-3xl text-fg">OnExotic</p>
           <p className="mt-3 max-w-xs text-sm text-muted">{tCommon('tagline')}</p>
@@ -41,6 +41,17 @@ export function Footer() {
               <Link href="/legal/reclamaciones" className="hover:text-fg">
                 {t('claims')}
               </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-ritual text-silver">{t('help')}</p>
+          <ul className="mt-4 space-y-2 text-sm text-muted">
+            <li>
+              <Link href="/faq" className="hover:text-fg">{t('faq')}</Link>
+            </li>
+            <li>
+              <Link href="/contacto" className="hover:text-fg">{t('contact')}</Link>
             </li>
           </ul>
         </div>

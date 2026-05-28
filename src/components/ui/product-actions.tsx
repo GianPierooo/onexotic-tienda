@@ -24,9 +24,18 @@ export type Variant = {
 
 type Props = {
   variants: Variant[];
+  tipo?: string;
 };
 
-export function ProductActions({ variants }: Props) {
+function categoryFromTipo(tipo: string | undefined) {
+  const t = (tipo ?? '').toLowerCase();
+  if (/pant|jean|trouser/.test(t)) return 'pantalones' as const;
+  if (/short|bermuda/.test(t)) return 'shorts' as const;
+  if (/acces|gorra|cap|bag/.test(t)) return 'unica' as const;
+  return 'tops' as const;
+}
+
+export function ProductActions({ variants, tipo }: Props) {
   const t = useTranslations('product');
   const router = useRouter();
   const cart = useCart();
@@ -104,7 +113,7 @@ export function ProductActions({ variants }: Props) {
               · {selected?.talla ?? '—'}
             </span>
           </div>
-          <SizeGuide />
+          <SizeGuide category={categoryFromTipo(tipo)} />
         </div>
 
         <div className="grid grid-cols-4 gap-2">

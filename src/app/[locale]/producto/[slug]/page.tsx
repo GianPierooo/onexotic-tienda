@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ProductActions, type Variant } from '@/components/ui/product-actions';
 import { ProductCard } from '@/components/ui/product-card';
 import { ProductGallery } from '@/components/ui/product-gallery';
+import { Reviews } from '@/components/ui/reviews';
 import {
   galleryFor,
   getProductoBySlug,
@@ -178,7 +179,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
       </div>
 
       {/* Selector + acciones */}
-      <ProductActions variants={variants} />
+      <ProductActions variants={variants} tipo={base.tipo} />
 
       {/* Descripción */}
       <section className="border-t border-border bg-bg px-5 py-6">
@@ -215,6 +216,11 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
           ))}
         </div>
       </section>
+
+      {/* Reseñas — tabla resenias aún no aplicada (ver
+          supabase/migrations/_propuestas/0002_resenias.sql), por ahora
+          renderizamos el estado vacío. */}
+      <Reviews reviews={[]} />
 
       {related.length > 0 && (
         <section className="border-t border-border px-5 py-7">

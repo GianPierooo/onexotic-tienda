@@ -6,6 +6,7 @@ import { GrainOverlay } from '@/components/ui/grain-overlay';
 import { SectionHead } from '@/components/ui/section-head';
 import { ProductCard } from '@/components/ui/product-card';
 import { NewsletterCapture } from '@/components/ui/newsletter-capture';
+import { TrustBadges } from '@/components/ui/trust-badges';
 import { EmptyState } from '@/components/ui/states';
 import { getActiveDrop, getFeaturedProducts, getUpcomingDrop } from '@/lib/queries';
 import { groupForCards } from '@/lib/product-grouping';
@@ -130,6 +131,8 @@ export default async function HomePage({ params: { locale } }: Props) {
           href="/tienda?tipo=streetwear"
         />
       </div>
+
+      <TrustBadges />
 
       {/* Lookbook teaser */}
       <SectionHead

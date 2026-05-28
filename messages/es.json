@@ -396,7 +396,116 @@
     "shipping": "Envíos y entregas",
     "claims": "Libro de reclamaciones",
     "follow": "Síguenos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "help": "Ayuda",
+    "faq": "Preguntas frecuentes"
+  },
+  "trust": {
+    "eyebrow": "Sellos del culto",
+    "ship": {
+      "title": "Envío seguro",
+      "copy": "Empacado y rastreado a todo Perú."
+    },
+    "pay": {
+      "title": "Pago seguro",
+      "copy": "Yape, Plin, transferencia. Sin sustos."
+    },
+    "wa": {
+      "title": "Atención por WhatsApp",
+      "copy": "Te respondemos cuando importa."
+    },
+    "drop": {
+      "title": "Drops limitados",
+      "copy": "Hecho en Lima. Sin restock."
+    }
+  },
+  "reviews": {
+    "eyebrow": "Voces del culto",
+    "title": "{count} reseñas",
+    "emptyTitle": "Sé el primero en reseñar este capítulo",
+    "emptyCopy": "Cuando recibas tu pieza, vuelve y cuéntanos cómo cayó. Cada reseña ayuda a los siguientes fieles."
+  },
+  "faq": {
+    "meta": {
+      "title": "Preguntas frecuentes",
+      "description": "Tiempos y costos de envío, cuidado de las prendas, devoluciones, tallas, próximos drops y métodos de pago de OnExotic."
+    },
+    "eyebrow": "Preguntas del culto",
+    "title": "Preguntas frecuentes",
+    "intro": "Lo que más nos preguntan, en una sola página. Si no lo encuentras, escríbenos por WhatsApp o por el formulario de contacto.",
+    "moreEye": "¿No está aquí?",
+    "moreCopy": "Escríbenos y te respondemos sin demora.",
+    "moreCta": "Contactar",
+    "linkPolicies": "Ver política completa",
+    "q": {
+      "shippingPeru": {
+        "question": "¿Cuánto tarda y cuesta el envío en Perú?",
+        "answer": "Lima Metropolitana: 1–3 días hábiles desde el despacho. Provincia: 3–7 días hábiles. Envío gratis sobre S/ 250 dentro de Perú; bajo el umbral se cobra según la zona (Lima desde S/ 15, Provincia desde S/ 25)."
+      },
+      "shippingIntl": {
+        "question": "¿Envían fuera de Perú?",
+        "answer": "Sí. Envío internacional con tarifa fija, 7–20 días hábiles según país. El monto no incluye impuestos de importación del país destino: esos los asume el cliente al recibir el paquete. El umbral de envío gratis aplica solo dentro de Perú."
+      },
+      "care": {
+        "question": "¿Cómo cuido la prenda?",
+        "answer": "Lavado en frío, al revés, ciclo corto. Plancha al revés a temperatura media. Evita secadora; tu pieza dura el doble."
+      },
+      "returns": {
+        "question": "¿Puedo cambiar o devolver?",
+        "answer": "7 días desde la recepción, sin uso, con etiqueta original. En cambios voluntarios el cliente asume el envío; si fue defecto nuestro lo cubrimos."
+      },
+      "sizes": {
+        "question": "¿Cómo elijo la talla?",
+        "answer": "Las medidas están en cada producto. Abre la guía de tallas para ver cm/pulgadas y cómo medirte. Si dudas entre dos tallas, sube una: la silueta es oversize."
+      },
+      "nextDrops": {
+        "question": "¿Cuándo es el próximo drop?",
+        "answer": "Los fieles del culto se enteran primero. Suscríbete con tu correo en home o en el archivo y te avisamos antes del lanzamiento. Sin restock."
+      },
+      "payments": {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Por ahora coordinamos por WhatsApp (Yape, Plin, transferencia). Próximamente pagos online por Culqi (tarjeta, Yape, Plin)."
+      },
+      "guest": {
+        "question": "¿Puedo comprar sin crear cuenta?",
+        "answer": "Sí. En el checkout elige 'Continuar como invitado': pides el pedido por WhatsApp y te llega copia al correo. Si prefieres historial, crea cuenta antes."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacto",
+      "description": "Escríbenos por WhatsApp, correo o el formulario de contacto. El culto responde."
+    },
+    "eyebrow": "Hablemos",
+    "title": "Contacto",
+    "intro": "Tres canales abiertos. Elige el que te quede mejor.",
+    "channels": {
+      "whatsapp": "WhatsApp",
+      "openWa": "Abrir WhatsApp",
+      "email": "Correo",
+      "openEmail": "Escribir",
+      "social": "Redes",
+      "socialSoon": "Próximamente",
+      "socialSoonHint": "Conectaremos handles oficiales aquí."
+    },
+    "form": {
+      "title": "Envíanos un mensaje",
+      "name": "Nombre",
+      "email": "Correo",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos qué necesitas…",
+      "submit": "Enviar",
+      "sending": "Enviando…",
+      "successEye": "Mensaje recibido",
+      "successCopy": "Te respondemos por correo en cuanto podamos.",
+      "errors": {
+        "email": "Correo inválido",
+        "missing": "Completa nombre y mensaje",
+        "failed": "No pudimos enviar. Intenta en unos minutos."
+      }
+    }
   },
   "product": {
     "header": {
@@ -427,11 +536,28 @@
       "cta": "Guía de tallas",
       "eyebrow": "Medidas",
       "title": "Guía de tallas",
-      "intro": "Medidas en centímetros sobre la prenda. Si dudas entre dos tallas, sube una: la silueta es oversize.",
+      "intro": "Medidas sobre la prenda. Si dudas entre dos tallas, sube una: la silueta es oversize.",
+      "unit": "Unidad",
+      "close": "Cerrar",
       "size": "Talla",
       "chest": "Pecho",
       "length": "Largo",
       "sleeve": "Manga",
+      "waist": "Cintura",
+      "hip": "Cadera",
+      "width": "Ancho",
+      "height": "Alto",
+      "cat": {
+        "tops": "Polos / Poleras",
+        "pantalones": "Pantalones",
+        "shorts": "Shorts",
+        "unica": "Talla única"
+      },
+      "howTitle": "Cómo medirte",
+      "howChest": "Pecho: contornea la parte más amplia, brazos relajados.",
+      "howWaist": "Cintura: sobre el ombligo, sin apretar.",
+      "howHip": "Cadera: parte más ancha, pies juntos.",
+      "howLength": "Largo: del hombro al punto más bajo de la prenda.",
       "note": "◦ Aceptamos cambios dentro de 7 días, sin uso."
     },
     "ritual": {

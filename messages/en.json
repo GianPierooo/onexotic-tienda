@@ -396,7 +396,104 @@
     "shipping": "Shipping & delivery",
     "claims": "Complaints book",
     "follow": "Follow us",
-    "contact": "Contact"
+    "contact": "Contact",
+    "help": "Help",
+    "faq": "FAQ"
+  },
+  "trust": {
+    "eyebrow": "Cult seals",
+    "ship": { "title": "Safe shipping", "copy": "Packed and tracked across Peru." },
+    "pay": { "title": "Safe payments", "copy": "Yape, Plin, transfer. No surprises." },
+    "wa": { "title": "WhatsApp support", "copy": "We answer when it matters." },
+    "drop": { "title": "Limited drops", "copy": "Made in Lima. No restock." }
+  },
+  "reviews": {
+    "eyebrow": "Voices of the cult",
+    "title": "{count} reviews",
+    "emptyTitle": "Be the first to review this chapter",
+    "emptyCopy": "Once your piece lands, come back and tell us how it fell. Each review helps the next followers."
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ",
+      "description": "Shipping times and costs, garment care, returns, sizes, upcoming drops and payment methods at OnExotic."
+    },
+    "eyebrow": "Cult questions",
+    "title": "FAQ",
+    "intro": "Most-asked questions, in one page. If it's not here, message us on WhatsApp or via the contact form.",
+    "moreEye": "Not here?",
+    "moreCopy": "Write to us and we'll answer without delay.",
+    "moreCta": "Contact",
+    "linkPolicies": "View full policy",
+    "q": {
+      "shippingPeru": {
+        "question": "How long and how much is shipping in Peru?",
+        "answer": "Metropolitan Lima: 1–3 business days after dispatch. Regional Peru: 3–7 business days. Free shipping above S/ 250 within Peru; below the threshold, fees apply per zone (Lima from S/ 15, Regional from S/ 25)."
+      },
+      "shippingIntl": {
+        "question": "Do you ship outside Peru?",
+        "answer": "Yes. Fixed-rate international shipping, 7–20 business days depending on destination. Import duties are not included and are paid by the customer on delivery. The free-shipping threshold applies only within Peru."
+      },
+      "care": {
+        "question": "How do I care for the garment?",
+        "answer": "Cold wash, inside out, short cycle. Iron inside out at medium heat. Skip the dryer; your piece will last twice as long."
+      },
+      "returns": {
+        "question": "Can I exchange or return?",
+        "answer": "Within 7 days of delivery, unused, with original tag. For voluntary exchanges the customer covers return shipping; if it was our defect, we cover it."
+      },
+      "sizes": {
+        "question": "How do I pick my size?",
+        "answer": "Measurements live on each product. Open the size guide for cm/inches and how to measure yourself. If in doubt between two sizes, size up: the silhouette is oversize."
+      },
+      "nextDrops": {
+        "question": "When is the next drop?",
+        "answer": "The cult finds out first. Subscribe with your email on home or the archive and we'll ping you before launch. No restock."
+      },
+      "payments": {
+        "question": "Which payment methods do you accept?",
+        "answer": "For now, coordinated via WhatsApp (Yape, Plin, transfer). Online payments via Culqi (card, Yape, Plin) coming soon."
+      },
+      "guest": {
+        "question": "Can I check out without an account?",
+        "answer": "Yes. At checkout pick 'Continue as guest': you place the order via WhatsApp and get a copy by email. If you want a history, create an account first."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Reach us on WhatsApp, email or the contact form. The cult answers."
+    },
+    "eyebrow": "Let's talk",
+    "title": "Contact",
+    "intro": "Three open channels. Pick the one that fits.",
+    "channels": {
+      "whatsapp": "WhatsApp",
+      "openWa": "Open WhatsApp",
+      "email": "Email",
+      "openEmail": "Write",
+      "social": "Socials",
+      "socialSoon": "Coming soon",
+      "socialSoonHint": "We'll wire up official handles here."
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "messagePlaceholder": "Tell us what you need…",
+      "submit": "Send",
+      "sending": "Sending…",
+      "successEye": "Message received",
+      "successCopy": "We'll get back to you by email as soon as we can.",
+      "errors": {
+        "email": "Invalid email",
+        "missing": "Fill in name and message",
+        "failed": "Could not send. Try again in a few minutes."
+      }
+    }
   },
   "product": {
     "header": {
@@ -427,11 +524,28 @@
       "cta": "Size guide",
       "eyebrow": "Measures",
       "title": "Size guide",
-      "intro": "Measurements in centimeters over the garment. When in doubt, size up: the silhouette is oversize.",
+      "intro": "Measurements over the garment. When in doubt, size up: the silhouette is oversize.",
+      "unit": "Unit",
+      "close": "Close",
       "size": "Size",
       "chest": "Chest",
       "length": "Length",
       "sleeve": "Sleeve",
+      "waist": "Waist",
+      "hip": "Hip",
+      "width": "Width",
+      "height": "Height",
+      "cat": {
+        "tops": "Tops / Tees",
+        "pantalones": "Pants",
+        "shorts": "Shorts",
+        "unica": "One size"
+      },
+      "howTitle": "How to measure",
+      "howChest": "Chest: around the fullest part, arms relaxed.",
+      "howWaist": "Waist: above the navel, don't tighten.",
+      "howHip": "Hip: widest point, feet together.",
+      "howLength": "Length: from shoulder to lowest hem.",
       "note": "◦ We accept returns within 7 days, unused."
     },
     "ritual": {
