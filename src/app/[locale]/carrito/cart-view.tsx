@@ -8,7 +8,7 @@ import { useCart } from '@/lib/cart/cart-context';
 import { buildCartWhatsAppUrl } from '@/lib/cart/whatsapp';
 import { GrainOverlay } from '@/components/ui/grain-overlay';
 import { LoadingState } from '@/components/ui/states';
-import { STORE, formatSoles } from '@/lib/store-config';
+import { STORE, approxUsd, formatSoles } from '@/lib/store-config';
 import { CloseIcon } from '@/components/icons';
 
 export function CartView() {
@@ -277,6 +277,9 @@ export function CartView() {
               </div>
               <div className="mt-1.5 font-body text-[34px] font-extrabold leading-none">
                 {formatSoles(total)}
+              </div>
+              <div className="mt-1 font-mono text-[9px] uppercase tracking-ritual text-muted">
+                aprox. ${approxUsd(total)} USD
               </div>
             </div>
             <div className="text-right">

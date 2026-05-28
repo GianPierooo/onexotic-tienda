@@ -513,6 +513,7 @@
       "soldOut": "Agotado",
       "price": "Precio"
     },
+    "approxUsd": "aprox. ${value} USD",
     "stock": {
       "alive": "piezas vivas",
       "none": "Sin stock",

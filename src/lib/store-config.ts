@@ -20,6 +20,19 @@ export function formatSoles(n: number): string {
   return `S/ ${n.toFixed(0)}`;
 }
 
+/**
+ * Conversión PEN → USD informativa. Configurable vía
+ * NEXT_PUBLIC_PEN_TO_USD (ej. "0.27"). NO afecta el cobro: el checkout
+ * y el RPC crear_pedido siguen en PEN. Solo se muestra como guía al
+ * comprador internacional.
+ */
+export const PEN_TO_USD = numFromEnv(process.env.NEXT_PUBLIC_PEN_TO_USD, 0.27);
+
+export function approxUsd(pen: number): string {
+  const usd = pen * PEN_TO_USD;
+  return usd.toFixed(2);
+}
+
 export type ShippingZone = 'lima' | 'provincia' | 'internacional';
 
 export const SHIPPING_RATES: Record<ShippingZone, number> = {

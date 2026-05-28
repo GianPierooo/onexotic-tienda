@@ -12,7 +12,7 @@ import {
   getRelatedProducts,
 } from '@/lib/queries';
 import { groupForCards } from '@/lib/product-grouping';
-import { formatSoles, STORE } from '@/lib/store-config';
+import { approxUsd, formatSoles, STORE } from '@/lib/store-config';
 
 type Props = { params: { locale: string; slug: string } };
 
@@ -153,6 +153,9 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
             </div>
             <div className="mt-1 font-body text-[28px] font-bold tracking-tight text-fg">
               {formatSoles(precio)}
+            </div>
+            <div className="mt-0.5 font-mono text-[9px] uppercase tracking-ritual text-muted">
+              {t('approxUsd', { value: approxUsd(precio) })}
             </div>
           </div>
         </div>

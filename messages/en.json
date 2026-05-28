@@ -501,6 +501,7 @@
       "soldOut": "Sold out",
       "price": "Price"
     },
+    "approxUsd": "approx. ${value} USD",
     "stock": {
       "alive": "live pieces",
       "none": "No stock",
