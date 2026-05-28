@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="supported-color-schemes" content="dark" />
+    <title>OnExotic · Pedido {{numero}}</title>
+  </head>
+  <body style="margin:0;padding:0;background:#0A0A0A;color:#FFFFFF;font-family:Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;">
+    <span style="display:none;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">
+      Pedido {{numero}} · Total {{total}} · OnExotic.
+    </span>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0A0A0A;">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#141414;border:1px solid #2A2A2A;border-left:2px solid #B81414;">
+            <tr>
+              <td style="padding:28px 28px 0 28px;">
+                <p style="margin:0;font-family:'Courier New',monospace;font-size:11px;letter-spacing:3px;color:#C0C0C0;text-transform:uppercase;">
+                  ✦ pedido recibido · order received
+                </p>
+                <h1 style="margin:8px 0 0 0;font-size:34px;line-height:1.05;color:#FFFFFF;">
+                  {{numero}}
+                </h1>
+                <p style="margin:6px 0 0 0;font-size:13px;line-height:1.5;color:#C0C0C0;">
+                  Hola {{nombre}}, tu ofrenda ya está con el culto.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Items -->
+            <tr>
+              <td style="padding:18px 28px 0 28px;">
+                <p style="margin:0 0 8px 0;font-family:'Courier New',monospace;font-size:11px;letter-spacing:3px;color:#C0C0C0;text-transform:uppercase;">
+                  Piezas
+                </p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #2A2A2A;border-bottom:1px solid #2A2A2A;">
+                  {{itemsHtml}}
+                </table>
+              </td>
+            </tr>
+
+            <!-- Totales -->
+            <tr>
+              <td style="padding:14px 28px 0 28px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="padding:6px 0;font-size:13px;color:#C0C0C0;">Subtotal</td>
+                    <td align="right" style="padding:6px 0;font-family:'Courier New',monospace;font-size:13px;color:#FFFFFF;">{{subtotal}}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 0;font-size:13px;color:#C0C0C0;">Envío</td>
+                    <td align="right" style="padding:6px 0;font-family:'Courier New',monospace;font-size:13px;color:#FFFFFF;">{{envio}}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:12px 0 0 0;border-top:1px dashed #2A2A2A;font-size:13px;color:#FFFFFF;font-weight:bold;text-transform:uppercase;letter-spacing:.18em;">Total</td>
+                    <td align="right" style="padding:12px 0 0 0;border-top:1px dashed #2A2A2A;font-family:Helvetica,Arial,sans-serif;font-size:22px;color:#FFFFFF;font-weight:800;">{{total}}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Envío -->
+            <tr>
+              <td style="padding:18px 28px 0 28px;">
+                <p style="margin:0 0 6px 0;font-family:'Courier New',monospace;font-size:11px;letter-spacing:3px;color:#C0C0C0;text-transform:uppercase;">
+                  Envío a
+                </p>
+                <p style="margin:0;font-size:13px;line-height:1.6;color:#FFFFFF;">
+                  {{direccionHtml}}
+                </p>
+              </td>
+            </tr>
+
+            <!-- Próximos pasos -->
+            <tr>
+              <td style="padding:20px 28px 0 28px;">
+                <p style="margin:0 0 8px 0;font-family:'Courier New',monospace;font-size:11px;letter-spacing:3px;color:#C0C0C0;text-transform:uppercase;">
+                  Próximos pasos
+                </p>
+                <p style="margin:0 0 14px 0;font-size:13px;line-height:1.6;color:#FFFFFF;">
+                  Coordinamos el pago y el envío por WhatsApp: {{whatsapp}}. Sigue el estado en onexotic.shop/cuenta.
+                </p>
+                <table role="presentation" cellpadding="0" cellspacing="0" style="margin:6px 0 8px 0;">
+                  <tr>
+                    <td bgcolor="#B81414" style="background:#B81414;">
+                      <a href="{{whatsappUrl}}" target="_blank" style="display:inline-block;padding:13px 22px;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#FFFFFF;text-decoration:none;">
+                        Abrir WhatsApp →
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- EN block -->
+            <tr>
+              <td style="padding:18px 28px 0 28px;">
+                <hr style="border:0;border-top:1px solid #2A2A2A;margin:0 0 14px 0;" />
+                <p style="margin:0 0 6px 0;font-family:'Courier New',monospace;font-size:11px;letter-spacing:3px;color:#C0C0C0;text-transform:uppercase;">
+                  English
+                </p>
+                <p style="margin:0;font-size:12px;line-height:1.6;color:#C0C0C0;">
+                  Order received. We'll coordinate payment and shipping over WhatsApp ({{whatsapp}}). Track it at onexotic.shop/cuenta.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:24px 28px 28px 28px;">
+                <hr style="border:0;border-top:1px solid #2A2A2A;margin:0 0 16px 0;" />
+                <p style="margin:0;font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;color:#7A7A7A;text-transform:uppercase;">
+                  OnExotic · Lima, Perú · onexotic.shop
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
