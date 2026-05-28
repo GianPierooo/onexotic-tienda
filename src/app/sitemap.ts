@@ -8,6 +8,8 @@ const PUBLIC_ROUTES = [
   '/drops',
   '/lookbook',
   '/marca',
+  '/faq',
+  '/contacto',
   '/legal/terminos',
   '/legal/privacidad',
   '/legal/cambios',
@@ -20,12 +22,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = locales.flatMap((locale) =>
-    PUBLIC_ROUTES.map((route) => ({
-      url: `${baseUrl}/${locale}${route}`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: route === '' ? 1 : 0.7,
-    }))
+    PUBLIC_ROUTES.map((route) => {
+      const altLanguages = Object.fromEntries(
+        locales.map((l) => [l === 'es' ? 'es-PE' : l, `${baseUrl}/${l}${route}`])
+      );
+      return {
+        url: `${baseUrl}/${locale}${route}`,
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: route === '' ? 1 : 0.7,
+        alternates: {
+          languages: {
+            ...altLanguages,
+            'x-default': `${baseUrl}/es${route}`,
+          },
+        },
+      };
+    })
   );
 
   let productEntries: MetadataRoute.Sitemap = [];

@@ -5,6 +5,7 @@ import { ProductActions, type Variant } from '@/components/ui/product-actions';
 import { ProductCard } from '@/components/ui/product-card';
 import { ProductGallery } from '@/components/ui/product-gallery';
 import { Reviews } from '@/components/ui/reviews';
+import { BreadcrumbsJsonLd, StructuredData } from '@/components/seo/structured-data';
 import {
   galleryFor,
   getProductoBySlug,
@@ -36,8 +37,9 @@ export async function generateMetadata({
     alternates: {
       canonical: url,
       languages: {
-        es: `/es/producto/${slugPath}`,
+        'es-PE': `/es/producto/${slugPath}`,
         en: `/en/producto/${slugPath}`,
+        'x-default': `/es/producto/${slugPath}`,
       },
     },
     openGraph: {
@@ -112,10 +114,12 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <StructuredData data={jsonLd} />
+      <BreadcrumbsJsonLd
+        items={[
+          { name: 'Tienda', url: `/${locale}/tienda` },
+          { name: base.nombre, url: `/${locale}/producto/${base.slug ?? slug}` },
+        ]}
       />
 
       <ProductGallery

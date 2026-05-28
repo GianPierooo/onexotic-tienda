@@ -5,6 +5,8 @@ import { CatalogSearchBar } from '@/components/ui/catalog-search-bar';
 import { ProductCard } from '@/components/ui/product-card';
 import { EmptyState } from '@/components/ui/states';
 import { Countdown } from '@/components/ui/countdown';
+import { BreadcrumbsJsonLd, StructuredData } from '@/components/seo/structured-data';
+import { STORE } from '@/lib/store-config';
 import { isFutureIso } from '@/lib/utils';
 import {
   getActiveDrop,
@@ -29,7 +31,11 @@ export async function generateMetadata({
     description: t('description'),
     alternates: {
       canonical: `/${locale}/tienda`,
-      languages: { es: '/es/tienda', en: '/en/tienda' },
+      languages: {
+        'es-PE': '/es/tienda',
+        en: '/en/tienda',
+        'x-default': '/es/tienda',
+      },
     },
     openGraph: {
       title: t('title'),
@@ -70,8 +76,25 @@ export default async function CatalogPage({
   const agotadas = cards.length - disponibles;
   const queryTerm = searchParams.q?.trim() ?? '';
 
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: cards.slice(0, 20).map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${STORE.storeUrl}/${locale}/producto/${p.slug ?? p.id}`,
+      name: p.nombre,
+    })),
+  };
+
   return (
     <>
+      <BreadcrumbsJsonLd
+        items={[
+          { name: t('title'), url: `/${locale}/tienda` },
+        ]}
+      />
+      {cards.length > 0 && <StructuredData data={itemListJsonLd} />}
       <header className="border-b border-border bg-bg/92 backdrop-blur-md">
         <div className="px-4 pb-3.5 pt-3">
           <div className="mb-1.5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-ritual text-silver">

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/next';
+import { OrganizationJsonLd, WebsiteJsonLd } from '@/components/seo/structured-data';
 import { Header } from '@/components/layout/header';
 import { BottomNav } from '@/components/layout/bottom-nav';
 import { Footer } from '@/components/layout/footer';
@@ -71,6 +72,8 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
       className={`${pirata.variable} ${unifraktur.variable} ${archivo.variable} ${jetbrains.variable}`}
     >
       <body className="bg-bg text-fg antialiased">
+        <OrganizationJsonLd locale={locale} />
+        <WebsiteJsonLd locale={locale} />
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <CartProvider>
