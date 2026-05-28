@@ -496,6 +496,30 @@
       "eye": "verifica tu correo",
       "title": "Casi adentro",
       "copy": "Te enviamos un enlace a {email}. Ábrelo para sellar el ritual."
+    },
+    "verified": {
+      "metaTitleOk": "Cuenta verificada",
+      "metaTitleError": "Enlace inválido",
+      "ok": {
+        "eye": "ritual sellado",
+        "title": "Tu cuenta fue verificada",
+        "copy": "Quedaste dentro del culto. Ya puedes entrar a tu cuenta o saltar directo al drop.",
+        "ctaAccount": "Ir a mi cuenta",
+        "ctaShop": "Entrar al drop"
+      },
+      "error": {
+        "eye": "enlace caído",
+        "title": "El enlace ya no sirve",
+        "copy": "El enlace de verificación es inválido o expiró. Reenvíate el correo o entra si ya verificaste antes.",
+        "resendEye": "reenviar correo",
+        "resendPlaceholder": "tu@correo.pe",
+        "resendCta": "Reenviar enlace",
+        "resendSending": "Invocando…",
+        "resendDone": "Listo. Revisa tu correo.",
+        "resendInvalid": "Correo inválido",
+        "resendFailed": "No pudimos reenviar. Intenta de nuevo en unos minutos.",
+        "ctaLogin": "Iniciar sesión"
+      }
     }
   },
   "account": {
