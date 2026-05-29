@@ -516,9 +516,18 @@
       "noRestock": "no restock",
       "lowOnly": "Only {count} left"
     },
+    "scarcity": {
+      "limited": "Limited edition",
+      "almostGone": "Almost gone"
+    },
+    "color": {
+      "label": "Color",
+      "count": "{n} colors"
+    },
     "size": {
       "label": "Size",
       "left": "left",
+      "inStock": "Available",
       "last": "last",
       "outShort": "out"
     },

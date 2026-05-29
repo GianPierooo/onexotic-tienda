@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ProductActions, type Variant } from '@/components/ui/product-actions';
 import { ProductCard } from '@/components/ui/product-card';
-import { ProductGallery } from '@/components/ui/product-gallery';
+import { ProductMedia } from '@/components/ui/product-media';
+import { ProductColorProvider } from '@/components/ui/product-color-context';
+import { ColorSelector, ColorName } from '@/components/ui/color-selector';
 import { Reviews } from '@/components/ui/reviews';
 import { BreadcrumbsJsonLd, StructuredData } from '@/components/seo/structured-data';
 import {
@@ -11,8 +13,12 @@ import {
   getProductoBySlug,
   getRelatedProducts,
 } from '@/lib/queries';
+import { colorVariantsFor } from '@/lib/product-variants';
 import { groupForCards } from '@/lib/product-grouping';
 import { approxUsd, formatSoles, STORE } from '@/lib/store-config';
+
+/** Umbral por debajo del cual el detalle muestra "Por agotarse". */
+const SCARCITY_LOW = 6;
 
 type Props = { params: { locale: string; slug: string } };
 
@@ -24,10 +30,16 @@ export async function generateMetadata({
   if (!producto) return { title: 'Producto' };
   const t = await getTranslations({ locale, namespace: 'meta.product' });
   const title = t('title', { name: producto.nombre });
-  const description = t('description', {
-    name: producto.nombre,
-    tipo: producto.tipo,
-  });
+  const propia =
+    locale === 'en'
+      ? producto.descripcion_en ?? producto.descripcion
+      : producto.descripcion;
+  const description =
+    propia?.trim() ||
+    t('description', {
+      name: producto.nombre,
+      tipo: producto.tipo,
+    });
   const slugPath = producto.slug ?? slug;
   const url = `/${locale}/producto/${slugPath}`;
   const image = producto.imagen_url || '/og-default.png';
@@ -90,7 +102,21 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
 
   const relatedCards = groupForCards(related).slice(0, 4);
 
-  const imagenes = galleryFor(base);
+  // Variantes de color (vacío = producto de un solo color). El fallback plano
+  // alimenta la galería cuando no hay variantes.
+  const colores = colorVariantsFor(base);
+  const fallbackImages = galleryFor(base);
+  const imagenes = colores[0]?.imagenes_url ?? fallbackImages;
+
+  // Descripción larga propia del producto (locale-aware); cae al copy de marca.
+  const descripcion =
+    locale === 'en'
+      ? base.descripcion_en ?? base.descripcion
+      : base.descripcion;
+  const descripcionTexto = descripcion?.trim() || t('ritual.copy');
+
+  // Escasez por edición, no por número: "Por agotarse" solo como urgencia real.
+  const porAgotarse = !agotado && stockTotal <= SCARCITY_LOW;
 
   const jsonLd = {
     '@context': 'https://schema.org/',
@@ -98,7 +124,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
     name: base.nombre,
     sku: skuBase || base.sku || base.id,
     image: imagenes.length > 0 ? imagenes : undefined,
-    description: t('jsonld.descriptionFallback', { nombre: base.nombre }),
+    description: descripcion?.trim() || t('jsonld.descriptionFallback', { nombre: base.nombre }),
     brand: { '@type': 'Brand', name: 'OnExotic' },
     offers: {
       '@type': 'Offer',
@@ -122,71 +148,72 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
         ]}
       />
 
-      <ProductGallery
-        imagenes={imagenes}
-        nombre={base.nombre}
-        sku={skuBase || base.sku || null}
-        agotado={agotado}
-        badgeLive={t('header.live')}
-        badgeSoldOut={t('header.soldOut')}
-      />
+      <ProductColorProvider colors={colores} fallbackImages={fallbackImages}>
+        <ProductMedia
+          nombre={base.nombre}
+          sku={skuBase || base.sku || null}
+          agotado={agotado}
+          badgeLive={t('header.live')}
+          badgeSoldOut={t('header.soldOut')}
+        />
 
-      {/* Encabezado */}
-      <section className="px-5 pb-4 pt-6">
-        <div className="mb-2.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-ritual">
-          <span className="inline-flex items-center gap-2 text-silver">
-            <span className="block h-px w-3.5 bg-fire" />
-            {skuBase || base.sku || base.id.slice(0, 8)}
-          </span>
-          <span className="text-silver">{base.tipo}</span>
-        </div>
-        <h1 className="m-0 font-black font-normal leading-[.85] text-fg text-[58px] md:text-[68px]">
-          {base.nombre}
-        </h1>
-        <div className="mt-3 flex items-baseline justify-between">
-          <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
-            {base.color ?? ''}
-          </div>
-          <div className="text-right">
-            <div className="font-mono text-[9px] uppercase tracking-ritual text-silver">
-              {t('header.price')}
-            </div>
-            <div className="mt-1 font-body text-[28px] font-bold tracking-tight text-fg">
-              {formatSoles(precio)}
-            </div>
-            <div className="mt-0.5 font-mono text-[9px] uppercase tracking-ritual text-muted">
-              {t('approxUsd', { value: approxUsd(precio) })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Alerta de stock */}
-      <div
-        className="mx-5 mb-5 flex items-center justify-between border border-border bg-card px-4 py-3"
-        style={{ borderLeft: '2px solid var(--color-fire)' }}
-      >
-        <div className="font-mono text-[10px] uppercase tracking-ritual">
-          {agotado ? (
-            <span className="text-fg">{t('stock.none')}</span>
-          ) : stockTotal <= 5 ? (
-            <span className="animate-pulse-fire text-fire">
-              {t('stock.lowOnly', { count: stockTotal })}
+        {/* Encabezado */}
+        <section className="px-5 pb-4 pt-6">
+          <div className="mb-2.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-ritual">
+            <span className="inline-flex items-center gap-2 text-silver">
+              <span className="block h-px w-3.5 bg-fire" />
+              {skuBase || base.sku || base.id.slice(0, 8)}
             </span>
-          ) : (
-            <>
-              <span className="text-fire">{stockTotal}</span>{' '}
-              <span className="text-fg">{t('stock.alive')}</span>
-            </>
-          )}
-        </div>
-        <div className="font-mono text-[9px] uppercase tracking-ritual text-silver">
-          {t('stock.noRestock')}
-        </div>
-      </div>
+            <span className="text-silver">{base.tipo}</span>
+          </div>
+          <h1 className="m-0 font-black font-normal leading-[.85] text-fg text-[58px] md:text-[68px]">
+            {base.nombre}
+          </h1>
+          <div className="mt-3 flex items-baseline justify-between">
+            <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
+              <ColorName fallback={base.color} />
+            </div>
+            <div className="text-right">
+              <div className="font-mono text-[9px] uppercase tracking-ritual text-silver">
+                {t('header.price')}
+              </div>
+              <div className="mt-1 font-body text-[28px] font-bold tracking-tight text-fg">
+                {formatSoles(precio)}
+              </div>
+              <div className="mt-0.5 font-mono text-[9px] uppercase tracking-ritual text-muted">
+                {t('approxUsd', { value: approxUsd(precio) })}
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* Selector + acciones */}
-      <ProductActions variants={variants} tipo={base.tipo} />
+        {/* Escasez por edición, no por número */}
+        <div
+          className="mx-5 mb-5 flex items-center justify-between border border-border bg-card px-4 py-3"
+          style={{ borderLeft: '2px solid var(--color-fire)' }}
+        >
+          <div className="font-mono text-[10px] uppercase tracking-ritual">
+            {agotado ? (
+              <span className="text-fg">{t('stock.none')}</span>
+            ) : porAgotarse ? (
+              <span className="animate-pulse-fire text-fire">
+                {t('scarcity.almostGone')}
+              </span>
+            ) : (
+              <span className="text-fire">{t('scarcity.limited')}</span>
+            )}
+          </div>
+          <div className="font-mono text-[9px] uppercase tracking-ritual text-silver">
+            {t('stock.noRestock')}
+          </div>
+        </div>
+
+        {/* Selector de color */}
+        <ColorSelector />
+
+        {/* Selector de talla + acciones */}
+        <ProductActions variants={variants} tipo={base.tipo} />
+      </ProductColorProvider>
 
       {/* Descripción */}
       <section className="border-t border-border bg-bg px-5 py-6">
@@ -200,7 +227,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
           {t('ritual.titleB')}
         </h2>
         <p className="m-0 font-body text-[13.5px] leading-relaxed text-fg/85">
-          {t('ritual.copy')}
+          {descripcionTexto}
         </p>
 
         <div className="mt-5 border border-border bg-card">

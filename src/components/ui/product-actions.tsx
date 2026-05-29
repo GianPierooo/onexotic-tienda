@@ -9,6 +9,7 @@ import { buildProductWhatsAppUrl } from '@/lib/cart/whatsapp';
 import { formatSoles, STORE } from '@/lib/store-config';
 import { SizeGuide } from './size-guide';
 import { NotifyForm } from './notify-form';
+import { useProductColor } from './product-color-context';
 import { BagIcon } from '@/components/icons';
 
 export type Variant = {
@@ -40,6 +41,7 @@ export function ProductActions({ variants, tipo }: Props) {
   const t = useTranslations('product');
   const router = useRouter();
   const cart = useCart();
+  const { colorName } = useProductColor();
 
   const ordered = useMemo(() => sortByTalla(variants), [variants]);
   const stockTotal = ordered.reduce((s, v) => s + Math.max(0, v.stock), 0);
@@ -56,6 +58,10 @@ export function ProductActions({ variants, tipo }: Props) {
 
   const [feedback, setFeedback] = useState<'idle' | 'added' | 'oos'>('idle');
 
+  // El color elegido en el selector de muestras tiene prioridad; si el
+  // producto es de un solo color, cae al color de la fila.
+  const colorElegido = colorName ?? selected?.color ?? null;
+
   function onAdd() {
     if (!selected || !selectedDisponible) {
       setFeedback('oos');
@@ -67,7 +73,7 @@ export function ProductActions({ variants, tipo }: Props) {
         nombre: selected.nombre,
         sku: selected.sku,
         talla: selected.talla,
-        color: selected.color,
+        color: colorElegido,
         precio: precio,
         imagen: selected.imagen_url,
         stock: selected.stock,
@@ -86,7 +92,7 @@ export function ProductActions({ variants, tipo }: Props) {
         nombre: selected.nombre,
         sku: selected.sku,
         talla: selected.talla,
-        color: selected.color,
+        color: colorElegido,
         precio: precio,
         imagen: selected.imagen_url,
         stock: selected.stock,
@@ -100,7 +106,7 @@ export function ProductActions({ variants, tipo }: Props) {
     nombre: selected?.nombre ?? ordered[0]?.nombre ?? '',
     sku: selected?.sku ?? null,
     talla: selected?.talla ?? null,
-    color: selected?.color ?? null,
+    color: colorElegido,
     precio,
   });
 
@@ -162,7 +168,7 @@ export function ProductActions({ variants, tipo }: Props) {
                     ? t('size.outShort')
                     : last
                       ? t('size.last')
-                      : `${v.stock} ${t('size.left')}`}
+                      : t('size.inStock')}
                 </span>
                 {last && !active && (
                   <span

@@ -310,6 +310,8 @@ export type Database = {
         Row: {
           color: string | null
           created_at: string
+          descripcion: string | null
+          descripcion_en: string | null
           drop_id: string | null
           estado: string
           id: string
@@ -323,10 +325,13 @@ export type Database = {
           stock_minimo: number
           talla: string
           tipo: string
+          variantes: Json | null
         }
         Insert: {
           color?: string | null
           created_at?: string
+          descripcion?: string | null
+          descripcion_en?: string | null
           drop_id?: string | null
           estado?: string
           id?: string
@@ -340,10 +345,13 @@ export type Database = {
           stock_minimo?: number
           talla: string
           tipo: string
+          variantes?: Json | null
         }
         Update: {
           color?: string | null
           created_at?: string
+          descripcion?: string | null
+          descripcion_en?: string | null
           drop_id?: string | null
           estado?: string
           id?: string
@@ -357,6 +365,7 @@ export type Database = {
           stock_minimo?: number
           talla?: string
           tipo?: string
+          variantes?: Json | null
         }
         Relationships: [
           {
