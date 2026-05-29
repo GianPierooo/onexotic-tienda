@@ -1,8 +1,10 @@
 'use server';
 
 import { STORE, formatSoles } from '@/lib/store-config';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export type GuestItem = {
+  producto_id: string;
   nombre: string;
   sku: string | null;
   talla: string;
@@ -34,13 +36,14 @@ export type GuestOrderResult =
   | { ok: false; error: string };
 
 /**
- * Flujo de invitado SIN escribir en la tabla pedidos.
+ * Flujo de invitado: AHORA persiste el pedido en la tabla `pedidos`.
  *
- * La tabla pedidos requiere cliente_id NOT NULL (ver
- * supabase/migrations/_propuestas/0001_pedidos_invitado.sql). Mientras
- * esa migración no se aplique, el invitado se procesa por WhatsApp +
- * confirmación por correo. No se pierde ningún dato — el equipo recibe
- * todo por WhatsApp y por correo.
+ * Reutiliza el RPC `crear_pedido` (security definer) con un payload de
+ * invitado (`p_invitado`). El RPC valida y descuenta stock de forma atómica
+ * (misma lógica que el checkout autenticado) y guarda el snapshot del
+ * invitado. Se llama con service role porque el invitado no tiene sesión; el
+ * insert queda controlado por el RPC (RLS de `pedidos` no expone lectura a
+ * invitados). Además se mantiene el flujo de WhatsApp + correos.
  */
 export async function crearPedidoInvitado(
   input: GuestOrderInput
@@ -54,8 +57,49 @@ export async function crearPedidoInvitado(
   if (input.items.length === 0) {
     return { ok: false, error: 'cart_empty' };
   }
+  if (input.items.some((it) => !it.producto_id)) {
+    return { ok: false, error: 'missing_fields' };
+  }
 
-  const trackingRef = `OX-G${Date.now().toString(36).toUpperCase()}`;
+  // Persistir el pedido reutilizando crear_pedido (stock atómico).
+  const supabase = createAdminClient();
+  const { data, error } = await supabase.rpc('crear_pedido' as never, {
+    p_items: input.items.map((i) => ({
+      producto_id: i.producto_id,
+      cantidad: i.cantidad,
+    })),
+    p_metodo_pago: 'whatsapp',
+    p_direccion_envio: {
+      destinatario: input.nombre,
+      telefono: input.telefono,
+      pais: input.pais,
+      departamento: input.departamento,
+      provincia: input.provincia ?? null,
+      distrito: input.distrito,
+      direccion: input.direccion,
+      referencia: input.referencia ?? null,
+      codigo_postal: input.codigo_postal ?? null,
+    },
+    p_envio_pen: input.envio,
+    p_notas: input.notas ?? null,
+    p_invitado: {
+      nombre: input.nombre,
+      email: input.email,
+      telefono: input.telefono,
+    },
+  } as never);
+
+  if (error) {
+    console.error('[guest-order] crear_pedido', error.message);
+    return { ok: false, error: 'order_failed' };
+  }
+
+  const row = Array.isArray(data) ? data[0] : data;
+  const result = row as { numero_pedido?: string } | null;
+  // Si por alguna razón no vuelve número, caer a una referencia local para no
+  // bloquear al cliente (el pedido igual se intentó y el equipo tiene WhatsApp).
+  const trackingRef =
+    result?.numero_pedido ?? `OX-G${Date.now().toString(36).toUpperCase()}`;
   const whatsappUrl = buildGuestWhatsAppUrl(input, trackingRef);
 
   await sendGuestEmail(input, trackingRef).catch((e) => {

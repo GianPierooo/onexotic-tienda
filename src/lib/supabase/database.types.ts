@@ -249,7 +249,7 @@ export type Database = {
       }
       pedidos: {
         Row: {
-          cliente_id: string
+          cliente_id: string | null
           created_at: string
           cupon: string | null
           descuento_pen: number
@@ -257,6 +257,9 @@ export type Database = {
           envio_pen: number
           estado: string
           id: string
+          invitado_email: string | null
+          invitado_nombre: string | null
+          invitado_telefono: string | null
           metodo_pago: string
           notas: string | null
           numero_pedido: string
@@ -265,7 +268,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
-          cliente_id: string
+          cliente_id?: string | null
           created_at?: string
           cupon?: string | null
           descuento_pen?: number
@@ -273,6 +276,9 @@ export type Database = {
           envio_pen?: number
           estado?: string
           id?: string
+          invitado_email?: string | null
+          invitado_nombre?: string | null
+          invitado_telefono?: string | null
           metodo_pago: string
           notas?: string | null
           numero_pedido: string
@@ -281,7 +287,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
-          cliente_id?: string
+          cliente_id?: string | null
           created_at?: string
           cupon?: string | null
           descuento_pen?: number
@@ -289,6 +295,9 @@ export type Database = {
           envio_pen?: number
           estado?: string
           id?: string
+          invitado_email?: string | null
+          invitado_nombre?: string | null
+          invitado_telefono?: string | null
           metodo_pago?: string
           notas?: string | null
           numero_pedido?: string
@@ -451,6 +460,7 @@ export type Database = {
           p_descuento_pen?: number
           p_direccion_envio: Json
           p_envio_pen?: number
+          p_invitado?: Json
           p_items: Json
           p_metodo_pago: string
           p_notas?: string

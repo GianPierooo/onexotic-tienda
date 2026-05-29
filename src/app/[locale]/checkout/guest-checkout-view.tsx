@@ -168,6 +168,7 @@ export function GuestCheckoutView({ locale }: { locale: string }) {
         referencia: form.referencia || undefined,
         notas: form.notas || undefined,
         items: cart.items.map((i) => ({
+          producto_id: i.productoId,
           nombre: i.nombre,
           sku: i.sku,
           talla: i.talla,
