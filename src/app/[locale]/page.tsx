@@ -94,7 +94,7 @@ export default async function HomePage({ params: { locale } }: Props) {
         link={{ href: '/tienda', label: t('sections.dropLink') }}
       />
       {featured.length > 0 ? (
-        <div className="grid grid-cols-2 gap-3.5 px-5 pb-5">
+        <div className="mx-auto grid w-full max-w-screen-xl grid-cols-2 gap-3.5 px-5 pb-5 lg:grid-cols-3 xl:grid-cols-4">
           {featured.map((p) => (
             <ProductCard key={p.id} p={p} />
           ))}

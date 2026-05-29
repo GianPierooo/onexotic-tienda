@@ -148,7 +148,10 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
         ]}
       />
 
-      <ProductColorProvider colors={colores} fallbackImages={fallbackImages}>
+      {/* Columna centrada con ancho máximo: en desktop la galería 4:5 y el
+          contenido no se estiran a todo el viewport (mantiene mobile-first). */}
+      <div className="mx-auto w-full max-w-[480px]">
+        <ProductColorProvider colors={colores} fallbackImages={fallbackImages}>
         <ProductMedia
           nombre={base.nombre}
           sku={skuBase || base.sku || null}
@@ -272,6 +275,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
           </div>
         </section>
       )}
+      </div>
     </>
   );
 }

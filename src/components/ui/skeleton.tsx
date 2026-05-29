@@ -16,7 +16,7 @@ export function Skeleton({ className, style }: { className?: string; style?: Rea
 export function ProductCardSkeleton() {
   return (
     <div className="flex flex-col border border-border bg-card">
-      <Skeleton className="border-0" style={{ aspectRatio: '3 / 4' }} />
+      <Skeleton className="border-0" style={{ aspectRatio: '4 / 5' }} />
       <div className="flex flex-col gap-2 px-3 pb-3.5 pt-3">
         <div className="flex items-baseline justify-between gap-2">
           <Skeleton className="h-3 w-3/5 border-0" />
@@ -35,7 +35,7 @@ export function ProductCardSkeleton() {
 
 export function ProductGridSkeleton({ count = 6 }: { count?: number }) {
   return (
-    <div className="grid grid-cols-2 gap-3 px-4 py-3.5">
+    <div className="mx-auto grid w-full max-w-screen-xl grid-cols-2 gap-3 px-4 py-3.5 lg:grid-cols-3 xl:grid-cols-4">
       {Array.from({ length: count }).map((_, i) => (
         <ProductCardSkeleton key={i} />
       ))}
@@ -45,7 +45,7 @@ export function ProductGridSkeleton({ count = 6 }: { count?: number }) {
 
 export function ProductDetailSkeleton() {
   return (
-    <>
+    <div className="mx-auto w-full max-w-[480px]">
       <Skeleton className="border-0" style={{ aspectRatio: '4 / 5' }} />
       <section className="px-5 pb-4 pt-6">
         <Skeleton className="mb-3 h-3 w-1/3 border-0" />
@@ -66,7 +66,7 @@ export function ProductDetailSkeleton() {
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

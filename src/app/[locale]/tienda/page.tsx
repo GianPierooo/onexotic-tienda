@@ -158,7 +158,7 @@ export default async function CatalogPage({
           <EmptyState />
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-3 px-4 py-3.5">
+        <div className="mx-auto grid w-full max-w-screen-xl grid-cols-2 gap-3 px-4 py-3.5 lg:grid-cols-3 xl:grid-cols-4">
           {cards.map((p) => (
             <ProductCard key={p.id} p={p} />
           ))}

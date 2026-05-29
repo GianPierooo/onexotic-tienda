@@ -54,7 +54,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
       >
         <div
           className="relative overflow-hidden border-b border-border"
-          style={{ aspectRatio: '3 / 4', background: tonePara(p.id) }}
+          style={{ aspectRatio: '4 / 5', background: tonePara(p.id) }}
         >
           <GrainOverlay />
           {p.imagen_url ? (
@@ -62,7 +62,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
               src={p.imagen_url}
               alt={p.nombre}
               fill
-              sizes="(max-width: 768px) 50vw, 25vw"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 280px"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               style={{ filter: agotado ? 'grayscale(1) brightness(.5)' : undefined }}
             />
