@@ -23,6 +23,6 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     '/',
-    '/((?!api|auth|_next|_vercel|sw\\.js|workbox|fallback|robots\\.txt|sitemap\\.xml|manifest\\.webmanifest|icons|.*\\..*).*)',
+    '/((?!api|auth|_next|_vercel|sw\\.js|workbox|fallback|robots\\.txt|sitemap\\.xml|manifest\\.webmanifest|apple-icon|opengraph-image|icon|icons|.*\\..*).*)',
   ],
 };

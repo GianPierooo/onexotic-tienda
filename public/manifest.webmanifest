@@ -1,33 +1,54 @@
 {
+  "id": "/",
   "name": "OnExotic",
   "short_name": "OnExotic",
   "description": "Tienda oficial de OnExotic. Drops limitados de gymwear, oversize y streetwear.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "orientation": "portrait",
+  "dir": "ltr",
+  "lang": "es",
   "background_color": "#0A0A0A",
   "theme_color": "#B81414",
-  "lang": "es",
   "categories": ["shopping", "lifestyle"],
   "icons": [
     {
-      "src": "/icons/android-chrome-192x192.png",
+      "src": "/api/brand-icon?size=192",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/android-chrome-512x512.png",
+      "src": "/api/brand-icon?size=512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-maskable.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
+      "src": "/api/brand-icon?size=192",
+      "sizes": "192x192",
+      "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/api/brand-icon?size=512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Catálogo",
+      "short_name": "Catálogo",
+      "url": "/es/tienda"
+    },
+    {
+      "name": "Drops",
+      "short_name": "Drops",
+      "url": "/es/drops"
     }
   ]
 }
