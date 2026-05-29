@@ -1025,6 +1025,23 @@
       "method": "Método de pago",
       "followWhatsapp": "Coordinar por WhatsApp"
     },
-    "backToAccount": "Volver a mi cuenta"
+    "backToAccount": "Volver a mi cuenta",
+    "review": {
+      "eyebrow": "Reseña tu compra",
+      "title": "Reseñar esta pieza",
+      "stars": "Estrellas",
+      "placeholder": "¿Cómo te cayó? Talla, tela, actitud…",
+      "submit": "Enviar reseña",
+      "sending": "Enviando…",
+      "inReview": "Reseña enviada · en revisión",
+      "errors": {
+        "texto": "Escribe al menos 5 caracteres.",
+        "estrellas": "Elige de 1 a 5 estrellas.",
+        "duplicada": "Ya enviaste una reseña de esta pieza.",
+        "auth_required": "Inicia sesión para reseñar.",
+        "insert_failed": "No se pudo enviar. Intenta de nuevo.",
+        "generic": "No se pudo enviar. Intenta de nuevo."
+      }
+    }
   }
 }

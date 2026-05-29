@@ -11,6 +11,7 @@ import { Reviews } from '@/components/ui/reviews';
 import { BreadcrumbsJsonLd, StructuredData } from '@/components/seo/structured-data';
 import {
   galleryFor,
+  getApprovedReviews,
   getProductoBySlug,
   getRelatedProducts,
 } from '@/lib/queries';
@@ -80,6 +81,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
   const base = variantes[0]!;
 
   const related = await getRelatedProducts(base, 6);
+  const reviews = await getApprovedReviews(variantes.map((v) => v.id));
 
   const variants: Variant[] = variantes.map((v) => ({
     id: v.id,
@@ -255,10 +257,8 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
         </div>
       </section>
 
-      {/* Reseñas — tabla resenias aún no aplicada (ver
-          supabase/migrations/_propuestas/0002_resenias.sql), por ahora
-          renderizamos el estado vacío. */}
-      <Reviews reviews={[]} />
+      {/* Reseñas aprobadas del producto (agregadas por todas sus tallas). */}
+      <Reviews reviews={reviews} />
       </div>
 
       {/* Relacionados: fuera de la columna angosta, en grilla estándar

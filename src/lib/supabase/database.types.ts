@@ -449,6 +449,60 @@ export type Database = {
         }
         Relationships: []
       }
+      resenias: {
+        Row: {
+          aprobada: boolean
+          autor: string | null
+          cliente_id: string
+          created_at: string
+          estrellas: number
+          foto_url: string | null
+          id: string
+          producto_id: string
+          texto: string
+          updated_at: string
+        }
+        Insert: {
+          aprobada?: boolean
+          autor?: string | null
+          cliente_id: string
+          created_at?: string
+          estrellas: number
+          foto_url?: string | null
+          id?: string
+          producto_id: string
+          texto: string
+          updated_at?: string
+        }
+        Update: {
+          aprobada?: boolean
+          autor?: string | null
+          cliente_id?: string
+          created_at?: string
+          estrellas?: number
+          foto_url?: string | null
+          id?: string
+          producto_id?: string
+          texto?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "resenias_cliente_id_fkey"
+            columns: ["cliente_id"]
+            isOneToOne: false
+            referencedRelation: "clientes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "resenias_producto_id_fkey"
+            columns: ["producto_id"]
+            isOneToOne: false
+            referencedRelation: "productos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

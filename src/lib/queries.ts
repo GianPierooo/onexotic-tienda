@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import type { Tables } from '@/lib/supabase/database.types';
+import type { Review } from '@/components/ui/reviews';
 
 export type Drop = Tables<'drops'>;
 export type Producto = Tables<'productos'>;
@@ -283,6 +284,43 @@ export async function getDropHeroImage(dropNombre: string): Promise<string | nul
   return supabase.storage
     .from('editorial')
     .getPublicUrl(`${folder}/${hero.name}`).data.publicUrl;
+}
+
+/**
+ * Reseñas APROBADAS de un producto. Como un producto son varias filas (una por
+ * talla) que comparten slug, se pasan todas sus ids y se agregan las reseñas.
+ */
+export async function getApprovedReviews(
+  productoIds: string[]
+): Promise<Review[]> {
+  if (productoIds.length === 0) return [];
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from('resenias')
+    .select('id, autor, estrellas, texto, foto_url, created_at')
+    .in('producto_id', productoIds)
+    .eq('aprobada', true)
+    .order('created_at', { ascending: false })
+    .limit(50)
+    .returns<
+      Array<{
+        id: string;
+        autor: string | null;
+        estrellas: number;
+        texto: string;
+        foto_url: string | null;
+        created_at: string;
+      }>
+    >();
+  if (error || !data) return [];
+  return data.map((r) => ({
+    id: r.id,
+    autor: r.autor ?? 'Cliente OnExotic',
+    fecha: r.created_at,
+    estrellas: r.estrellas,
+    texto: r.texto,
+    foto_url: r.foto_url,
+  }));
 }
 
 const sizeOrder = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'UNICA', 'ÚNICA'];

@@ -1013,6 +1013,23 @@
       "method": "Payment method",
       "followWhatsapp": "Follow via WhatsApp"
     },
-    "backToAccount": "Back to my account"
+    "backToAccount": "Back to my account",
+    "review": {
+      "eyebrow": "Review your purchase",
+      "title": "Review this piece",
+      "stars": "Stars",
+      "placeholder": "How did it land? Fit, fabric, attitude…",
+      "submit": "Send review",
+      "sending": "Sending…",
+      "inReview": "Review sent · under review",
+      "errors": {
+        "texto": "Write at least 5 characters.",
+        "estrellas": "Pick 1 to 5 stars.",
+        "duplicada": "You already reviewed this piece.",
+        "auth_required": "Sign in to review.",
+        "insert_failed": "Couldn't send. Try again.",
+        "generic": "Couldn't send. Try again."
+      }
+    }
   }
 }

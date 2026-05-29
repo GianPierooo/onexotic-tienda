@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 import { createClient } from '@/lib/supabase/server';
 import { OrderStatus } from '@/components/ui/order-status';
+import { OrderReviewForms } from '@/components/ui/order-review-forms';
 import { formatSoles, STORE } from '@/lib/store-config';
 import type { Tables } from '@/lib/supabase/database.types';
 
@@ -53,6 +54,27 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
   const cancelado = pedido.estado === 'cancelado';
   const currentIndex = STEPS.indexOf(pedido.estado as (typeof STEPS)[number]);
   const direccion = pedido.direccion_envio as DireccionJson | null;
+
+  // Reseñas: solo en pedidos ENTREGADOS. Pre-cargamos qué piezas ya reseñó
+  // este cliente (RLS le deja leer las propias, incl. pendientes).
+  const entregado = pedido.estado === 'entregado';
+  const reviewItems = entregado
+    ? items
+        .filter((it): it is Item & { producto_id: string } => !!it.producto_id)
+        .map((it) => ({ producto_id: it.producto_id, nombre: it.nombre_snapshot }))
+    : [];
+  let reviewed: Record<string, boolean> = {};
+  if (entregado && reviewItems.length > 0) {
+    const { data: misResenias } = await supabase
+      .from('resenias')
+      .select('producto_id')
+      .eq('cliente_id', user!.id)
+      .in('producto_id', reviewItems.map((r) => r.producto_id))
+      .returns<{ producto_id: string }[]>();
+    reviewed = Object.fromEntries(
+      (misResenias ?? []).map((r) => [r.producto_id, true])
+    );
+  }
 
   return (
     <>
@@ -144,6 +166,10 @@ export default async function OrderPage({ params: { locale, id } }: Props) {
           ))}
         </div>
       </section>
+
+      {entregado && reviewItems.length > 0 && (
+        <OrderReviewForms items={reviewItems} reviewed={reviewed} />
+      )}
 
       <section className="border-t border-border px-4 py-6">
         <div className="border border-border bg-card-alt px-4 py-3">
