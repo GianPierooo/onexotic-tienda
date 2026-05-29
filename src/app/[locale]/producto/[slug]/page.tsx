@@ -44,7 +44,8 @@ export async function generateMetadata({
     });
   const slugPath = producto.slug ?? slug;
   const url = `/${locale}/producto/${slugPath}`;
-  const image = producto.imagen_url || '/og-default.png';
+  // La imagen OG la genera dinámicamente opengraph-image.tsx (nombre + foto
+  // de la pieza sobre fondo de marca). No se fija aquí para no duplicarla.
   return {
     title,
     description,
@@ -61,13 +62,11 @@ export async function generateMetadata({
       title,
       description,
       url,
-      images: [image],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [image],
     },
   };
 }
