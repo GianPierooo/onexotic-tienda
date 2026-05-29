@@ -12,6 +12,7 @@ import { SkipLink } from '@/components/layout/skip-link';
 import { CookieBanner } from '@/components/layout/cookie-banner';
 import { MiniCartToast } from '@/components/cart/mini-cart-toast';
 import { CartProvider } from '@/lib/cart/cart-context';
+import { MotionProvider } from '@/components/motion';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { archivo, jetbrains, pirata, unifraktur } from '@/lib/fonts';
 import { locales, type Locale } from '@/lib/i18n/config';
@@ -77,15 +78,17 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <CartProvider>
-              <SkipLink />
-              <div className="min-h-screen bg-bg text-fg">
-                <Header />
-                <main id="contenido" className="pb-nav md:pb-0">{children}</main>
-                <Footer />
-                <BottomNav />
-              </div>
-              <MiniCartToast />
-              <CookieBanner />
+              <MotionProvider>
+                <SkipLink />
+                <div className="min-h-screen bg-bg text-fg">
+                  <Header />
+                  <main id="contenido" className="pb-nav md:pb-0">{children}</main>
+                  <Footer />
+                  <BottomNav />
+                </div>
+                <MiniCartToast />
+                <CookieBanner />
+              </MotionProvider>
             </CartProvider>
           </NextIntlClientProvider>
         </ThemeProvider>

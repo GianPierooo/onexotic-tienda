@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from '@/components/motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/routing';
@@ -84,7 +84,7 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso, imagenUr
       <div className="absolute inset-0 flex flex-col justify-between px-5 pb-7 pt-6">
         {/* TOP badge */}
         <div className="flex items-start justify-between">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -97,14 +97,14 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso, imagenUr
             <span className="font-mono text-[10px] uppercase tracking-ritual">
               {badge}
             </span>
-          </motion.div>
+          </m.div>
           <div className="font-mono text-[10px] uppercase tracking-ritual text-silver">
             SS / 26 — LIMA
           </div>
         </div>
 
         {/* CENTER + CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -159,7 +159,7 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso, imagenUr
             <span>{t('cta')}</span>
             <span className="font-mono text-sm">→</span>
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

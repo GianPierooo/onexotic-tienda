@@ -1,16 +1,23 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { m } from '@/components/motion';
 import { useRouter } from '@/lib/i18n/routing';
 import { useCart } from '@/lib/cart/cart-context';
 import { buildProductWhatsAppUrl } from '@/lib/cart/whatsapp';
 import { formatSoles, STORE } from '@/lib/store-config';
 import { SizeGuide } from './size-guide';
-import { NotifyForm } from './notify-form';
 import { useProductColor } from './product-color-context';
 import { BagIcon } from '@/components/icons';
+
+// NotifyForm trae el cliente Supabase del navegador (@supabase/supabase-js) y
+// solo aparece si la pieza está agotada → carga diferida (fuera del First Load).
+const NotifyForm = dynamic(
+  () => import('./notify-form').then((m) => ({ default: m.NotifyForm })),
+  { ssr: false }
+);
 
 export type Variant = {
   id: string;
@@ -210,7 +217,7 @@ export function ProductActions({ variants, tipo }: Props) {
           </span>
         </a>
 
-        <motion.button
+        <m.button
           type="button"
           onClick={onAdd}
           whileTap={{ scale: 0.98 }}
@@ -235,7 +242,7 @@ export function ProductActions({ variants, tipo }: Props) {
           <span className="font-mono text-[13px]">
             {formatSoles(precio)} {todoAgotado ? '·' : '→'}
           </span>
-        </motion.button>
+        </m.button>
 
         <button
           type="button"

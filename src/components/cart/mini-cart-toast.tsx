@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from '@/components/motion';
 import { Link } from '@/lib/i18n/routing';
 import { useCart } from '@/lib/cart/cart-context';
 import { formatSoles } from '@/lib/store-config';
@@ -28,7 +28,7 @@ export function MiniCartToast() {
     >
       <AnimatePresence>
         {lastAdded && (
-          <motion.div
+          <m.div
             key={lastAdded.productoId + lastAdded.talla}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export function MiniCartToast() {
                 {t('view')} →
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

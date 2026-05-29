@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from '@/components/motion';
 import Image from 'next/image';
 import { Link } from '@/lib/i18n/routing';
 import { GrainOverlay } from './grain-overlay';
@@ -40,7 +40,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
     : 'S/ —';
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
@@ -151,6 +151,6 @@ export function ProductCard({ p }: { p: CardProduct }) {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </m.div>
   );
 }

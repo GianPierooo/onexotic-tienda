@@ -12,16 +12,15 @@ type Props = {
 };
 
 /**
- * Galería del producto conectada al contexto de color: cuando el cliente
- * cambia de color, las imágenes cambian al set de esa variante. Para
- * productos de un solo color usa el fallback plano del contexto.
+ * Galería conectada al contexto de color: al cambiar color, cambian las
+ * imágenes. Se renderiza en el servidor (SSR) para conservar la imagen LCP;
+ * framer-motion va por LazyMotion (features en chunk diferido, ver
+ * components/motion.tsx).
  */
 export function ProductMedia({ nombre, sku, agotado, badgeLive, badgeSoldOut }: Props) {
   const { images, colorName } = useProductColor();
   return (
     <ProductGallery
-      // `key` fuerza el remount al cambiar de color: la galería vuelve a la
-      // primera foto (frente) del nuevo color.
       key={colorName ?? 'default'}
       imagenes={images}
       nombre={colorName ? `${nombre} · ${colorName}` : nombre}

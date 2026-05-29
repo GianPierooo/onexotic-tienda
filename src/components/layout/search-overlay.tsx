@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from '@/components/motion';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/lib/i18n/routing';
 import { CloseIcon, SearchIcon } from '@/components/icons';
@@ -57,14 +57,14 @@ export function SearchOverlay({ className }: Props) {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             key="search-overlay"
             className="fixed inset-0 z-50"
             aria-modal="true"
             role="dialog"
             aria-label={tSearch('label')}
           >
-            <motion.div
+            <m.div
               className="absolute inset-0 bg-bg/85 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -72,7 +72,7 @@ export function SearchOverlay({ className }: Props) {
               transition={{ duration: 0.18 }}
               onClick={() => setOpen(false)}
             />
-            <motion.div
+            <m.div
               initial={{ y: -24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -24, opacity: 0 }}
@@ -116,8 +116,8 @@ export function SearchOverlay({ className }: Props) {
               <p className="mt-3 font-mono text-[10px] uppercase tracking-ritual text-muted">
                 {tSearch('hint')}
               </p>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

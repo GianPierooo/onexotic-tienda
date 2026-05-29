@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from '@/components/motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, useRouter, usePathname } from '@/lib/i18n/routing';
 import { CloseIcon, GlobeIcon, MenuIcon } from '@/components/icons';
@@ -76,14 +76,14 @@ export function MobileMenu() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             key="mobile-menu"
             className="fixed inset-0 z-[70] md:hidden"
             style={{ height: '100dvh' }}
             aria-modal="true"
             role="dialog"
           >
-            <motion.div
+            <m.div
               className="absolute inset-0 bg-bg/80 backdrop-blur-sm"
               style={{ height: '100dvh' }}
               initial={{ opacity: 0 }}
@@ -92,7 +92,7 @@ export function MobileMenu() {
               transition={{ duration: 0.18 }}
               onClick={() => setOpen(false)}
             />
-            <motion.aside
+            <m.aside
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
@@ -173,8 +173,8 @@ export function MobileMenu() {
                   <ThemeToggle variant="block" />
                 </div>
               </div>
-            </motion.aside>
-          </motion.div>
+            </m.aside>
+          </m.div>
         )}
       </AnimatePresence>
     </>

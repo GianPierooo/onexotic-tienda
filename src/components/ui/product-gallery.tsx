@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
+import { AnimatePresence, m, type PanInfo } from '@/components/motion';
 import Image from 'next/image';
 import { GrainOverlay } from './grain-overlay';
 
@@ -55,7 +55,7 @@ export function ProductGallery({
         <GrainOverlay />
 
         <AnimatePresence initial={false} custom={dir} mode="popLayout">
-          <motion.div
+          <m.div
             key={index}
             custom={dir}
             drag={total > 1 ? 'x' : false}
@@ -88,7 +88,7 @@ export function ProductGallery({
                 }}
               />
             )}
-          </motion.div>
+          </m.div>
         </AnimatePresence>
 
         <div className="pointer-events-none absolute left-3.5 top-3.5 flex gap-1.5">

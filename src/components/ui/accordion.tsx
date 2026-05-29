@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type ReactNode } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from '@/components/motion';
 
 type Item = {
   id: string;
@@ -43,7 +43,7 @@ export function Accordion({ items }: { items: Item[] }) {
             </button>
             <AnimatePresence initial={false}>
               {isOpen && (
-                <motion.div
+                <m.div
                   id={`acc-${it.id}`}
                   key="content"
                   initial={{ height: 0, opacity: 0 }}
@@ -55,7 +55,7 @@ export function Accordion({ items }: { items: Item[] }) {
                   <div className="border-t border-border px-4 py-4 font-body text-[13px] leading-relaxed text-fg/85">
                     {it.answer}
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
           </div>

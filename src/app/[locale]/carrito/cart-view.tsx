@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from '@/components/motion';
 import { Link } from '@/lib/i18n/routing';
 import { useCart } from '@/lib/cart/cart-context';
 import { buildCartWhatsAppUrl } from '@/lib/cart/whatsapp';
@@ -149,7 +149,7 @@ export function CartView() {
       <section className="mx-4 mt-4 border border-border bg-card">
         <AnimatePresence initial={false}>
           {items.map((it, i) => (
-            <motion.div
+            <m.div
               key={it.productoId}
               layout
               initial={{ opacity: 0, y: 8 }}
@@ -248,7 +248,7 @@ export function CartView() {
                   <CloseIcon size={12} /> {t('remove')}
                 </button>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </AnimatePresence>
       </section>
