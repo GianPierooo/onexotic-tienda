@@ -765,6 +765,31 @@
         "title": "Tarjeta · Yape · Plin (Culqi)",
         "copy": "Pago online instantáneo.",
         "soon": "Próximamente"
+      },
+      "online": {
+        "eye": "Pago online",
+        "title": "Paga al instante",
+        "subtitle": "Pago seguro · confirmación inmediata",
+        "card": {
+          "title": "Tarjeta · Yape · Plin",
+          "copy": "Débito o crédito, Yape o Plin (Culqi)."
+        },
+        "paypal": {
+          "title": "PayPal",
+          "copy": "Pago internacional en USD."
+        },
+        "secured": "Transacción cifrada. No guardamos datos de tu tarjeta.",
+        "sdkPending": "Pasarela aún no configurada. Mientras tanto, completa tu pedido por WhatsApp.",
+        "errors": {
+          "incomplete": "Completa tus datos de envío antes de pagar.",
+          "generic": "No se pudo iniciar el pago. Intenta de nuevo o usa WhatsApp.",
+          "payments_disabled": "El pago online no está disponible por ahora.",
+          "provider_disabled": "Este método de pago no está disponible.",
+          "not_configured": "Pasarela aún no configurada. Usa WhatsApp por ahora.",
+          "not_implemented": "Pasarela aún no configurada. Usa WhatsApp por ahora.",
+          "invalid_amount": "El monto del pedido no es válido.",
+          "provider_error": "La pasarela rechazó la operación. Intenta de nuevo."
+        }
       }
     },
     "summary": {

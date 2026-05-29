@@ -23,7 +23,9 @@ export type DireccionEnvio = {
 
 export type CrearPedidoInput = {
   items: OrderItemInput[];
-  metodo_pago: 'whatsapp' | 'culqi' | 'yape' | 'plin' | 'tarjeta';
+  // 'paypal' requiere aplicar la migración _propuestas/0003 que lo agrega al
+  // enum del RPC crear_pedido (ver docs/pagos-online.md).
+  metodo_pago: 'whatsapp' | 'culqi' | 'yape' | 'plin' | 'tarjeta' | 'paypal';
   direccion_envio: DireccionEnvio;
   envio_pen: number;
   descuento_pen?: number;

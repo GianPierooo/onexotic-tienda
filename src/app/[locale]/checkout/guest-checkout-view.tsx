@@ -13,6 +13,8 @@ import {
   type ShippingZone,
 } from '@/lib/store-config';
 import { crearPedidoInvitado } from '@/lib/guest-order-actions';
+import { OnlinePaymentSection } from '@/components/checkout/online-payment-section';
+import type { OrderDraft } from '@/lib/payments/types';
 
 type Field = {
   nombre: string;
@@ -35,7 +37,7 @@ const PE_DEPARTAMENTOS = [
   'Junín', 'Áncash', 'Ica', 'Cajamarca', 'Tacna', 'Otro',
 ];
 
-export function GuestCheckoutView({ locale: _locale }: { locale: string }) {
+export function GuestCheckoutView({ locale }: { locale: string }) {
   const t = useTranslations('checkout');
   const tGuest = useTranslations('checkout.guest');
   const tAddr = useTranslations('account.address');
@@ -72,6 +74,49 @@ export function GuestCheckoutView({ locale: _locale }: { locale: string }) {
   const subtotal = cart.subtotal;
   const envio = calculateShipping(zona, subtotal);
   const total = subtotal + envio;
+
+  // Borrador del pedido para el pago online. null = faltan datos obligatorios.
+  function buildOrderDraft(): OrderDraft | null {
+    if (
+      !EMAIL_RE.test(form.email.trim()) ||
+      !form.nombre.trim() ||
+      !form.telefono.trim() ||
+      !form.direccion.trim() ||
+      cart.items.length === 0
+    ) {
+      return null;
+    }
+    return {
+      items: cart.items.map((i) => ({
+        producto_id: i.productoId,
+        nombre: i.nombre,
+        sku: i.sku,
+        talla: i.talla,
+        color: i.color,
+        cantidad: i.cantidad,
+        precio: i.precio,
+      })),
+      shipping: {
+        destinatario: form.nombre.trim(),
+        telefono: form.telefono.trim(),
+        pais: form.pais,
+        departamento: form.departamento,
+        provincia: form.provincia || undefined,
+        distrito: form.distrito,
+        direccion: form.direccion.trim(),
+        referencia: form.referencia || undefined,
+        codigo_postal: form.codigo_postal || undefined,
+      },
+      customer: {
+        nombre: form.nombre.trim(),
+        email: form.email.trim(),
+        telefono: form.telefono.trim(),
+      },
+      amounts: { subtotalPen: subtotal, envioPen: envio, totalPen: total },
+      notas: form.notas || undefined,
+      clienteId: null,
+    };
+  }
 
   if (!cart.hydrated) {
     return (
@@ -169,6 +214,7 @@ export function GuestCheckoutView({ locale: _locale }: { locale: string }) {
   }
 
   return (
+    <>
     <form onSubmit={onSubmit} className="px-4 py-6">
       <SectionTitle eye={tGuest('contactEye')} title={tGuest('contactTitle')} />
       <div className="grid gap-3 md:grid-cols-2">
@@ -289,6 +335,9 @@ export function GuestCheckoutView({ locale: _locale }: { locale: string }) {
         {pending ? t('confirming') : tGuest('submit')}
       </button>
     </form>
+    {/* Pago online (tras feature flag). Renderiza null si está apagado. */}
+    <OnlinePaymentSection locale={locale} getDraft={buildOrderDraft} />
+    </>
   );
 }
 

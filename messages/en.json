@@ -753,6 +753,31 @@
         "title": "Card · Yape · Plin (Culqi)",
         "copy": "Instant online payment.",
         "soon": "Coming soon"
+      },
+      "online": {
+        "eye": "Online payment",
+        "title": "Pay instantly",
+        "subtitle": "Secure payment · instant confirmation",
+        "card": {
+          "title": "Card · Yape · Plin",
+          "copy": "Debit or credit, Yape or Plin (Culqi)."
+        },
+        "paypal": {
+          "title": "PayPal",
+          "copy": "International payment in USD."
+        },
+        "secured": "Encrypted transaction. We never store your card data.",
+        "sdkPending": "Gateway not configured yet. Meanwhile, complete your order on WhatsApp.",
+        "errors": {
+          "incomplete": "Complete your shipping details before paying.",
+          "generic": "Couldn't start the payment. Try again or use WhatsApp.",
+          "payments_disabled": "Online payment isn't available right now.",
+          "provider_disabled": "This payment method isn't available.",
+          "not_configured": "Gateway not configured yet. Use WhatsApp for now.",
+          "not_implemented": "Gateway not configured yet. Use WhatsApp for now.",
+          "invalid_amount": "The order amount is invalid.",
+          "provider_error": "The gateway rejected the operation. Try again."
+        }
       }
     },
     "summary": {

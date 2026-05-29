@@ -10,6 +10,9 @@ import { AddressForm } from '@/components/ui/address-form';
 import { GrainOverlay } from '@/components/ui/grain-overlay';
 import { LoadingState } from '@/components/ui/states';
 import { crearPedido } from '@/lib/order-actions';
+import { OnlinePaymentSection } from '@/components/checkout/online-payment-section';
+import { onlinePaymentsEnabled } from '@/lib/payments/config';
+import type { OrderDraft } from '@/lib/payments/types';
 import {
   STORE,
   calculateShipping,
@@ -53,6 +56,40 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
   const subtotal = cart.subtotal;
   const envio = calculateShipping(zona, subtotal);
   const total = subtotal + envio;
+  const onlineEnabled = onlinePaymentsEnabled();
+
+  // Borrador del pedido para el pago online (mismos datos que el flujo actual).
+  function buildOrderDraft(): OrderDraft | null {
+    if (!selectedDir || cart.items.length === 0) return null;
+    return {
+      items: cart.items.map((i) => ({
+        producto_id: i.productoId,
+        nombre: i.nombre,
+        sku: i.sku,
+        talla: i.talla,
+        color: i.color,
+        cantidad: i.cantidad,
+        precio: i.precio,
+      })),
+      shipping: {
+        destinatario: selectedDir.destinatario,
+        telefono: selectedDir.telefono,
+        pais: selectedDir.pais,
+        departamento: selectedDir.departamento,
+        provincia: selectedDir.provincia ?? undefined,
+        distrito: selectedDir.distrito,
+        direccion: selectedDir.direccion,
+        referencia: selectedDir.referencia ?? undefined,
+        codigo_postal: selectedDir.codigo_postal ?? undefined,
+      },
+      customer: {
+        nombre: selectedDir.destinatario,
+        email: userEmail,
+        telefono: selectedDir.telefono,
+      },
+      amounts: { subtotalPen: subtotal, envioPen: envio, totalPen: total },
+    };
+  }
 
   if (!cart.hydrated) {
     return (
@@ -224,16 +261,23 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
             title={t('payment.whatsapp.title')}
             copy={t('payment.whatsapp.copy', { phone: STORE.whatsappLabel })}
           />
-          <PaymentOption
-            active={pago === 'culqi'}
-            onClick={() => setPago('culqi')}
-            title={t('payment.culqi.title')}
-            copy={t('payment.culqi.copy')}
-            badge={t('payment.culqi.soon')}
-            disabled
-          />
+          {/* Teaser "próximamente" solo mientras el pago online esté apagado.
+              Con el flag encendido se reemplaza por los botones reales abajo. */}
+          {!onlineEnabled && (
+            <PaymentOption
+              active={pago === 'culqi'}
+              onClick={() => setPago('culqi')}
+              title={t('payment.culqi.title')}
+              copy={t('payment.culqi.copy')}
+              badge={t('payment.culqi.soon')}
+              disabled
+            />
+          )}
         </div>
       </section>
+
+      {/* Pago online (tras feature flag). Renderiza null si está apagado. */}
+      <OnlinePaymentSection locale={locale} getDraft={buildOrderDraft} />
 
       <section className="border-t border-border px-4 py-6">
         <SectionTitle eye={t('summary.eye')} title={t('summary.title')} />

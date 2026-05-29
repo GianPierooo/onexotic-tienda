@@ -1,0 +1,19 @@
+-- ============================================================================
+-- PROPUESTA (no aplicada) — Agregar 'paypal' al método de pago del RPC
+-- ----------------------------------------------------------------------------
+-- Aplicar SOLO al activar PayPal como método de pago online. El RPC
+-- crear_pedido valida hoy:
+--     p_metodo_pago not in ('whatsapp','culqi','yape','plin','tarjeta')
+-- Esta propuesta recrea el RPC agregando 'paypal' a la lista permitida. El
+-- resto del cuerpo del RPC NO cambia respecto a
+-- 20260523150000_crear_pedido_use_column.sql.
+--
+-- Cómo aplicar: copiar el RPC vigente y cambiar solo la línea del IN(...)
+-- para incluir 'paypal'. Se deja como recordatorio para no olvidar este paso
+-- al enchufar PayPal (ver docs/pagos-online.md §Activar PayPal).
+--
+--   if p_metodo_pago not in
+--        ('whatsapp','culqi','yape','plin','tarjeta','paypal') then
+--     raise exception 'metodo_pago_invalido' using errcode = '22023';
+--   end if;
+-- ============================================================================
