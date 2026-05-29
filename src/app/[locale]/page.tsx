@@ -9,7 +9,12 @@ import { ProductGrid } from '@/components/ui/product-grid';
 import { NewsletterCapture } from '@/components/ui/newsletter-capture';
 import { TrustBadges } from '@/components/ui/trust-badges';
 import { EmptyState } from '@/components/ui/states';
-import { getActiveDrop, getFeaturedProducts, getUpcomingDrop } from '@/lib/queries';
+import {
+  getActiveDrop,
+  getDropHeroImage,
+  getFeaturedProducts,
+  getUpcomingDrop,
+} from '@/lib/queries';
 import { groupForCards } from '@/lib/product-grouping';
 import { isFutureIso } from '@/lib/utils';
 
@@ -51,6 +56,7 @@ export default async function HomePage({ params: { locale } }: Props) {
 
   const heroDrop = activeDrop ?? upcomingDrop;
   const isLive = !!activeDrop;
+  const heroImage = heroDrop ? await getDropHeroImage(heroDrop.nombre) : null;
   const badge = heroDrop
     ? `${heroDrop.nombre} · ${isLive ? t('hero.live') : t('hero.upcoming')}`
     : t('hero.empty');
@@ -63,6 +69,7 @@ export default async function HomePage({ params: { locale } }: Props) {
           capitulo={`${t('hero.chapter')} ${heroDrop.nombre}`}
           nombre={heroDrop.nombre}
           concepto={heroDrop.concepto}
+          imagenUrl={heroImage}
           fechaIso={
             isFutureIso(heroDrop.fecha_lanzamiento)
               ? heroDrop.fecha_lanzamiento

@@ -246,6 +246,8 @@ export function dropSlug(nombre: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+const HERO_FILE_RE = /^hero\.(webp|jpg|jpeg|png|avif)$/i;
+
 export async function getEditorialImages(dropNombre: string): Promise<string[]> {
   const supabase = createClient();
   const folder = dropSlug(dropNombre);
@@ -254,12 +256,33 @@ export async function getEditorialImages(dropNombre: string): Promise<string[]> 
     .list(folder, { limit: 50, sortBy: { column: 'name', order: 'asc' } });
   if (error || !data) return [];
   return data
-    .filter((f) => f.name && !f.name.startsWith('.'))
+    // Excluye archivos ocultos y la imagen de hero (esa la usa el home, no
+    // el lookbook).
+    .filter((f) => f.name && !f.name.startsWith('.') && !HERO_FILE_RE.test(f.name))
     .map(
       (f) =>
         supabase.storage.from('editorial').getPublicUrl(`${folder}/${f.name}`)
           .data.publicUrl
     );
+}
+
+/**
+ * Imagen de fondo del hero para un drop. Convención: subir el archivo a
+ * `editorial/<slug-del-drop>/hero.webp` (o jpg/png/avif). Si no existe, el
+ * hero usa su fallback de marca (gradiente + trazos tribales).
+ */
+export async function getDropHeroImage(dropNombre: string): Promise<string | null> {
+  const supabase = createClient();
+  const folder = dropSlug(dropNombre);
+  const { data, error } = await supabase.storage
+    .from('editorial')
+    .list(folder, { limit: 50, sortBy: { column: 'name', order: 'asc' } });
+  if (error || !data) return null;
+  const hero = data.find((f) => f.name && HERO_FILE_RE.test(f.name));
+  if (!hero) return null;
+  return supabase.storage
+    .from('editorial')
+    .getPublicUrl(`${folder}/${hero.name}`).data.publicUrl;
 }
 
 const sizeOrder = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'UNICA', 'ÚNICA'];

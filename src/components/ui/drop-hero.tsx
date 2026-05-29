@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/routing';
 import { GrainOverlay } from './grain-overlay';
@@ -12,9 +13,11 @@ type Props = {
   nombre: string;
   concepto: string | null;
   fechaIso: string | null;
+  /** Foto de fondo opcional. Si no hay, se usa el fallback de marca. */
+  imagenUrl?: string | null;
 };
 
-export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props) {
+export function DropHero({ badge, capitulo, nombre, concepto, fechaIso, imagenUrl }: Props) {
   const t = useTranslations('home.hero');
 
   return (
@@ -22,10 +25,33 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso }: Props)
       className="relative overflow-hidden text-fg"
       style={{ height: 620 }}
     >
-      <div
-        className="absolute inset-0"
-        style={{ background: 'var(--grad-hero)' }}
-      />
+      {imagenUrl ? (
+        <>
+          <Image
+            src={imagenUrl}
+            alt={nombre}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Scrim con el color de fondo del tema: el texto (abajo) queda
+              sobre fondo sólido del tema → legible en claro y oscuro; la foto
+              se ve en la parte superior. */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to top, var(--color-bg) 0%, var(--color-bg) 40%, transparent 88%)',
+            }}
+          />
+        </>
+      ) : (
+        <div
+          className="absolute inset-0"
+          style={{ background: 'var(--grad-hero)' }}
+        />
+      )}
       <GrainOverlay />
       {/* tribal strokes */}
       <svg
