@@ -18,8 +18,8 @@ Esta tienda web es el nuevo canal de venta online oficial en onexotic.shop.
 
 IMPORTANTE: este proyecto NO es la app interna de gestión. OnExotic ya tiene
 una app interna construida en Flutter que usa el equipo. Esta tienda web es
-un proyecto separado e independiente, pero comparte la misma base de datos
-Supabase (ver sección de arquitectura de datos).
+un proyecto separado e independiente, con su PROPIO proyecto Supabase
+(ver sección de arquitectura de datos).
 
 ---
 
@@ -40,31 +40,29 @@ configurará más adelante. Mientras tanto la tienda funciona con WhatsApp.
 
 ---
 
-## 3. ARQUITECTURA DE DATOS — MODELO HÍBRIDO
+## 3. ARQUITECTURA DE DATOS — PROYECTO PROPIO
 
-La tienda usa el MISMO proyecto Supabase que la app interna de OnExotic.
-Project ref de Supabase: gxzajbxumilshvrpwcnx
+La tienda tiene su PROPIO proyecto Supabase, independiente de la app interna
+de gestión (Flutter). NO comparten base de datos ni tablas.
+Project ref de Supabase de la tienda: jmxiwzotiridrjkdqulh
 
-La tienda se relaciona con la base de datos así:
-
-LEE (solo lectura) estas tablas que ya existen, creadas por la app interna:
+La tienda es dueña de TODAS sus tablas y las administra en su propio proyecto:
 
 - `productos`: id, nombre, tipo, drop_id, talla, color, stock, stock_minimo,
 costo, precio_venta, estado, imagen_url, sku, disenio_id
 - `drops`: id, nombre, concepto, fecha_lanzamiento, estado
-
-CREA y administra estas tablas nuevas, propias de la tienda:
-
 - `clientes`: datos de los compradores
 - `pedidos`: órdenes de compra
 - `pedido_items`: productos dentro de cada pedido
 - `direcciones`: direcciones de envío de los clientes
+- `reclamaciones`: libro de reclamaciones (obligatorio en Perú)
+- `avisos_drop`: captación de email para próximos drops
 
-Regla de oro: una sola fuente de verdad. El inventario vive en la tabla
-`productos`. Cuando el equipo carga un drop en la app interna, los productos
-aparecen automáticamente en la tienda. La tienda nunca crea ni edita
-productos ni drops, solo los lee. Cuando se confirma un pedido, se descuenta
-el stock de la tabla `productos`.
+Regla de oro: una sola fuente de verdad dentro del proyecto de la tienda. El
+inventario vive en la tabla `productos` de este proyecto; el equipo carga los
+drops y actualiza el stock manualmente desde el dashboard de Supabase. Cuando
+se confirma un pedido, se descuenta el stock de la tabla `productos` de forma
+atómica (RPC `crear_pedido`, con `FOR UPDATE` para no sobrevender).
 
 Solo se muestran en la tienda los productos con estado activo y stock mayor
 a cero. Los productos del drop con estado distinto a lanzado no se muestran
@@ -224,7 +222,9 @@ porque están protegidas por RLS; las claves de servicio nunca.
 
 - Todas las tablas nuevas de la tienda usan Row Level Security (RLS).
 - Un cliente solo puede ver y editar sus propios pedidos y direcciones.
-- La tabla `productos` y `drops` son de solo lectura desde la tienda.
+- Las tablas `productos` y `drops` son de solo lectura para los clientes de la
+  tienda; su contenido se administra desde el dashboard de Supabase y el stock
+  solo se descuenta vía el RPC seguro `crear_pedido`.
 - Validar todas las entradas del usuario antes de enviarlas a Supabase.
 
 ---
@@ -400,7 +400,8 @@ Ecosistema OnExotic (proyectos separados):
   se construirá a futuro como proyecto Flutter 
   separado, NO empaquetando esta web.
 
-Los tres proyectos comparten la misma base de 
-datos Supabase.
+La tienda web tiene su propio proyecto Supabase 
+exclusivo (project ref jmxiwzotiridrjkdqulh), 
+independiente del de la app interna de gestión.
 
 
