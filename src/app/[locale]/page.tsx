@@ -25,7 +25,9 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'meta.home' });
   return {
-    title: t('title'),
+    // El título de home ya incluye la marca; `absolute` evita el sufijo
+    // duplicado "· OnExotic" del template del layout.
+    title: { absolute: t('title') },
     description: t('description'),
     alternates: {
       canonical: `/${locale}`,

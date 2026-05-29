@@ -310,7 +310,7 @@ export function CartView() {
         </a>
         <Link
           href="/checkout"
-          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-fg"
+          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-on-fire"
           style={{
             background: 'var(--color-fire)',
             boxShadow: '0 -4px 24px rgba(184,20,20,.32)',

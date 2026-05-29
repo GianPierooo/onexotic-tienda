@@ -126,7 +126,7 @@ export function AuthForm({ next, initialMode }: Props) {
                   value={form.nombre}
                   required
                   onChange={(v) => setForm((f) => ({ ...f, nombre: v }))}
-                  placeholder="Tu nombre"
+                  placeholder={t('namePlaceholder')}
                 />
                 <Field
                   label={t('phone')}

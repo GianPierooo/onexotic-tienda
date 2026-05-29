@@ -116,9 +116,18 @@
       "lookLink": "OPEN"
     },
     "cat": {
-      "gym": { "name": "Gymwear", "copy": "Sweat. Bleed. Return." },
-      "oversize": { "name": "Oversize", "copy": "Wide cuts. Cult silhouette." },
-      "street": { "name": "Streetwear", "copy": "Street code. No permission." }
+      "gym": {
+        "name": "Gymwear",
+        "copy": "Sweat. Bleed. Return."
+      },
+      "oversize": {
+        "name": "Oversize",
+        "copy": "Wide cuts. Cult silhouette."
+      },
+      "street": {
+        "name": "Streetwear",
+        "copy": "Street code. No permission."
+      }
     },
     "lookbook": {
       "titleA": "Cult",
@@ -410,10 +419,22 @@
   },
   "trust": {
     "eyebrow": "Cult seals",
-    "ship": { "title": "Safe shipping", "copy": "Packed and tracked across Peru." },
-    "pay": { "title": "Safe payments", "copy": "Yape, Plin, transfer. No surprises." },
-    "wa": { "title": "WhatsApp support", "copy": "We answer when it matters." },
-    "drop": { "title": "Limited drops", "copy": "Made in Lima. No restock." }
+    "ship": {
+      "title": "Safe shipping",
+      "copy": "Packed and tracked across Peru."
+    },
+    "pay": {
+      "title": "Safe payments",
+      "copy": "Yape, Plin, transfer. No surprises."
+    },
+    "wa": {
+      "title": "WhatsApp support",
+      "copy": "We answer when it matters."
+    },
+    "drop": {
+      "title": "Limited drops",
+      "copy": "Made in Lima. No restock."
+    }
   },
   "reviews": {
     "eyebrow": "Voices of the cult",
@@ -590,6 +611,11 @@
     },
     "jsonld": {
       "descriptionFallback": "{nombre} — piece from OnExotic's active drop. Limited edition, no restock."
+    },
+    "gallery": {
+      "prev": "Previous",
+      "next": "Next",
+      "thumb": "Photo {n}"
     }
   },
   "cart": {
@@ -648,7 +674,10 @@
     "forgot": "Forgot it?",
     "switchToSignup": "No account? Join us",
     "switchToLogin": "Already in? Sign in",
-    "tabs": { "login": "Sign in", "signup": "Join" },
+    "tabs": {
+      "login": "Sign in",
+      "signup": "Join"
+    },
     "check": {
       "eye": "verify your email",
       "title": "Almost in",
@@ -677,7 +706,8 @@
         "resendFailed": "Could not resend. Try again in a few minutes.",
         "ctaLogin": "Sign in"
       }
-    }
+    },
+    "namePlaceholder": "Your name"
   },
   "account": {
     "eyebrow": "cult member",
@@ -825,7 +855,8 @@
         "title": "It's in motion",
         "copy": "Your request {ref} reached the cult. If WhatsApp didn't open, use the button.",
         "cta": "Open WhatsApp"
-      }
+      },
+      "namePlaceholder": "Your name"
     }
   },
   "archive": {
@@ -963,28 +994,72 @@
       "eye": "Timeline",
       "title": "Bloodline.",
       "live": "LIVE",
-      "m1": { "d": "MAR 2025", "t": "Piece 01", "n": "Black hoodie by hand, sold via DM for S/ 140." },
-      "m2": { "d": "AUG 2025", "t": "The insult", "n": "A client calls us \"on exotic\". We took the name." },
-      "m3": { "d": "OCT 2025", "t": "Drop 01", "n": "40 pieces. Sold out in hours. No restock." },
-      "m4": { "d": "DEC 2025", "t": "Workshop", "n": "We took a room in Gamarra. In-house seamstresses." },
-      "m5": { "d": "TODAY", "t": "Live archive", "n": "{closed} closed chapters. The next is brewing." }
+      "m1": {
+        "d": "MAR 2025",
+        "t": "Piece 01",
+        "n": "Black hoodie by hand, sold via DM for S/ 140."
+      },
+      "m2": {
+        "d": "AUG 2025",
+        "t": "The insult",
+        "n": "A client calls us \"on exotic\". We took the name."
+      },
+      "m3": {
+        "d": "OCT 2025",
+        "t": "Drop 01",
+        "n": "40 pieces. Sold out in hours. No restock."
+      },
+      "m4": {
+        "d": "DEC 2025",
+        "t": "Workshop",
+        "n": "We took a room in Gamarra. In-house seamstresses."
+      },
+      "m5": {
+        "d": "TODAY",
+        "t": "Live archive",
+        "n": "{closed} closed chapters. The next is brewing."
+      }
     },
     "pillars": {
       "eye": "The four oaths",
       "title": "Why we are this way.",
-      "p1": { "t": "Limited drops, no restock.", "d": "A piece sold is a piece less. When it's gone, it's gone. No exceptions." },
-      "p2": { "t": "Made in Lima.", "d": "Everything is cut and sewn in Gamarra. No cheap labor, no middlemen." },
-      "p3": { "t": "The client is faithful, not consumer.", "d": "Early access, not discounts. Community, not segmentation." },
-      "p4": { "t": "The street rules.", "d": "Design decisions are made walking, not staring at dashboards." }
+      "p1": {
+        "t": "Limited drops, no restock.",
+        "d": "A piece sold is a piece less. When it's gone, it's gone. No exceptions."
+      },
+      "p2": {
+        "t": "Made in Lima.",
+        "d": "Everything is cut and sewn in Gamarra. No cheap labor, no middlemen."
+      },
+      "p3": {
+        "t": "The client is faithful, not consumer.",
+        "d": "Early access, not discounts. Community, not segmentation."
+      },
+      "p4": {
+        "t": "The street rules.",
+        "d": "Design decisions are made walking, not staring at dashboards."
+      }
     },
     "process": {
       "eye": "Process",
       "titleA": "From notebook",
       "titleB": "to altar.",
-      "s1": { "t": "Sketch", "d": "Monday meetings. One notebook. No Photoshop until step 03." },
-      "s2": { "t": "Cut", "d": "Paper patterns, raw cotton test. If it doesn't fall, it gets shredded." },
-      "s3": { "t": "Embroider", "d": "Hand embroidery on the main piece. Three inks max." },
-      "s4": { "t": "Drop", "d": "Photo. Manifesto. Word to the faithful. No restock." }
+      "s1": {
+        "t": "Sketch",
+        "d": "Monday meetings. One notebook. No Photoshop until step 03."
+      },
+      "s2": {
+        "t": "Cut",
+        "d": "Paper patterns, raw cotton test. If it doesn't fall, it gets shredded."
+      },
+      "s3": {
+        "t": "Embroider",
+        "d": "Hand embroidery on the main piece. Three inks max."
+      },
+      "s4": {
+        "t": "Drop",
+        "d": "Photo. Manifesto. Word to the faithful. No restock."
+      }
     },
     "close": {
       "eye": "End",
@@ -999,8 +1074,13 @@
   },
   "order": {
     "eye": "Your ritual",
-    "timeline": { "title": "Order status" },
-    "items": { "title": "Order pieces", "size": "size" },
+    "timeline": {
+      "title": "Order status"
+    },
+    "items": {
+      "title": "Order pieces",
+      "size": "size"
+    },
     "total": {
       "subtotal": "Subtotal",
       "discount": "Discount",
@@ -1008,7 +1088,9 @@
       "shipFree": "Shipping · free",
       "total": "Total"
     },
-    "shipping": { "title": "Shipping to" },
+    "shipping": {
+      "title": "Shipping to"
+    },
     "payment": {
       "method": "Payment method",
       "followWhatsapp": "Follow via WhatsApp"

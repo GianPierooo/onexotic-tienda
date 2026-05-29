@@ -222,8 +222,9 @@ export function ProductActions({ variants, tipo }: Props) {
           onClick={onAdd}
           whileTap={{ scale: 0.98 }}
           disabled={todoAgotado || !selectedDisponible}
-          className="flex w-full items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-fg disabled:opacity-60"
+          className="flex w-full items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] disabled:opacity-60"
           style={{
+            color: todoAgotado || !selectedDisponible ? 'var(--color-fg)' : 'var(--color-on-fire)',
             background: todoAgotado || !selectedDisponible ? 'var(--color-border)' : 'var(--color-fire)',
             boxShadow:
               todoAgotado || !selectedDisponible

@@ -1,15 +1,20 @@
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { CheckoutGate } from './checkout-gate';
 import type { Tables } from '@/lib/supabase/database.types';
 
-export const metadata: Metadata = {
-  title: 'Checkout',
-  robots: { index: false, follow: false },
-};
-
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({
+  params: { locale },
+}: Props): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'checkout' });
+  return {
+    title: t('title'),
+    robots: { index: false, follow: false },
+  };
+}
 type Direccion = Tables<'direcciones'>;
 
 export default async function CheckoutPage({ params: { locale } }: Props) {

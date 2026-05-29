@@ -9,12 +9,17 @@ import { LogoutButton } from '@/components/ui/logout-button';
 import { formatSoles } from '@/lib/store-config';
 import type { Tables } from '@/lib/supabase/database.types';
 
-export const metadata: Metadata = {
-  title: 'Cuenta',
-  robots: { index: false, follow: false },
-};
-
 type Props = { params: { locale: string } };
+
+export async function generateMetadata({
+  params: { locale },
+}: Props): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'nav' });
+  return {
+    title: t('account'),
+    robots: { index: false, follow: false },
+  };
+}
 
 type Pedido = Tables<'pedidos'>;
 type Direccion = Tables<'direcciones'>;

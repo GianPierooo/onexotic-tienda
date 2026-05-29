@@ -36,6 +36,9 @@
     --color-scrollbar-thumb-hover: #3a3a3a;
 
     --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.4);
+    /* Viñeta de borde para placas editoriales: oscurece las esquinas y
+       concentra la mirada al centro. En oscuro es casi negro. */
+    --scrim-edge: rgba(0, 0, 0, 0.92);
 
     /* Gradientes decorativos del lookbook / cards. Mantienen la
        paleta gótica rojo-marrón sobre fondo casi negro. */
@@ -100,6 +103,8 @@
     --color-scrollbar-thumb-hover: #a8a298;
 
     --shadow-soft: 0 8px 30px rgba(20, 17, 15, 0.12);
+    /* En claro la viñeta es suave: sombra cálida tenue, no manchas negras. */
+    --scrim-edge: rgba(20, 17, 15, 0.16);
 
     --grad-hero: radial-gradient(120% 80% at 70% 20%, #fcefe5 0%, #efe5d6 55%, #e3d8c6 100%);
     --grad-tone-a: radial-gradient(120% 80% at 70% 20%, #fcefe5 0%, #efe5d6 55%, #e3d8c6 100%);

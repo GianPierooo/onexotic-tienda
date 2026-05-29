@@ -116,9 +116,18 @@
       "lookLink": "ABRIR"
     },
     "cat": {
-      "gym": { "name": "Gymwear", "copy": "Sudas. Sangras. Vuelves." },
-      "oversize": { "name": "Oversize", "copy": "Cortes anchos. Silueta de culto." },
-      "street": { "name": "Streetwear", "copy": "Código de calle. Sin permiso." }
+      "gym": {
+        "name": "Gymwear",
+        "copy": "Sudas. Sangras. Vuelves."
+      },
+      "oversize": {
+        "name": "Oversize",
+        "copy": "Cortes anchos. Silueta de culto."
+      },
+      "street": {
+        "name": "Streetwear",
+        "copy": "Código de calle. Sin permiso."
+      }
     },
     "lookbook": {
       "titleA": "Cuerpos",
@@ -602,6 +611,11 @@
     },
     "jsonld": {
       "descriptionFallback": "{nombre} — pieza del drop activo de OnExotic. Edición limitada, sin restock."
+    },
+    "gallery": {
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "thumb": "Foto {n}"
     }
   },
   "cart": {
@@ -660,7 +674,10 @@
     "forgot": "¿La olvidaste?",
     "switchToSignup": "¿No tienes cuenta? Únete",
     "switchToLogin": "¿Ya eres del culto? Entra",
-    "tabs": { "login": "Entrar", "signup": "Unirme" },
+    "tabs": {
+      "login": "Entrar",
+      "signup": "Unirme"
+    },
     "check": {
       "eye": "verifica tu correo",
       "title": "Casi adentro",
@@ -689,7 +706,8 @@
         "resendFailed": "No pudimos reenviar. Intenta de nuevo en unos minutos.",
         "ctaLogin": "Iniciar sesión"
       }
-    }
+    },
+    "namePlaceholder": "Tu nombre"
   },
   "account": {
     "eyebrow": "fiel del culto",
@@ -837,7 +855,8 @@
         "title": "Quedó en marcha",
         "copy": "Tu solicitud {ref} ya viajó al culto. Si WhatsApp no abrió solo, usa el botón.",
         "cta": "Abrir WhatsApp"
-      }
+      },
+      "namePlaceholder": "Tu nombre"
     }
   },
   "archive": {
@@ -975,28 +994,72 @@
       "eye": "Cronología",
       "title": "Línea de sangre.",
       "live": "VIVO",
-      "m1": { "d": "MAR 2025", "t": "Pieza 01", "n": "Hoodie negro a mano, vendido en DM por S/ 140." },
-      "m2": { "d": "AGO 2025", "t": "El insulto", "n": "Un cliente nos llama \"on exotic\". Adoptamos el nombre." },
-      "m3": { "d": "OCT 2025", "t": "Drop 01", "n": "40 piezas. Se agotan en horas. Sin restock." },
-      "m4": { "d": "DIC 2025", "t": "Taller", "n": "Tomamos un cuarto en Gamarra. Costureras de planta." },
-      "m5": { "d": "HOY", "t": "Archivo vivo", "n": "{closed} capítulos cerrados. El próximo se prepara." }
+      "m1": {
+        "d": "MAR 2025",
+        "t": "Pieza 01",
+        "n": "Hoodie negro a mano, vendido en DM por S/ 140."
+      },
+      "m2": {
+        "d": "AGO 2025",
+        "t": "El insulto",
+        "n": "Un cliente nos llama \"on exotic\". Adoptamos el nombre."
+      },
+      "m3": {
+        "d": "OCT 2025",
+        "t": "Drop 01",
+        "n": "40 piezas. Se agotan en horas. Sin restock."
+      },
+      "m4": {
+        "d": "DIC 2025",
+        "t": "Taller",
+        "n": "Tomamos un cuarto en Gamarra. Costureras de planta."
+      },
+      "m5": {
+        "d": "HOY",
+        "t": "Archivo vivo",
+        "n": "{closed} capítulos cerrados. El próximo se prepara."
+      }
     },
     "pillars": {
       "eye": "Los cuatro juramentos",
       "title": "Por qué somos así.",
-      "p1": { "t": "Drops limitados, sin restock.", "d": "Una pieza vendida es una pieza menos. Cuando se acaba, se acabó. Sin excepciones." },
-      "p2": { "t": "Hecho en Lima.", "d": "Todo se corta y se cose en Gamarra. Sin maquila barata, sin intermediarios." },
-      "p3": { "t": "El cliente es fiel, no consumidor.", "d": "Acceso anticipado, no descuentos. Comunidad, no segmentación." },
-      "p4": { "t": "La calle manda.", "d": "Las decisiones de diseño se toman caminando, no mirando dashboards." }
+      "p1": {
+        "t": "Drops limitados, sin restock.",
+        "d": "Una pieza vendida es una pieza menos. Cuando se acaba, se acabó. Sin excepciones."
+      },
+      "p2": {
+        "t": "Hecho en Lima.",
+        "d": "Todo se corta y se cose en Gamarra. Sin maquila barata, sin intermediarios."
+      },
+      "p3": {
+        "t": "El cliente es fiel, no consumidor.",
+        "d": "Acceso anticipado, no descuentos. Comunidad, no segmentación."
+      },
+      "p4": {
+        "t": "La calle manda.",
+        "d": "Las decisiones de diseño se toman caminando, no mirando dashboards."
+      }
     },
     "process": {
       "eye": "Proceso",
       "titleA": "De la libreta",
       "titleB": "al altar.",
-      "s1": { "t": "Bocetar", "d": "Reunión los lunes. Una libreta. Sin Photoshop hasta el paso 03." },
-      "s2": { "t": "Cortar", "d": "Patronaje en papel, prueba en algodón crudo. Si no cae, se rompe." },
-      "s3": { "t": "Bordar", "d": "Bordado a mano de la pieza principal. Tres tintas máximo." },
-      "s4": { "t": "Drop", "d": "Foto. Manifiesto. Aviso a los fieles. Sin restock." }
+      "s1": {
+        "t": "Bocetar",
+        "d": "Reunión los lunes. Una libreta. Sin Photoshop hasta el paso 03."
+      },
+      "s2": {
+        "t": "Cortar",
+        "d": "Patronaje en papel, prueba en algodón crudo. Si no cae, se rompe."
+      },
+      "s3": {
+        "t": "Bordar",
+        "d": "Bordado a mano de la pieza principal. Tres tintas máximo."
+      },
+      "s4": {
+        "t": "Drop",
+        "d": "Foto. Manifiesto. Aviso a los fieles. Sin restock."
+      }
     },
     "close": {
       "eye": "Final",
@@ -1011,8 +1074,13 @@
   },
   "order": {
     "eye": "Tu ritual",
-    "timeline": { "title": "Estado del pedido" },
-    "items": { "title": "Piezas del pedido", "size": "talla" },
+    "timeline": {
+      "title": "Estado del pedido"
+    },
+    "items": {
+      "title": "Piezas del pedido",
+      "size": "talla"
+    },
     "total": {
       "subtotal": "Subtotal",
       "discount": "Descuento",
@@ -1020,7 +1088,9 @@
       "shipFree": "Envío · gratis",
       "total": "Total"
     },
-    "shipping": { "title": "Envío a" },
+    "shipping": {
+      "title": "Envío a"
+    },
     "payment": {
       "method": "Método de pago",
       "followWhatsapp": "Coordinar por WhatsApp"

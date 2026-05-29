@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import { AnimatePresence, m, type PanInfo } from '@/components/motion';
 import Image from 'next/image';
 import { GrainOverlay } from './grain-overlay';
@@ -22,6 +23,7 @@ export function ProductGallery({
   badgeLive,
   badgeSoldOut,
 }: Props) {
+  const t = useTranslations('product.gallery');
   const fotos = imagenes.length > 0 ? imagenes : [null];
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(0);
@@ -92,10 +94,7 @@ export function ProductGallery({
         </AnimatePresence>
 
         <div className="pointer-events-none absolute left-3.5 top-3.5 flex gap-1.5">
-          <span
-            className="pointer-events-auto inline-flex items-center gap-1.5 border border-border px-2 py-1 font-mono text-[9px] uppercase tracking-ritual text-fg"
-            style={{ background: 'rgba(10,10,10,.65)' }}
-          >
+          <span className="pointer-events-auto inline-flex items-center gap-1.5 border border-border bg-bg/65 px-2 py-1 font-mono text-[9px] uppercase tracking-ritual text-fg backdrop-blur-sm">
             <span className="block h-1.5 w-1.5 rounded-full bg-fire" />
             {badgeLive}
           </span>
@@ -107,10 +106,7 @@ export function ProductGallery({
         </div>
 
         {sku && (
-          <div
-            className="pointer-events-none absolute bottom-3.5 right-3.5 border border-border px-2 py-1 font-mono text-[10px] uppercase tracking-ritual text-fg"
-            style={{ background: 'rgba(10,10,10,.7)' }}
-          >
+          <div className="pointer-events-none absolute bottom-3.5 right-3.5 border border-border bg-bg/70 px-2 py-1 font-mono text-[10px] uppercase tracking-ritual text-fg backdrop-blur-sm">
             {sku}
           </div>
         )}
@@ -127,14 +123,15 @@ export function ProductGallery({
                   className="block h-[3px] transition-all"
                   style={{
                     width: i === index ? 18 : 6,
-                    background: i === index ? 'var(--color-fire)' : 'rgba(255,255,255,.35)',
+                    background: i === index ? 'var(--color-fire)' : 'var(--color-silver)',
+                    opacity: i === index ? 1 : 0.55,
                   }}
                 />
               ))}
             </div>
             <button
               type="button"
-              aria-label="anterior"
+              aria-label={t('prev')}
               onClick={() => go(index - 1)}
               className="absolute left-2 top-1/2 z-[3] -translate-y-1/2 border border-border bg-bg/55 px-2 py-2 text-fg backdrop-blur-sm hover:border-fire"
             >
@@ -142,7 +139,7 @@ export function ProductGallery({
             </button>
             <button
               type="button"
-              aria-label="siguiente"
+              aria-label={t('next')}
               onClick={() => go(index + 1)}
               className="absolute right-2 top-1/2 z-[3] -translate-y-1/2 border border-border bg-bg/55 px-2 py-2 text-fg backdrop-blur-sm hover:border-fire"
             >
@@ -159,7 +156,7 @@ export function ProductGallery({
               key={i}
               type="button"
               onClick={() => go(i)}
-              aria-label={`foto ${i + 1}`}
+              aria-label={t('thumb', { n: i + 1 })}
               className="relative overflow-hidden border transition-colors"
               style={{
                 aspectRatio: '1 / 1',

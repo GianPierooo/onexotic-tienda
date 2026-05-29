@@ -329,8 +329,9 @@ export function CheckoutView({ locale, direcciones, userEmail }: Props) {
           type="button"
           onClick={onConfirm}
           disabled={pending || pago === 'culqi'}
-          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] text-fg disabled:opacity-60"
+          className="flex items-center justify-between px-4 py-4 font-body text-[13px] font-extrabold uppercase tracking-[.22em] disabled:opacity-60"
           style={{
+            color: pago === 'culqi' ? 'var(--color-fg)' : 'var(--color-on-fire)',
             background: pago === 'culqi' ? 'var(--color-border)' : 'var(--color-fire)',
             boxShadow:
               pago === 'culqi'

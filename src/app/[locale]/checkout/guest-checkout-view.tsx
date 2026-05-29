@@ -219,7 +219,7 @@ export function GuestCheckoutView({ locale }: { locale: string }) {
     <form onSubmit={onSubmit} className="px-4 py-6">
       <SectionTitle eye={tGuest('contactEye')} title={tGuest('contactTitle')} />
       <div className="grid gap-3 md:grid-cols-2">
-        <Field label={tGuest('name')} value={form.nombre} required onChange={(v) => set('nombre', v)} placeholder="Tu nombre" />
+        <Field label={tGuest('name')} value={form.nombre} required onChange={(v) => set('nombre', v)} placeholder={tGuest('namePlaceholder')} />
         <Field label={tAddr('phone')} type="tel" value={form.telefono} required onChange={(v) => set('telefono', v)} placeholder="+51 ..." />
       </div>
       <div className="mt-3">

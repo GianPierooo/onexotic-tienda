@@ -64,7 +64,7 @@ export function EditorialPlate({
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(120% 120% at 50% 50%, transparent 45%, rgba(0,0,0,0.92) 100%)',
+            'radial-gradient(120% 120% at 50% 50%, transparent 45%, var(--scrim-edge) 100%)',
         }}
       />
       {imagen ? (

@@ -2,11 +2,6 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Link } from '@/lib/i18n/routing';
-
-export const metadata: Metadata = {
-  title: 'Pedido',
-  robots: { index: false, follow: false },
-};
 import { createClient } from '@/lib/supabase/server';
 import { OrderStatus } from '@/components/ui/order-status';
 import { OrderReviewForms } from '@/components/ui/order-review-forms';
@@ -18,6 +13,16 @@ type Pedido = Tables<'pedidos'>;
 type Item = Tables<'pedido_items'>;
 
 const STEPS = ['pendiente', 'confirmado', 'pagado', 'en_preparacion', 'enviado', 'entregado'] as const;
+
+export async function generateMetadata({
+  params: { locale },
+}: Props): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'order' });
+  return {
+    title: t('eye'),
+    robots: { index: false, follow: false },
+  };
+}
 
 export default async function OrderPage({ params: { locale, id } }: Props) {
   setRequestLocale(locale);

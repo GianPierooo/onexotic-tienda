@@ -2,6 +2,7 @@
 
 import { m } from '@/components/motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/routing';
 import { GrainOverlay } from './grain-overlay';
 
@@ -34,6 +35,7 @@ function tonePara(id: string) {
 }
 
 export function ProductCard({ p }: { p: CardProduct }) {
+  const t = useTranslations('badges');
   const agotado = p.estado === 'agotado' || p.stock <= 0;
   const precio = p.precio_venta
     ? `S/ ${Number(p.precio_venta).toFixed(0)}`
@@ -111,7 +113,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
                 className="absolute inset-x-0 top-1/2 -translate-y-1/2 -rotate-6 text-center font-black text-[34px] uppercase text-fg"
                 style={{ textShadow: '0 2px 16px rgba(0,0,0,.8)' }}
               >
-                Agotado
+                {t('soldOut')}
               </div>
             </>
           )}

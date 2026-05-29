@@ -74,6 +74,7 @@ export async function generateMetadata({
 export default async function ProductPage({ params: { locale, slug } }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations('product');
+  const tNav = await getTranslations('nav');
 
   const variantes = await getProductoBySlug(slug);
   if (variantes.length === 0) notFound();
@@ -145,7 +146,7 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
       <StructuredData data={jsonLd} />
       <BreadcrumbsJsonLd
         items={[
-          { name: 'Tienda', url: `/${locale}/tienda` },
+          { name: tNav('catalog'), url: `/${locale}/tienda` },
           { name: base.nombre, url: `/${locale}/producto/${base.slug ?? slug}` },
         ]}
       />
