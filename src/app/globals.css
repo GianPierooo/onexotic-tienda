@@ -208,3 +208,31 @@
     padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
 }
+
+/* ============================================================
+   CTA fijo (producto / carrito): en móvil descansa SOBRE la barra
+   de navegación inferior para no quedar tapado por ella; a pantalla
+   completa (bottom: 0) en desktop, donde la barra inferior no existe.
+   ============================================================ */
+.sticky-cta {
+  bottom: calc(72px + env(safe-area-inset-bottom));
+}
+@media (min-width: 768px) {
+  .sticky-cta {
+    bottom: 0;
+  }
+}
+
+/* ============================================================
+   Anti-zoom de iOS: Safari móvil hace zoom al enfocar un control de
+   formulario con font-size < 16px. En móvil forzamos 16px en todos los
+   controles para que el enfoque no dispare ese zoom. !important porque
+   debe ganar a las utilidades text-[13px]/[14px] de Tailwind.
+   ============================================================ */
+@media (max-width: 767px) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']),
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}

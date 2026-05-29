@@ -56,7 +56,7 @@ export function CatalogSearchBar({ initialQuery }: Props) {
               type="button"
               onClick={clear}
               aria-label={t('clear')}
-              className="text-muted hover:text-fire"
+              className="-mr-1 p-1 text-muted hover:text-fire"
             >
               <CloseIcon size={14} />
             </button>

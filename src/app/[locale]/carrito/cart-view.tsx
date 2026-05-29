@@ -295,7 +295,7 @@ export function CartView() {
       </section>
 
       {/* Sticky CTA */}
-      <div className="sticky bottom-0 z-30 mt-5 flex flex-col gap-2.5 border-t border-border bg-bg/95 px-4 py-3.5 backdrop-blur-md">
+      <div className="sticky-cta sticky z-30 mt-5 flex flex-col gap-2.5 border-t border-border bg-bg/95 px-4 py-3.5 backdrop-blur-md">
         <a
           href={waUrl}
           target="_blank"

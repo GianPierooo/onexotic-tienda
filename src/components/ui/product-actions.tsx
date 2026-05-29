@@ -203,7 +203,7 @@ export function ProductActions({ variants, tipo }: Props) {
         </section>
       )}
 
-      <section className="sticky bottom-0 z-30 mt-4 flex flex-col gap-2.5 border-t border-border bg-bg/95 px-4 py-3.5 backdrop-blur-md">
+      <section className="sticky-cta sticky z-30 mt-4 flex flex-col gap-2.5 border-t border-border bg-bg/95 px-4 py-3.5 backdrop-blur-md">
         <a
           href={waUrl}
           target="_blank"

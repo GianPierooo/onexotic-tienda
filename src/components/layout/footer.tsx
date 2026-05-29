@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="mt-24 border-t border-border bg-bg pb-24 md:pb-12">
-      <div className="mx-auto grid max-w-screen-xl gap-10 px-6 py-12 md:grid-cols-5">
+      <div className="mx-auto grid max-w-screen-xl gap-10 px-6 py-12 md:grid-cols-3 lg:grid-cols-5">
         <div>
           <p className="font-black text-3xl text-fg">OnExotic</p>
           <p className="mt-3 max-w-xs text-sm text-muted">{tCommon('tagline')}</p>
@@ -18,27 +18,27 @@ export function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-ritual text-silver">{t('legal')}</p>
           <ul className="mt-4 space-y-2 text-sm text-muted">
             <li>
-              <Link href="/legal/terminos" className="hover:text-fg">
+              <Link href="/legal/terminos" className="inline-block break-words py-1 hover:text-fg">
                 {t('terms')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/privacidad" className="hover:text-fg">
+              <Link href="/legal/privacidad" className="inline-block break-words py-1 hover:text-fg">
                 {t('privacy')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/cambios" className="hover:text-fg">
+              <Link href="/legal/cambios" className="inline-block break-words py-1 hover:text-fg">
                 {t('returns')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/envios" className="hover:text-fg">
+              <Link href="/legal/envios" className="inline-block break-words py-1 hover:text-fg">
                 {t('shipping')}
               </Link>
             </li>
             <li>
-              <Link href="/legal/reclamaciones" className="hover:text-fg">
+              <Link href="/legal/reclamaciones" className="inline-block break-words py-1 hover:text-fg">
                 {t('claims')}
               </Link>
             </li>
@@ -48,10 +48,10 @@ export function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-ritual text-silver">{t('help')}</p>
           <ul className="mt-4 space-y-2 text-sm text-muted">
             <li>
-              <Link href="/faq" className="hover:text-fg">{t('faq')}</Link>
+              <Link href="/faq" className="inline-block break-words py-1 hover:text-fg">{t('faq')}</Link>
             </li>
             <li>
-              <Link href="/contacto" className="hover:text-fg">{t('contact')}</Link>
+              <Link href="/contacto" className="inline-block break-words py-1 hover:text-fg">{t('contact')}</Link>
             </li>
           </ul>
         </div>
@@ -64,7 +64,7 @@ export function Footer() {
                 href="https://instagram.com/onexotic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-fg"
+                className="inline-block break-words py-1 hover:text-fg"
               >
                 Instagram
               </a>
@@ -74,7 +74,7 @@ export function Footer() {
                 href="https://tiktok.com/@onexotic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-fg"
+                className="inline-block break-words py-1 hover:text-fg"
               >
                 TikTok
               </a>
@@ -84,7 +84,7 @@ export function Footer() {
                 href="https://facebook.com/onexotic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-fg"
+                className="inline-block break-words py-1 hover:text-fg"
               >
                 Facebook
               </a>
@@ -96,7 +96,7 @@ export function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-ritual text-silver">{t('contact')}</p>
           <ul className="mt-4 space-y-2 text-sm text-muted">
             <li>
-              <a href="mailto:onexotic2005@gmail.com" className="hover:text-fg">
+              <a href="mailto:onexotic2005@gmail.com" className="inline-block break-words py-1 hover:text-fg">
                 onexotic2005@gmail.com
               </a>
             </li>
@@ -105,7 +105,7 @@ export function Footer() {
                 href="https://wa.me/51906517394"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-fg"
+                className="inline-block break-words py-1 hover:text-fg"
               >
                 WhatsApp +51 906 517 394
               </a>

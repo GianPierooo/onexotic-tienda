@@ -113,9 +113,11 @@ export function DropHero({ badge, capitulo, nombre, concepto, fechaIso, imagenUr
             ✦ {capitulo}
           </div>
           <h1
-            className="m-0 font-black font-normal leading-[.85]"
+            className="m-0 break-words font-black font-normal leading-[.85]"
             style={{
-              fontSize: 82,
+              // Escala con el viewport para no cortarse en móvil; tope 82px
+              // en pantallas grandes (mantiene el tamaño original en desktop).
+              fontSize: 'clamp(2.5rem, 15.5vw, 82px)',
               letterSpacing: '-.01em',
               textShadow: '0 4px 30px rgba(0,0,0,.6)',
             }}
