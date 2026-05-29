@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { m, AnimatePresence } from '@/components/motion';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/lib/i18n/routing';
+import { useFocusTrap } from '@/lib/hooks/use-escape';
 import { CloseIcon, SearchIcon } from '@/components/icons';
 
 type Props = {
@@ -17,6 +18,9 @@ export function SearchOverlay({ className }: Props) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(open, panelRef);
 
   useEffect(() => {
     if (!open) return;
@@ -73,11 +77,13 @@ export function SearchOverlay({ className }: Props) {
               onClick={() => setOpen(false)}
             />
             <m.div
+              ref={panelRef}
+              tabIndex={-1}
               initial={{ y: -24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -24, opacity: 0 }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="relative mx-auto mt-20 w-[92%] max-w-xl border border-border bg-card p-5 text-fg"
+              className="relative mx-auto mt-20 w-[92%] max-w-xl border border-border bg-card p-5 text-fg outline-none"
             >
               <div className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-ritual text-silver">
                 <span className="flex items-center gap-2">

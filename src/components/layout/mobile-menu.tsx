@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { m, AnimatePresence } from '@/components/motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, useRouter, usePathname } from '@/lib/i18n/routing';
+import { useFocusTrap } from '@/lib/hooks/use-escape';
 import { CloseIcon, GlobeIcon, MenuIcon } from '@/components/icons';
 import { ThemeToggle } from '@/components/theme/theme-toggle';
 import { localeLabels, locales, type Locale } from '@/lib/i18n/config';
@@ -35,6 +36,9 @@ export function MobileMenu() {
   const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
+  const panelRef = useRef<HTMLElement>(null);
+
+  useFocusTrap(open, panelRef);
 
   useEffect(() => {
     if (!open) return;
@@ -93,11 +97,13 @@ export function MobileMenu() {
               onClick={() => setOpen(false)}
             />
             <m.aside
+              ref={panelRef}
+              tabIndex={-1}
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'tween', duration: 0.28, ease: 'easeOut' }}
-              className="absolute inset-y-0 left-0 ml-0 flex w-[86%] max-w-[360px] flex-col border-r border-border bg-bg"
+              className="absolute inset-y-0 left-0 ml-0 flex w-[86%] max-w-[360px] flex-col border-r border-border bg-bg outline-none"
               style={{ height: '100dvh', backgroundColor: 'var(--color-bg)' }}
             >
               <div className="flex h-14 items-center justify-between border-b border-border px-4">

@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { CloseIcon } from '@/components/icons';
-import { useEscape, useBodyScrollLock } from '@/lib/hooks/use-escape';
+import { useEscape, useBodyScrollLock, useFocusTrap } from '@/lib/hooks/use-escape';
 
 type Unit = 'cm' | 'in';
 type Category = 'tops' | 'pantalones' | 'shorts' | 'unica';
@@ -67,9 +67,11 @@ export function SizeGuide({ category = 'tops' }: { category?: Category }) {
   const [open, setOpen] = useState(false);
   const [unit, setUnit] = useState<Unit>('cm');
   const [tab, setTab] = useState<Category>(category);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEscape(open, () => setOpen(false));
   useBodyScrollLock(open);
+  useFocusTrap(open, panelRef);
 
   const table = TABLES[tab];
 
@@ -92,7 +94,9 @@ export function SizeGuide({ category = 'tops' }: { category?: Category }) {
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative max-h-[88vh] w-full max-w-md overflow-y-auto border border-border bg-card p-5 text-fg"
+            ref={panelRef}
+            tabIndex={-1}
+            className="relative max-h-[88vh] w-full max-w-md overflow-y-auto border border-border bg-card p-5 text-fg outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             <button
