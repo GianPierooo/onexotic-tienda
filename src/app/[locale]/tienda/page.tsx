@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { CatalogFilters } from '@/components/ui/catalog-filters';
 import { CatalogSearchBar } from '@/components/ui/catalog-search-bar';
 import { ProductCard } from '@/components/ui/product-card';
+import { ProductGrid } from '@/components/ui/product-grid';
 import { EmptyState } from '@/components/ui/states';
 import { Countdown } from '@/components/ui/countdown';
 import { BreadcrumbsJsonLd, StructuredData } from '@/components/seo/structured-data';
@@ -158,11 +159,11 @@ export default async function CatalogPage({
           <EmptyState />
         </div>
       ) : (
-        <div className="mx-auto grid w-full max-w-screen-xl grid-cols-2 gap-3 px-4 py-3.5 lg:grid-cols-3 xl:grid-cols-4">
+        <ProductGrid className="px-4 py-3.5">
           {cards.map((p) => (
             <ProductCard key={p.id} p={p} />
           ))}
-        </div>
+        </ProductGrid>
       )}
     </>
   );

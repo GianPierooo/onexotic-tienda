@@ -45,7 +45,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
-      className="group"
+      className="group mx-auto w-full max-w-[320px]"
     >
       <Link
         href={`/producto/${p.slug ?? p.id}`}

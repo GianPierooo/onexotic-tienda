@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ProductActions, type Variant } from '@/components/ui/product-actions';
 import { ProductCard } from '@/components/ui/product-card';
+import { ProductGrid } from '@/components/ui/product-grid';
 import { ProductMedia } from '@/components/ui/product-media';
 import { ProductColorProvider } from '@/components/ui/product-color-context';
 import { ColorSelector, ColorName } from '@/components/ui/color-selector';
@@ -258,24 +259,28 @@ export default async function ProductPage({ params: { locale, slug } }: Props) {
           supabase/migrations/_propuestas/0002_resenias.sql), por ahora
           renderizamos el estado vacío. */}
       <Reviews reviews={[]} />
+      </div>
 
+      {/* Relacionados: fuera de la columna angosta, en grilla estándar
+          full-width (mismo tamaño de tarjeta que home y catálogo). */}
       {related.length > 0 && (
-        <section className="border-t border-border px-5 py-7">
-          <div className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-ritual text-silver">
-            <span className="block h-px w-3.5 bg-fire" />
-            {t('related.eye')}
+        <section className="border-t border-border py-7">
+          <div className="mx-auto mb-4 max-w-screen-xl px-5">
+            <div className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-ritual text-silver">
+              <span className="block h-px w-3.5 bg-fire" />
+              {t('related.eye')}
+            </div>
+            <h3 className="m-0 font-goth text-3xl leading-[0.95]">
+              {t('related.title')}
+            </h3>
           </div>
-          <h3 className="m-0 mb-4 font-goth text-3xl leading-[0.95]">
-            {t('related.title')}
-          </h3>
-          <div className="grid grid-cols-2 gap-3">
+          <ProductGrid className="px-5">
             {relatedCards.map((p) => (
               <ProductCard key={p.id} p={p} />
             ))}
-          </div>
+          </ProductGrid>
         </section>
       )}
-      </div>
     </>
   );
 }

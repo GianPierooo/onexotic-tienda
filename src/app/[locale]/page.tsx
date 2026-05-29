@@ -5,6 +5,7 @@ import { DropHero } from '@/components/ui/drop-hero';
 import { GrainOverlay } from '@/components/ui/grain-overlay';
 import { SectionHead } from '@/components/ui/section-head';
 import { ProductCard } from '@/components/ui/product-card';
+import { ProductGrid } from '@/components/ui/product-grid';
 import { NewsletterCapture } from '@/components/ui/newsletter-capture';
 import { TrustBadges } from '@/components/ui/trust-badges';
 import { EmptyState } from '@/components/ui/states';
@@ -94,11 +95,11 @@ export default async function HomePage({ params: { locale } }: Props) {
         link={{ href: '/tienda', label: t('sections.dropLink') }}
       />
       {featured.length > 0 ? (
-        <div className="mx-auto grid w-full max-w-screen-xl grid-cols-2 gap-3.5 px-5 pb-5 lg:grid-cols-3 xl:grid-cols-4">
+        <ProductGrid className="px-5 pb-5">
           {featured.map((p) => (
             <ProductCard key={p.id} p={p} />
           ))}
-        </div>
+        </ProductGrid>
       ) : (
         <div className="px-5">
           <EmptyState />

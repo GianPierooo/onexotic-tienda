@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { ProductGrid } from './product-grid';
 
 export function Skeleton({ className, style }: { className?: string; style?: React.CSSProperties }) {
   return (
@@ -15,7 +16,7 @@ export function Skeleton({ className, style }: { className?: string; style?: Rea
 
 export function ProductCardSkeleton() {
   return (
-    <div className="flex flex-col border border-border bg-card">
+    <div className="mx-auto flex w-full max-w-[320px] flex-col border border-border bg-card">
       <Skeleton className="border-0" style={{ aspectRatio: '4 / 5' }} />
       <div className="flex flex-col gap-2 px-3 pb-3.5 pt-3">
         <div className="flex items-baseline justify-between gap-2">
@@ -35,11 +36,11 @@ export function ProductCardSkeleton() {
 
 export function ProductGridSkeleton({ count = 6 }: { count?: number }) {
   return (
-    <div className="mx-auto grid w-full max-w-screen-xl grid-cols-2 gap-3 px-4 py-3.5 lg:grid-cols-3 xl:grid-cols-4">
+    <ProductGrid className="px-4 py-3.5">
       {Array.from({ length: count }).map((_, i) => (
         <ProductCardSkeleton key={i} />
       ))}
-    </div>
+    </ProductGrid>
   );
 }
 
