@@ -671,7 +671,7 @@
     "signup": "Unirme",
     "logout": "Salir",
     "sending": "Invocando…",
-    "forgot": "¿La olvidaste?",
+    "forgot": "¿Olvidaste tu contraseña?",
     "switchToSignup": "¿No tienes cuenta? Únete",
     "switchToLogin": "¿Ya eres del culto? Entra",
     "tabs": {
@@ -705,6 +705,48 @@
         "resendInvalid": "Correo inválido",
         "resendFailed": "No pudimos reenviar. Intenta de nuevo en unos minutos.",
         "ctaLogin": "Iniciar sesión"
+      }
+    },
+    "reset": {
+      "metaTitle": "Recuperar contraseña",
+      "metaTitleUpdate": "Crear nueva contraseña",
+      "request": {
+        "eye": "recupera tu acceso",
+        "title": "¿Olvidaste tu contraseña?",
+        "copy": "Escribe tu correo y te mandamos un enlace para crear una nueva. Sin dramas.",
+        "email": "Correo",
+        "emailPlaceholder": "tu@correo.pe",
+        "cta": "Enviar enlace",
+        "sending": "Invocando…",
+        "sentEye": "revisa tu correo",
+        "sentTitle": "Enlace en camino",
+        "sentCopy": "Si ese correo tiene cuenta en el culto, te enviamos un enlace para restablecer tu contraseña. Revisa tu bandeja y el spam.",
+        "invalid": "Correo inválido",
+        "failed": "No pudimos enviar el enlace. Intenta de nuevo en unos minutos.",
+        "backToLogin": "Volver a iniciar sesión"
+      },
+      "update": {
+        "verifyingEye": "validando enlace",
+        "verifyingTitle": "Un segundo…",
+        "verifyingCopy": "Estamos validando tu enlace de recuperación.",
+        "readyEye": "nueva contraseña",
+        "readyTitle": "Crea tu nueva contraseña",
+        "readyCopy": "Elige una contraseña nueva para tu cuenta del culto.",
+        "newPassword": "Nueva contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "cta": "Actualizar contraseña",
+        "saving": "Sellando…",
+        "tooShort": "Mínimo 6 caracteres",
+        "mismatch": "Las contraseñas no coinciden",
+        "failed": "No pudimos actualizar tu contraseña. Intenta de nuevo.",
+        "successEye": "ritual sellado",
+        "successTitle": "Contraseña actualizada",
+        "successCopy": "Tu nueva contraseña quedó lista. Te llevamos a tu cuenta…",
+        "goToAccount": "Ir a mi cuenta",
+        "expiredEye": "enlace caído",
+        "expiredTitle": "El enlace ya no sirve",
+        "expiredCopy": "El enlace para restablecer tu contraseña es inválido o expiró. Pide uno nuevo abajo.",
+        "resendEye": "pedir nuevo enlace"
       }
     },
     "namePlaceholder": "Tu nombre"

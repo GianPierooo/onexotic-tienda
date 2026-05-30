@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
+import { Link } from '@/lib/i18n/routing';
 import { GrainOverlay } from '@/components/ui/grain-overlay';
 
 function getSiteBaseUrl(): string {
@@ -156,6 +157,15 @@ export function AuthForm({ next, initialMode }: Props) {
               autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
               minLength={6}
             />
+
+            {mode === 'login' && (
+              <Link
+                href="/auth/recuperar"
+                className="-mt-1 self-end font-mono text-[10px] uppercase tracking-ritual text-silver transition-colors hover:text-fire"
+              >
+                {t('forgot')}
+              </Link>
+            )}
 
             {status === 'error' && errorMsg && (
               <p className="font-mono text-[10px] uppercase tracking-ritual text-error">

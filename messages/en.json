@@ -671,7 +671,7 @@
     "signup": "Join",
     "logout": "Sign out",
     "sending": "Invoking…",
-    "forgot": "Forgot it?",
+    "forgot": "Forgot your password?",
     "switchToSignup": "No account? Join us",
     "switchToLogin": "Already in? Sign in",
     "tabs": {
@@ -705,6 +705,48 @@
         "resendInvalid": "Invalid email",
         "resendFailed": "Could not resend. Try again in a few minutes.",
         "ctaLogin": "Sign in"
+      }
+    },
+    "reset": {
+      "metaTitle": "Reset password",
+      "metaTitleUpdate": "Set a new password",
+      "request": {
+        "eye": "recover your access",
+        "title": "Forgot your password?",
+        "copy": "Enter your email and we'll send you a link to set a new one. No drama.",
+        "email": "Email",
+        "emailPlaceholder": "you@email.com",
+        "cta": "Send link",
+        "sending": "Invoking…",
+        "sentEye": "check your inbox",
+        "sentTitle": "Link on its way",
+        "sentCopy": "If that email has a cult account, we've sent a link to reset your password. Check your inbox and spam.",
+        "invalid": "Invalid email",
+        "failed": "We couldn't send the link. Try again in a few minutes.",
+        "backToLogin": "Back to sign in"
+      },
+      "update": {
+        "verifyingEye": "validating link",
+        "verifyingTitle": "One second…",
+        "verifyingCopy": "We're validating your recovery link.",
+        "readyEye": "new password",
+        "readyTitle": "Set your new password",
+        "readyCopy": "Choose a new password for your cult account.",
+        "newPassword": "New password",
+        "confirmPassword": "Confirm password",
+        "cta": "Update password",
+        "saving": "Sealing…",
+        "tooShort": "At least 6 characters",
+        "mismatch": "Passwords don't match",
+        "failed": "We couldn't update your password. Try again.",
+        "successEye": "ritual sealed",
+        "successTitle": "Password updated",
+        "successCopy": "Your new password is ready. Taking you to your account…",
+        "goToAccount": "Go to my account",
+        "expiredEye": "broken link",
+        "expiredTitle": "This link no longer works",
+        "expiredCopy": "The reset link is invalid or has expired. Request a new one below.",
+        "resendEye": "request new link"
       }
     },
     "namePlaceholder": "Your name"
