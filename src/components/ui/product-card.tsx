@@ -21,19 +21,6 @@ export type CardProduct = {
   ultimoTexto?: string | null;
 };
 
-const tonePalette = [
-  'var(--grad-tone-a)',
-  'var(--grad-tone-b)',
-  'var(--grad-tone-c)',
-  'var(--grad-tone-d)',
-];
-
-function tonePara(id: string) {
-  let h = 0;
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
-  return tonePalette[Math.abs(h) % tonePalette.length];
-}
-
 export function ProductCard({ p }: { p: CardProduct }) {
   const t = useTranslations('badges');
   const agotado = p.estado === 'agotado' || p.stock <= 0;
@@ -56,7 +43,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
       >
         <div
           className="relative overflow-hidden border-b border-border"
-          style={{ aspectRatio: '4 / 5', background: tonePara(p.id) }}
+          style={{ aspectRatio: '4 / 5', background: 'var(--color-surface-alt)' }}
         >
           <GrainOverlay />
           {p.imagen_url ? (
@@ -65,7 +52,7 @@ export function ProductCard({ p }: { p: CardProduct }) {
               alt={p.nombre}
               fill
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 280px"
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              className="object-contain p-[5%] transition-transform duration-700 group-hover:scale-[1.04]"
               style={{ filter: agotado ? 'grayscale(1) brightness(.5)' : undefined }}
             />
           ) : (

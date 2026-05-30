@@ -50,8 +50,7 @@ export function ProductGallery({
         className="relative w-full overflow-hidden"
         style={{
           aspectRatio: '4 / 5',
-          background:
-            'var(--grad-tone-a)',
+          background: 'var(--color-surface-alt)',
         }}
       >
         <GrainOverlay />
@@ -77,7 +76,7 @@ export function ProductGallery({
                 fill
                 priority={index === 0}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain p-[3.5%]"
                 draggable={false}
               />
             ) : (
@@ -161,8 +160,7 @@ export function ProductGallery({
               style={{
                 aspectRatio: '1 / 1',
                 borderColor: i === index ? 'var(--color-fire)' : 'var(--color-border)',
-                background:
-                  'var(--grad-tone-b)',
+                background: 'var(--color-surface-alt)',
               }}
             >
               {src && (
@@ -171,7 +169,7 @@ export function ProductGallery({
                   alt=""
                   fill
                   sizes="120px"
-                  className="object-cover"
+                  className="object-contain p-[6%]"
                 />
               )}
               <div className="absolute left-1 top-1 font-mono text-[8px] uppercase tracking-ritual text-silver">
